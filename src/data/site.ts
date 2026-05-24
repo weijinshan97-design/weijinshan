@@ -2,10 +2,10 @@ import { NavItem } from "@/lib/types";
 
 export const navItems: NavItem[] = [
   { label: "首页", href: "#home" },
+  { label: "关于", href: "#about" },
   { label: "案例", href: "#work" },
   { label: "工具", href: "#systems" },
   { label: "思考", href: "#thinking" },
-  { label: "关于", href: "#about" },
   { label: "联系", href: "#contact" },
 ];
 

@@ -1,3 +1,8 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+
 interface SectionHeadingProps {
   label: string;
   title: string;
@@ -9,15 +14,28 @@ export function SectionHeading({
   title,
   description,
 }: SectionHeadingProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
   return (
-    <div className="mb-16 md:mb-20">
+    <div ref={ref} className="mb-16 md:mb-20">
       <div className="flex items-center gap-4 mb-4">
-        <span className="w-8 h-px bg-border" />
-        <span className="text-xs tracking-[0.25em] uppercase text-muted-light font-medium">
+        <motion.span
+          className="h-px bg-border"
+          initial={{ width: 0 }}
+          animate={inView ? { width: 32 } : { width: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+        />
+        <motion.span
+          className="text-xs tracking-[0.25em] uppercase text-muted-light font-medium"
+          initial={{ opacity: 0, x: -8 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.4, delay: 0.25 }}
+        >
           {label}
-        </span>
+        </motion.span>
       </div>
-      <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+      <h2 className="font-serif text-3xl md:text-4xl font-semibold tracking-tight text-foreground leading-[1.1]">
         {title}
       </h2>
       {description && (

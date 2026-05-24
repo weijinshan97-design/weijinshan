@@ -18,7 +18,6 @@ export function CapabilitiesNav() {
     "/images/works/cap1.png",
     "/images/works/5.jpg",
     "/images/works/8.jpg",
-    "/images/works/4.jpg",
   ];
 
   const items = [
@@ -33,12 +32,6 @@ export function CapabilitiesNav() {
       zh: "设计自动化",
       desc: "开发插件、搭组件库、建标准模板，把重复劳动省下来做判断。",
       to: "systems",
-    },
-    {
-      en: "AI WORKFLOW",
-      zh: "AI Workflow",
-      desc: "AI 嵌入设计流程，批量处理与适配自动化，聚焦策略与创意。",
-      to: "ai-workflow",
     },
     {
       en: "SYSTEMS THINKING",

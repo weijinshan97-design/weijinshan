@@ -9,7 +9,7 @@ export function SelectedWork() {
   return (
     <section
       id="work"
-      className="pt-6 md:pt-10 pb-8 md:pb-12 px-6 md:px-8 lg:px-12"
+      className="pt-6 md:pt-10 pb-16 md:pb-20 px-6 md:px-8 lg:px-12"
     >
       <div className="max-w-[1200px] mx-auto">
         <FadeIn>
@@ -20,23 +20,36 @@ export function SelectedWork() {
           />
         </FadeIn>
 
-        {/* Asymmetric grid — loose, varied sizes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-          {/* Left column: square + landscape */}
-          <FadeIn key={worksData[0].slug} delay={0}>
-            <WorkCard work={worksData[0]} aspect="square" />
+        <div className="space-y-8 md:space-y-12">
+          {/* Hero — WBIT AI 助手平台 */}
+          <FadeIn delay={0}>
+            <WorkCard work={worksData[0]} variant="hero" />
           </FadeIn>
-          {/* Right column: landscape + landscape */}
-          <FadeIn key={worksData[1].slug} delay={0.12}>
-            <WorkCard work={worksData[1]} aspect="landscape" />
+
+          {/* 2×2 grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+            <FadeIn delay={0.1}>
+              <WorkCard work={worksData[1]} variant="default" />
+            </FadeIn>
+            <FadeIn delay={0.16}>
+              <WorkCard work={worksData[2]} variant="default" />
+            </FadeIn>
+            <FadeIn delay={0.22}>
+              <WorkCard work={worksData[3]} variant="default" />
+            </FadeIn>
+            <FadeIn delay={0.28}>
+              <WorkCard work={worksData[4]} variant="default" />
+            </FadeIn>
+          </div>
+
+          {/* Hero — 营销运营 */}
+          <FadeIn delay={0.34}>
+            <WorkCard work={worksData[5]} variant="hero" />
           </FadeIn>
-          {/* Left column below square */}
-          <FadeIn key={worksData[2].slug} delay={0.24}>
-            <WorkCard work={worksData[2]} aspect="landscape" />
-          </FadeIn>
-          {/* Right column below */}
-          <FadeIn key={worksData[3].slug} delay={0.18}>
-            <WorkCard work={worksData[3]} aspect="square" />
+
+          {/* Hero — 自我驱动 */}
+          <FadeIn delay={0.4}>
+            <WorkCard work={worksData[6]} variant="hero" />
           </FadeIn>
         </div>
       </div>

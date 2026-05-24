@@ -4,7 +4,8 @@ export const thinkingData: ThinkingEntry[] = [
   {
     slug: "why-plugins",
     titleZh: "为什么开始做设计插件？",
-    date: "2025.03",
+    date: "2026.03",
+    image: "/images/thinking-plugin.png",
     summaryZh:
       "当同一个操作重复了 100 次之后，我开始思考：能不能让工具替我做这件事？这篇文章记录了从手工重复到自动化思维转变的过程。",
     contentZh: `## 起因：重复劳动的痛点
@@ -32,7 +33,8 @@ Flow2Figma 插件的第一个版本很粗糙，只能识别基础的矩形和文
   {
     slug: "why-component-library",
     titleZh: "为什么搭建设计组件库？",
-    date: "2025.06",
+    date: "2026.04",
+    image: "/images/thinking-component.png",
     summaryZh:
       "组件库不是锦上添花，是设计团队的基础设施。这篇文章讲的是从资源分散到系统化搭建的过程和思考。",
     contentZh: `## 资源分散的代价
@@ -70,7 +72,8 @@ Flow2Figma 插件的第一个版本很粗糙，只能识别基础的矩形和文
   {
     slug: "ai-limits",
     titleZh: "为什么 AI 出图不能解决所有问题？",
-    date: "2025.08",
+    date: "2026.05",
+    image: "/images/thinking-ai.png",
     summaryZh:
       "AI 可以生成好看的图，但商业设计需要的不只是好看。这篇文章讨论 AI 在实际商业设计场景中的局限性，以及正确的使用姿势。",
     contentZh: `## AI 生成 vs 商业需求

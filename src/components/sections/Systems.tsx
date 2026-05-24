@@ -6,8 +6,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SystemCard } from "@/components/ui/SystemCard";
 
 export function Systems() {
-  const items = systemsData.filter((s) => s.id !== "ai-design-workflow");
-
   return (
     <section
       id="systems"
@@ -24,8 +22,8 @@ export function Systems() {
           </p>
         </FadeIn>
 
-        <div className="space-y-16 md:space-y-20">
-          {items.map((system, i) => (
+        <div className="space-y-24 md:space-y-28">
+          {systemsData.map((system, i) => (
             <FadeIn key={system.id} delay={i * 0.15}>
               <SystemCard system={system} index={i} />
             </FadeIn>

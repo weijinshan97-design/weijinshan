@@ -47,18 +47,14 @@ export function Hero() {
   const ctaColor = useTransform(
     smoothProgress,
     [0.20, 0.40],
-    ["rgba(255,255,255,0.7)", "rgb(107,114,128)"]
+    ["rgba(255,255,255,0.7)", "rgb(120,113,108)"]
   );
 
-  // Title: continuous acceleration — never pops because never fully stops
-  const titleY = useTransform(
-    smoothProgress,
-    [0, 0.68, 0.76, 0.85, 1.0],
-    ["4%", "0%", "-28%", "-80%", "-210%"]
-  );
+  // Title fades out as overlay lifts
+  const titleOpacity = useTransform(smoothProgress, [0.25, 0.45], [1, 0]);
 
   return (
-    <section ref={sectionRef} className="relative bg-dark">
+    <section id="home" ref={sectionRef} className="relative bg-dark">
       {/* Black overlay — slides up */}
       <motion.div
         className="fixed inset-0 bg-dark z-10 pointer-events-none"
@@ -68,7 +64,7 @@ export function Hero() {
       {/* Title — fixed, scrolls with content after it appears */}
       <motion.div
         className="fixed top-[8vh] md:top-[12vh] left-0 right-0 z-20 pointer-events-none px-6 md:px-8 lg:px-12"
-        style={{ y: titleY }}
+        style={{ opacity: titleOpacity }}
       >
         <div className="flex flex-col items-center">
           <div className="inline-block mx-auto">
@@ -77,7 +73,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={entered ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.02] text-center"
+              className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.02] text-center"
             >
               {siteConfig.titleZh}
             </motion.h1>
@@ -131,10 +127,10 @@ export function Hero() {
           {/* Summary */}
           <div>
             <p className="text-xs tracking-[0.2em] uppercase text-muted-light font-medium mb-3">
-              视觉设计师&nbsp;&nbsp;·&nbsp;&nbsp;品牌设计&nbsp;&nbsp;·&nbsp;&nbsp;IP设计&nbsp;&nbsp;·&nbsp;&nbsp;AI Workflow&nbsp;&nbsp;·&nbsp;&nbsp;增长设计
+              视觉设计师&nbsp;&nbsp;·&nbsp;&nbsp;品牌设计&nbsp;&nbsp;·&nbsp;&nbsp;IP设计&nbsp;&nbsp;·&nbsp;&nbsp;AI产品设计&nbsp;&nbsp;·&nbsp;&nbsp;增长设计
             </p>
             <p className="text-sm md:text-base text-muted leading-relaxed">
-              拥有多年互联网、大厂及教育医疗行业设计经验，覆盖品牌视觉、IP设计、运营增长、课程营销、设计系统、AI工作流搭建等方向。具备从创意策划、视觉落地到规范搭建及效率优化的完整能力，擅长通过设计提升品牌传播与业务增长。
+              多年互联网及大厂设计经验，跨越品牌视觉、IP 设计、运营增长与 AI 产品 0-1 搭建。具备从策略定义、交互设计到设计规范落地的完整能力，擅长将复杂业务转化为清晰好用的产品体验。
             </p>
           </div>
 
@@ -157,7 +153,7 @@ export function Hero() {
                 <div
                   className="absolute inset-0 animate-shimmer"
                   style={{
-                    background: "linear-gradient(105deg, transparent 30%, rgba(37,99,235,0.05) 50%, transparent 70%)",
+                    background: "linear-gradient(105deg, transparent 30%, rgba(45,74,62,0.06) 50%, transparent 70%)",
                     backgroundSize: "200% 100%",
                   }}
                 />

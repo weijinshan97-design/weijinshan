@@ -30,17 +30,20 @@ export function ScrollText() {
     <section
       id="process"
       ref={ref}
-      className="py-8 md:py-12 overflow-hidden bg-white border-y border-border-light"
+      className="relative py-8 md:py-12 overflow-hidden bg-background border-y border-border-light"
     >
+      {/* Edge fade masks */}
+      <div className="absolute inset-y-0 left-0 w-16 md:w-24 z-10 pointer-events-none bg-gradient-to-r from-background to-transparent" />
+      <div className="absolute inset-y-0 right-0 w-16 md:w-24 z-10 pointer-events-none bg-gradient-to-l from-background to-transparent" />
       <div className="space-y-12">
         <motion.div style={{ x: x1 }} className="whitespace-nowrap">
-          <span className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tight">
+          <span className="font-serif text-5xl md:text-7xl lg:text-8xl font-semibold text-foreground tracking-tight">
             {text}
           </span>
         </motion.div>
 
         <motion.div style={{ x: x2 }} className="whitespace-nowrap">
-          <span className="text-4xl md:text-6xl lg:text-7xl font-light text-muted-light tracking-wide">
+          <span className="font-serif text-4xl md:text-6xl lg:text-7xl font-light italic text-muted-light tracking-wide">
             {textEn}
           </span>
         </motion.div>

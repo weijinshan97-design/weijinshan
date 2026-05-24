@@ -49,11 +49,20 @@ export function LoadingScreen() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
           onClick={dismiss}
-          className="fixed inset-0 z-[100] bg-dark flex items-center justify-center cursor-pointer"
+          className="fixed inset-0 z-[100] flex items-center justify-center cursor-pointer"
         >
-          <div className="text-center px-6">
+          {/* Background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/images/works/didi-cover.jpg')" }}
+          />
+          {/* Black overlay at 80% opacity */}
+          <div className="absolute inset-0 bg-dark/90" />
+          {/* Content */}
+          <div className="relative z-10">
+            <div className="text-center px-6">
             {/* Three chars slide up from below, one by one */}
-            <h1 className="flex items-center justify-center gap-1 text-3xl md:text-4xl lg:text-5xl font-bold tracking-wider text-white">
+            <h1 className="flex items-center justify-center gap-1 font-serif text-4xl md:text-5xl lg:text-6xl font-semibold tracking-wider text-white">
               {chars.map((char, i) => (
                 <motion.span
                   key={char}
@@ -94,6 +103,7 @@ export function LoadingScreen() {
                 </p>
               </div>
             </motion.div>
+            </div>
           </div>
         </motion.div>
       )}

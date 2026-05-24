@@ -34,61 +34,61 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative w-screen left-1/2 -translate-x-1/2 bg-dark"
+      className="relative w-screen left-1/2 -translate-x-1/2 bg-dark tech-grid"
     >
       <div className="relative z-10 px-6 md:px-8 lg:px-12 py-48 md:py-64">
         <div className="max-w-[1200px] mx-auto">
           <FadeIn>
             <div className="flex items-start justify-between gap-8">
               {/* Left: Name */}
-              <div className="flex flex-col items-start gap-3 shrink-0">
-                <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.15em] uppercase text-white/25 font-medium">
+              <div className="flex flex-col items-start gap-3 shrink-0 group cursor-default">
+                <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.15em] uppercase text-white/25 font-medium transition-colors duration-300 group-hover:text-white/40">
                   <IconUser />
                   Name
                 </span>
-                <span className="text-2xl md:text-3xl text-white/90 font-medium">
+                <span className="text-2xl md:text-3xl text-white/90 font-medium transition-all duration-300 group-hover:text-white group-hover:-translate-y-0.5">
                   {aboutData.name}
                 </span>
                 <div className="flex gap-2">
-                  <span className="inline-block px-3 py-1 text-[11px] rounded-full border border-white/15 text-white/45">
+                  <span className="inline-block px-3 py-1 text-[11px] rounded-full border border-white/15 text-white/45 transition-all duration-300 group-hover:border-white/25 group-hover:text-white/60">
                     视觉设计师
                   </span>
-                  <span className="inline-block px-3 py-1 text-[11px] rounded-full border border-white/15 text-white/45">
+                  <span className="inline-block px-3 py-1 text-[11px] rounded-full border border-white/15 text-white/45 transition-all duration-300 group-hover:border-white/25 group-hover:text-white/60">
                     系统构建者
                   </span>
                 </div>
               </div>
 
               {/* Center: Phone */}
-              <div className="flex flex-col items-end gap-3">
-                <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.15em] uppercase text-white/25 font-medium">
+              <div className="flex flex-col items-end gap-3 group cursor-default">
+                <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.15em] uppercase text-white/25 font-medium transition-colors duration-300 group-hover:text-white/40">
                   <IconPhone />
                   Phone
                 </span>
                 <a
                   href={`tel:${aboutData.contact.phone}`}
-                  className="text-2xl md:text-3xl text-white/90 font-medium hover:text-white transition-colors"
+                  className="text-2xl md:text-3xl text-white/90 font-medium hover:text-white transition-all duration-300 group-hover:-translate-y-0.5"
                 >
                   {aboutData.contact.phone}
                 </a>
-                <span className="inline-block px-3 py-1 text-[11px] rounded-full border border-white/15 text-white/45">
+                <span className="inline-block px-3 py-1 text-[11px] rounded-full border border-white/15 text-white/45 transition-all duration-300 group-hover:border-white/25 group-hover:text-white/60">
                   微信同号
                 </span>
               </div>
 
               {/* Right: Email */}
-              <div className="flex flex-col items-end gap-3">
-                <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.15em] uppercase text-white/25 font-medium">
+              <div className="flex flex-col items-end gap-3 group cursor-default">
+                <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.15em] uppercase text-white/25 font-medium transition-colors duration-300 group-hover:text-white/40">
                   <IconMail />
                   Email
                 </span>
                 <a
                   href={`mailto:${aboutData.contact.email}`}
-                  className="text-2xl md:text-3xl text-white/90 font-medium hover:text-white transition-colors"
+                  className="text-2xl md:text-3xl text-white/90 font-medium hover:text-white transition-all duration-300 group-hover:-translate-y-0.5"
                 >
                   {aboutData.contact.email}
                 </a>
-                <span className="inline-block px-3 py-1 text-[11px] rounded-full border border-white/15 text-white/45">
+                <span className="inline-block px-3 py-1 text-[11px] rounded-full border border-white/15 text-white/45 transition-all duration-300 group-hover:border-white/25 group-hover:text-white/60">
                   期待你的邮件
                 </span>
               </div>
@@ -122,8 +122,8 @@ export function Contact() {
             whileInView={{ y: 0, opacity: 1, scaleY: 1.4 }}
             viewport={{ once: false, margin: "0px 0px -80px 0px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="absolute top-0 left-0 right-0 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold tracking-normal leading-[1.02] text-white text-center whitespace-nowrap"
             style={{ transformOrigin: "top" }}
+            className="absolute top-0 left-0 right-0 font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold tracking-normal leading-[1.02] text-white text-center whitespace-nowrap italic animate-float"
           >
             DESIGN BEYOND VISUALS
           </motion.h2>

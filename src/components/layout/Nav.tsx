@@ -65,7 +65,7 @@ export function Nav() {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                className={`text-sm tracking-wide transition-colors duration-500 ${
+                className={`relative text-sm tracking-wide transition-colors duration-500 group ${
                   isActive
                     ? isDark
                       ? "text-white font-semibold"
@@ -76,6 +76,15 @@ export function Nav() {
                 }`}
               >
                 {item.label}
+                <span
+                  className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ease-out ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  } ${
+                    isActive
+                      ? isDark ? "bg-white" : "bg-foreground"
+                      : isDark ? "bg-white/40" : "bg-foreground/40"
+                  }`}
+                />
               </a>
             );
           })}
