@@ -1,0 +1,23 @@
+<svg width="1254" height="1254" viewBox="0 0 1254 1254" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1254" height="1254" fill="#F5F0E7"/>
+  <rect x="96" y="96" width="1062" height="1062" rx="44" fill="#0C0D0C"/>
+  <rect x="178" y="186" width="898" height="608" rx="34" fill="#F8F4EC"/>
+  <rect x="222" y="242" width="364" height="364" rx="28" fill="#D68B38" fill-opacity="0.16"/>
+  <rect x="668" y="242" width="364" height="364" rx="28" fill="#0C0D0C" fill-opacity="0.1"/>
+  <path d="M298 448L362 384L430 452L486 404L552 490" stroke="#0C0D0C" stroke-opacity="0.42" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="476" cy="342" r="32" fill="#D68B38"/>
+  <rect x="716" y="302" width="268" height="22" rx="11" fill="#0C0D0C" fill-opacity="0.24"/>
+  <rect x="716" y="368" width="204" height="22" rx="11" fill="#0C0D0C" fill-opacity="0.14"/>
+  <rect x="716" y="434" width="246" height="22" rx="11" fill="#0C0D0C" fill-opacity="0.18"/>
+  <rect x="716" y="500" width="166" height="22" rx="11" fill="#0C0D0C" fill-opacity="0.12"/>
+  <path d="M222 684H1032" stroke="#0C0D0C" stroke-opacity="0.1"/>
+  <rect x="222" y="718" width="170" height="18" rx="9" fill="#0C0D0C" fill-opacity="0.16"/>
+  <rect x="424" y="718" width="236" height="18" rx="9" fill="#0C0D0C" fill-opacity="0.1"/>
+  <rect x="694" y="718" width="206" height="18" rx="9" fill="#D68B38" fill-opacity="0.45"/>
+  <circle cx="918" cy="796" r="194" fill="#D68B38" fill-opacity="0.12"/>
+  <path d="M798 796H1038" stroke="#D68B38" stroke-opacity="0.32" stroke-width="2"/>
+  <path d="M918 676V916" stroke="#D68B38" stroke-opacity="0.32" stroke-width="2"/>
+  <text x="178" y="997" fill="white" fill-opacity="0.34" font-family="Inter, Arial, sans-serif" font-size="22" letter-spacing="8">AI BOUNDARY</text>
+  <text x="178" y="1068" fill="white" font-family="Georgia, serif" font-size="84" font-weight="700">Not Just Output</text>
+  <text x="178" y="1118" fill="white" fill-opacity="0.42" font-family="Inter, Arial, sans-serif" font-size="24">business context / brand control / delivery judgement</text>
+</svg>

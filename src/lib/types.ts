@@ -3,15 +3,6 @@ export interface NavItem {
   href: string;
 }
 
-export interface Problem {
-  id: string;
-  category: string;
-  problem: string;
-  solution: string;
-  impact?: string;
-  image?: string;
-}
-
 export interface Work {
   slug: string;
   titleZh: string;
@@ -20,11 +11,13 @@ export interface Work {
   category: string;
   year: string;
   cover: string;
+  heroCover?: string;
   summaryZh: string;
   problemZh: string;
   approachZh: string;
   resultZh: string;
   images: string[];
+  afterNoteImages?: string[];
   videoUrl?: string;
   tagsZh: string[];
   highlights?: { label: string; content: string }[];

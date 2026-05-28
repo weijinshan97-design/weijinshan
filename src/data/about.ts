@@ -62,7 +62,7 @@ export const aboutData: AboutData = {
     {
       company: "杭州顺网科技股份有限公司",
       role: "视觉设计师",
-      period: "20XX.XX — 2020.04",
+      period: "2020.04 以前",
       tags: "网页设计｜游戏视觉｜运营设计",
       description: "负责官网及客户端页面视觉设计，输出活动专题页及运营推广视觉。",
       detail: [

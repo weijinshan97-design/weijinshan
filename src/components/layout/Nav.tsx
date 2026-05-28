@@ -12,7 +12,11 @@ export function Nav() {
   const activeId = useScrollspy(sectionIds);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => {
+      const heroThreshold = Math.min(window.innerHeight * 0.82, 720);
+      setScrolled(window.scrollY > heroThreshold);
+    };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);

@@ -36,10 +36,10 @@ export function Contact() {
       id="contact"
       className="relative w-screen left-1/2 -translate-x-1/2 bg-dark tech-grid"
     >
-      <div className="relative z-10 px-6 md:px-8 lg:px-12 py-48 md:py-64">
+      <div className="relative z-10 px-6 md:px-8 lg:px-12 py-32 md:py-48">
         <div className="max-w-[1200px] mx-auto">
           <FadeIn>
-            <div className="flex items-start justify-between gap-8">
+            <div className="flex flex-col md:flex-row items-start md:justify-between gap-12 md:gap-8">
               {/* Left: Name */}
               <div className="flex flex-col items-start gap-3 shrink-0 group cursor-default">
                 <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.15em] uppercase text-white/25 font-medium transition-colors duration-300 group-hover:text-white/40">
@@ -60,7 +60,7 @@ export function Contact() {
               </div>
 
               {/* Center: Phone */}
-              <div className="flex flex-col items-end gap-3 group cursor-default">
+              <div className="flex flex-col items-start md:items-end gap-3 group cursor-default">
                 <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.15em] uppercase text-white/25 font-medium transition-colors duration-300 group-hover:text-white/40">
                   <IconPhone />
                   Phone
@@ -77,7 +77,7 @@ export function Contact() {
               </div>
 
               {/* Right: Email */}
-              <div className="flex flex-col items-end gap-3 group cursor-default">
+              <div className="flex flex-col items-start md:items-end gap-3 group cursor-default">
                 <span className="inline-flex items-center gap-1.5 text-[11px] tracking-[0.15em] uppercase text-white/25 font-medium transition-colors duration-300 group-hover:text-white/40">
                   <IconMail />
                   Email
@@ -114,16 +114,19 @@ export function Contact() {
       {/* Bottom title */}
       <div
         className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none"
-        style={{ height: "clamp(55px, 7.5vw, 110px)" }}
+        style={{ height: "clamp(100px, 13vw, 190px)" }}
       >
-        <div className="max-w-[1200px] mx-auto h-full relative">
+        <div className="relative mx-auto h-full max-w-[1200px] px-6">
+          <div className="absolute left-1/2 bottom-[12%] h-[clamp(76px,10vw,146px)] w-[clamp(76px,10vw,146px)] -translate-x-1/2 rounded-full bg-dark shadow-[0_0_26px_rgba(214,139,56,0.24),0_0_58px_rgba(214,139,56,0.12)]" />
+          <div className="absolute left-1/2 bottom-[-28%] h-[clamp(112px,14vw,210px)] w-[clamp(112px,14vw,210px)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(214,139,56,0.17)_0%,rgba(214,139,56,0.06)_38%,transparent_68%)] blur-xl" />
+
           <motion.h2
-            initial={{ y: 60, opacity: 0, scaleY: 1.4 }}
-            whileInView={{ y: 0, opacity: 1, scaleY: 1.4 }}
+            initial={{ y: 42, opacity: 0, scaleY: 1.28 }}
+            whileInView={{ y: 4, opacity: 1, scaleY: 1.28 }}
             viewport={{ once: false, margin: "0px 0px -80px 0px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             style={{ transformOrigin: "top" }}
-            className="absolute top-0 left-0 right-0 font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold tracking-normal leading-[1.02] text-white text-center whitespace-nowrap italic animate-float"
+            className="absolute bottom-0 left-0 right-0 z-10 text-center font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold leading-[1.02] tracking-normal text-white whitespace-nowrap italic"
           >
             DESIGN BEYOND VISUALS
           </motion.h2>

@@ -14,10 +14,29 @@ function SectionDivider() {
   );
 }
 
+function CaseBridge() {
+  return (
+    <section className="bg-background px-6 pb-9 pt-14 md:px-8 md:pb-10 md:pt-16 lg:px-12">
+      <div className="mx-auto grid max-w-[1200px] gap-8 border-t border-border/70 pt-8 md:grid-cols-[0.82fr_1.18fr] md:items-end">
+        <div>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted">
+            Experience Into Practice
+          </p>
+          <p className="mt-4 font-serif text-lg leading-9 text-foreground/85 whitespace-nowrap md:text-2xl">
+            过往经历沉淀为方法，真实项目验证为结果。
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <>
       <Hero />
+      <CaseBridge />
+      <SectionDivider />
       <CapabilitiesNav />
       <SectionDivider />
       <SelectedWork />

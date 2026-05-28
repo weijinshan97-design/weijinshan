@@ -14,12 +14,6 @@ export function CapabilitiesNav() {
 
   const bgParallax = useTransform(capScroll, [0, 1], ["8%", "-8%"]);
 
-  const bgs = [
-    "/images/works/cap1.png",
-    "/images/works/5.jpg",
-    "/images/works/8.jpg",
-  ];
-
   const items = [
     {
       en: "VISUAL DESIGN",
@@ -44,94 +38,106 @@ export function CapabilitiesNav() {
   return (
     <section
       ref={capRef}
-      className="w-screen relative left-1/2 -translate-x-1/2 mt-[6vh] bg-dark overflow-hidden"
+      className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden bg-[#070808]"
     >
-      {/* Background images */}
-      <div className="absolute inset-0 bg-dark z-0" />
-      {bgs.map((src, i) => (
-        <motion.div
-          key={src}
-          className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: `url(${src})` }}
-          animate={{
-            clipPath:
-              hoveredCap === i
-                ? "inset(0% 0% 0% 0% round 0px)"
-                : "inset(50% 50% 50% 50% round 0px)",
-            opacity: hoveredCap === i ? 1 : 0,
-          }}
-          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-        />
-      ))}
-      <div className="absolute inset-0 bg-dark/80 z-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_42%,rgba(214,139,56,0.18),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(45,74,62,0.28),transparent_32%),linear-gradient(180deg,#070808_0%,#0c0f0f_100%)]" />
+      <div className="absolute inset-0 opacity-[0.1] [background-image:radial-gradient(rgba(255,255,255,0.7)_1px,transparent_1px)] [background-size:4px_4px]" />
+      <div className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-dark/45 shadow-[0_0_42px_rgba(214,139,56,0.07),0_0_96px_rgba(45,74,62,0.08)] blur-[1px]" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       {/* Content */}
       <motion.div
         style={{ y: bgParallax }}
-        className="relative z-10 px-6 md:px-8 lg:px-12 py-20 md:py-24 lg:py-28"
+        className="relative z-10 px-6 md:px-8 lg:px-12 py-14 md:py-16 lg:py-18"
       >
         <div className="max-w-[1200px] mx-auto">
-          <div className="flex flex-col">
-            {items.map((item, i) => (
-              <motion.div
-                key={item.en}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10% 0px 0px 0px" }}
-                transition={{
-                  delay: i * 0.1,
-                  duration: 0.5,
-                  ease: [0.25, 0.1, 0.25, 1],
-                }}
-                className="group cursor-pointer pt-8 lg:pt-10"
-                onMouseEnter={() => setHoveredCap(i)}
-                onMouseLeave={() => setHoveredCap(null)}
-                onClick={() => {
-                  const el = document.getElementById(item.to);
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                <div className="flex items-baseline gap-4">
-                  <span
-                    className={`text-[10px] font-mono shrink-0 transition-colors duration-300 ${
-                      hoveredCap !== null && hoveredCap !== i
-                        ? "text-white/10"
-                        : "text-white/20"
-                    }`}
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+            <div>
+              <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-white/34">
+                Capability Map
+              </p>
+              <h3 className="mt-5 font-serif text-4xl font-bold leading-[1.02] tracking-normal text-white md:text-5xl">
+                从视觉执行
+                <br />
+                到系统判断
+              </h3>
+              <p className="mt-5 max-w-sm text-sm leading-7 text-white/44">
+                三条能力线共同支撑后面的案例：视觉经验负责表达，自动化负责效率，系统思维负责把问题推进到落地。
+              </p>
+              <div className="mt-8 grid max-w-sm grid-cols-3 gap-3">
+                {["Visual", "AI Flow", "System"].map((label) => (
+                  <div
+                    key={label}
+                    className="rounded-lg border border-white/10 bg-white/[0.045] px-3 py-3 text-center text-[10px] uppercase tracking-[0.14em] text-white/45"
                   >
-                    {(i + 1).toString().padStart(2, "0")}
-                  </span>
-                  <h4
-                    className={`text-xl md:text-2xl lg:text-3xl font-bold tracking-tight transition-colors duration-300 ${
-                      hoveredCap !== null && hoveredCap !== i
-                        ? "text-white/30"
-                        : "text-white"
-                    }`}
-                  >
-                    {item.zh}
+                    {label}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-3">
+              {items.map((item, i) => (
+                <motion.button
+                  key={item.en}
+                  type="button"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-10% 0px 0px 0px" }}
+                  transition={{
+                    delay: i * 0.1,
+                    duration: 0.5,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  }}
+                  className={`group rounded-2xl border p-5 text-left transition-all duration-500 md:p-6 ${
+                    hoveredCap === i
+                      ? "border-[#d68b38]/24 bg-white/[0.075] shadow-[0_18px_60px_rgba(0,0,0,0.22)]"
+                      : hoveredCap !== null
+                        ? "border-white/7 bg-white/[0.028] opacity-55"
+                        : "border-white/10 bg-white/[0.045]"
+                  }`}
+                  onMouseEnter={() => setHoveredCap(i)}
+                  onMouseLeave={() => setHoveredCap(null)}
+                  onClick={() => {
+                    const el = document.getElementById(item.to);
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
+                  <div className="flex items-start gap-5">
                     <span
-                      className={`text-xs md:text-sm font-normal ml-2 tracking-normal transition-colors duration-300 ${
-                        hoveredCap !== null && hoveredCap !== i
-                          ? "text-white/12"
-                          : "text-white/25"
+                      className={`font-mono text-xs transition-colors duration-300 ${
+                        hoveredCap === i ? "text-[#d68b38]/70" : "text-white/24"
                       }`}
                     >
-                      {item.en}
+                      {(i + 1).toString().padStart(2, "0")}
                     </span>
-                  </h4>
-                  <p className="text-xs md:text-sm text-white/55 ml-auto text-right opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0 whitespace-nowrap">
-                    {item.desc}
-                  </p>
-                </div>
-                <div
-                  className={`mt-6 h-px transition-colors duration-300 ${
-                    hoveredCap !== null && hoveredCap !== i
-                      ? "bg-white/5"
-                      : "bg-white/10"
-                  }`}
-                />
-              </motion.div>
-            ))}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between md:gap-5">
+                        <h4 className="text-xl font-semibold tracking-normal text-white md:text-2xl">
+                          {item.zh}
+                        </h4>
+                        <span className="text-[10px] uppercase tracking-[0.18em] text-white/28">
+                          {item.en}
+                        </span>
+                      </div>
+                      <p className="mt-3 max-w-2xl text-sm leading-6 text-white/50">
+                        {item.desc}
+                      </p>
+                    </div>
+                    <span
+                      className={`mt-1 hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border text-sm transition-all duration-300 md:inline-flex ${
+                        hoveredCap === i
+                          ? "translate-x-0 border-[#d68b38]/24 text-[#d68b38]/70"
+                          : "translate-x-2 border-white/10 text-white/22"
+                      }`}
+                    >
+                      →
+                    </span>
+                  </div>
+                </motion.button>
+              ))}
+            </div>
           </div>
         </div>
       </motion.div>

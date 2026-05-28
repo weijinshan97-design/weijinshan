@@ -32,7 +32,7 @@ export function Hero() {
   });
 
   // Black overlay — slides up (spring-smoothed)
-  const overlayY = useTransform(smoothProgress, [0.10, 0.42], ["0%", "-100%"]);
+  const overlayY = useTransform(smoothProgress, [0.10, 0.34], ["0%", "-100%"]);
 
   // Bottom text fades out
   const bottomOpacity = useTransform(smoothProgress, [0, 0.02, 0.04, 1], [1, 1, 0, 0]);
@@ -40,18 +40,19 @@ export function Hero() {
   // Title color: white → black
   const titleColor = useTransform(
     smoothProgress,
-    [0.20, 0.40],
+    [0.12, 0.24],
     ["rgb(255,255,255)", "rgb(10,10,10)"]
   );
 
   const ctaColor = useTransform(
     smoothProgress,
-    [0.20, 0.40],
-    ["rgba(255,255,255,0.7)", "rgb(120,113,108)"]
+    [0.12, 0.24],
+    ["rgba(255,255,255,0.48)", "rgb(113,113,122)"]
   );
 
-  // Title fades out as overlay lifts
-  const titleOpacity = useTransform(smoothProgress, [0.25, 0.45], [1, 0]);
+  // Keep the title present while the about content rises, then let it leave upward.
+  const titleY = useTransform(smoothProgress, [0, 0.32, 0.54], ["0vh", "0vh", "-34vh"]);
+  const titleOpacity = useTransform(smoothProgress, [0, 0.46, 0.62], [1, 1, 0]);
 
   return (
     <section id="home" ref={sectionRef} className="relative bg-dark">
@@ -63,8 +64,8 @@ export function Hero() {
 
       {/* Title — fixed, scrolls with content after it appears */}
       <motion.div
-        className="fixed top-[8vh] md:top-[12vh] left-0 right-0 z-20 pointer-events-none px-6 md:px-8 lg:px-12"
-        style={{ opacity: titleOpacity }}
+        className="fixed top-[16vh] md:top-[14vh] left-0 right-0 z-20 pointer-events-none px-6 md:px-8 lg:px-12"
+        style={{ opacity: titleOpacity, y: titleY }}
       >
         <div className="flex flex-col items-center">
           <div className="inline-block mx-auto">
@@ -73,20 +74,20 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={entered ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-              className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.02] text-center"
+              className="whitespace-nowrap text-center font-serif text-[clamp(1.9rem,8.2vw,8.25rem)] font-bold leading-[1.02] tracking-normal"
             >
               {siteConfig.titleZh}
             </motion.h1>
-            <motion.p
-              style={{ color: ctaColor }}
-              initial={{ opacity: 0, y: 10 }}
-              animate={entered ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-5 md:mt-7 text-xs sm:text-sm md:text-base font-medium tracking-[1em] md:tracking-[1.4em]"
-            >
-              持续在商业视觉之外，探索工具、系统与更有效的解决方式。
-            </motion.p>
           </div>
+          <motion.p
+            style={{ color: ctaColor }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={entered ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mx-auto mt-5 md:mt-7 w-full max-w-[min(88vw,760px)] text-center text-xs sm:text-sm md:text-base font-normal tracking-[0.24em] md:tracking-[0.32em] leading-7 md:leading-8"
+          >
+            持续在商业视觉之外，探索工具、系统与更有效的解决方式。
+          </motion.p>
         </div>
       </motion.div>
 
@@ -121,15 +122,15 @@ export function Hero() {
       {/* About — revealed as black overlay lifts */}
       <div
         id="about"
-        className="relative z-0 pt-[70vh] pb-0 px-6 md:px-8 lg:px-12 bg-background"
+        className="relative z-0 pt-[72vh] md:pt-[78vh] pb-0 px-6 md:px-8 lg:px-12 bg-background"
       >
         <div className="max-w-[1200px] mx-auto">
           {/* Summary */}
           <div>
-            <p className="text-xs tracking-[0.2em] uppercase text-muted-light font-medium mb-3">
+            <p className="text-xs tracking-[0.12em] uppercase text-muted font-medium mb-3 leading-relaxed">
               视觉设计师&nbsp;&nbsp;·&nbsp;&nbsp;品牌设计&nbsp;&nbsp;·&nbsp;&nbsp;IP设计&nbsp;&nbsp;·&nbsp;&nbsp;AI产品设计&nbsp;&nbsp;·&nbsp;&nbsp;增长设计
             </p>
-            <p className="text-sm md:text-base text-muted leading-relaxed">
+            <p className="text-[15px] md:text-base text-muted leading-7 md:leading-relaxed">
               多年互联网及大厂设计经验，跨越品牌视觉、IP 设计、运营增长与 AI 产品 0-1 搭建。具备从策略定义、交互设计到设计规范落地的完整能力，擅长将复杂业务转化为清晰好用的产品体验。
             </p>
           </div>
@@ -162,7 +163,7 @@ export function Hero() {
 
             <div className="text-left max-w-[720px]">
               <div className="mb-10">
-                <span className="text-xs tracking-[0.2em] uppercase text-muted-light font-medium">
+                <span className="text-xs tracking-[0.14em] uppercase text-muted font-medium">
                   工作经历
                 </span>
               </div>
@@ -190,14 +191,14 @@ export function Hero() {
                         <span className="text-lg font-medium text-foreground">
                           {exp.company}
                         </span>
-                        <span className="text-base text-muted-light">
+                        <span className="text-base text-muted">
                           {exp.role}
                         </span>
                       </div>
-                      <span className="block text-sm text-muted-light font-mono mt-0.5">
+                      <span className="block text-sm text-muted font-mono mt-0.5">
                         {exp.period}
                       </span>
-                      <span className="block text-sm text-muted-light mt-1">
+                      <span className="block text-sm text-muted mt-1">
                         {exp.tags}
                       </span>
 
@@ -211,7 +212,7 @@ export function Hero() {
                             className="overflow-hidden"
                           >
                             <div className="mt-4 pl-0 pb-2">
-                              <p className="text-sm tracking-[0.15em] text-muted-light font-medium mb-2">
+                              <p className="text-sm tracking-[0.1em] text-muted font-medium mb-2">
                                 工作内容
                               </p>
                               <ul className="space-y-1.5">
@@ -225,7 +226,7 @@ export function Hero() {
                                   </li>
                                 ))}
                               </ul>
-                              <p className="text-sm tracking-[0.15em] text-muted-light font-medium mt-5 mb-2">
+                              <p className="text-sm tracking-[0.1em] text-muted font-medium mt-5 mb-2">
                                 项目成果
                               </p>
                               <ul className="space-y-1.5">

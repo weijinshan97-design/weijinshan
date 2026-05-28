@@ -56,13 +56,13 @@ export function ThinkingPreview({ entry, featured = false }: ThinkingPreviewProp
               )}
               {/* Text */}
               <div className="flex-1 p-8 md:p-10 lg:p-12 flex flex-col justify-center">
-                <span className="text-[10px] tracking-[0.2em] uppercase text-muted-light font-medium mb-3">
+                <span className="text-[10px] tracking-[0.14em] uppercase text-muted font-medium mb-3">
                   {entry.date}
                 </span>
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-serif font-semibold text-foreground tracking-tight leading-[1.2] group-hover:text-accent transition-colors duration-300">
                   {entry.titleZh}
                 </h3>
-                <p className="mt-3 text-sm md:text-base text-muted leading-relaxed max-w-xl">
+                <p className="mt-3 text-sm md:text-base text-muted leading-7 max-w-xl">
                   {entry.summaryZh}
                 </p>
                 <div className="mt-5 flex items-center gap-2 text-sm text-accent/40 group-hover:text-accent transition-colors duration-300">
@@ -94,13 +94,13 @@ export function ThinkingPreview({ entry, featured = false }: ThinkingPreviewProp
         )}
         {/* Content */}
         <div className="flex-1 min-w-0">
-          <span className="text-[10px] tracking-[0.15em] text-muted-light/50 font-mono">
+          <span className="text-[10px] tracking-[0.12em] text-muted font-mono">
             {entry.date}
           </span>
           <h3 className="mt-1.5 text-base md:text-lg font-semibold text-foreground group-hover:text-accent transition-colors duration-300 leading-snug">
             {entry.titleZh}
           </h3>
-          <p className="mt-1.5 text-sm text-muted leading-relaxed line-clamp-2">
+          <p className="mt-1.5 text-sm text-muted leading-6 line-clamp-2">
             {entry.summaryZh}
           </p>
         </div>

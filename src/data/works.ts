@@ -7,34 +7,38 @@ export const worksData: Work[] = [
     titleEn: "Wbit AI Assistant Platform",
     client: "杭州微风企科技",
     category: "AI 产品设计",
-    year: "2024 — 2025",
-    cover: "/images/works/game-cover.jpg",
+    year: "2024 — 2026",
+    cover: "/images/works/wbit-cover-new.png",
     summaryZh:
-      "0-1 主导 Wbit AI 助手平台整体产品设计，定义五大 AI 智能体与数字员工的交互体验，搭建设计规范框架，带领实习生完成上线，覆盖企业经营风险防控与智能营销。",
+      "0-1 主导 Wbit AI 助手平台整体产品设计，将税务、销售、老板、财务、信贷五类数字人整合进同一套对话式工作台，通过任务卡片、快捷能力标签和定时任务，把企业经营问题转化为可执行的 AI 工作流。",
     problemZh:
-      "小微企业缺乏财税风险识别与智能营销能力，传统软件操作复杂。如何将五个 AI 智能体（风控、营销、政策、信贷、报告）和五种角色化数字员工（老板/财务/采购/销售/中介）整合为一套统一、低门槛的对话式产品体验，是核心设计挑战。",
+      "小微企业用户面对税务风险、政策匹配、客户线索、融资方案等问题时，往往不知道从哪里开始，也难以把一次咨询延展成持续任务。产品需要把复杂的企业经营能力拆成低门槛入口，同时保留 AI 对话的灵活性。",
     approachZh:
-      "0-1 定义产品信息架构：以 AI 对话为主交互入口，辅以五大数字员工的角色面板；设计每个智能体的使用场景与交互流程（如风险扫描、政策匹配、信贷智能推荐）；搭建设计规范框架与组件库确保多模块视觉统一，指导实习生完成前端开发。",
+      "以对话框作为主执行入口，搭配五类数字人角色切换、场景任务卡、快捷能力标签和企业档案上下文；将政策匹配、税务头条、工商风险扫描、全面税务体检、专家咨询、定时任务等能力组件化，形成可复用的深色工作台设计规范。",
     resultZh:
-      "产品上线后服务于税务、金融、政务园区等多行业客户，AI 对话式交互降低企业使用门槛，财务场景人工审核工作量下降 70%，成为公司核心产品线。",
+      "产品上线后服务税务、金融、政务园区等多行业客户，对话式入口降低企业用户使用门槛，任务卡和定时任务帮助高频场景沉淀为可复用流程，财务场景人工审核工作量下降 70%，成为公司核心 AI 产品线。",
     images: [],
     tagsZh: ["0-1产品", "AI智能体", "对话式交互", "设计规范", "团队管理"],
     highlights: [
       {
-        label: "AI 对话式交互主入口",
-        content: "以对话为核心交互，用户用自然语言提问（如'这家公司现金流健康吗''帮我找匹配的贷款方案'），智能体在对话流中直接返回结构化结果。设计师需解决：如何处理 AI 生成中的等待态？如何平衡对话流畅度与信息密度？错误回答如何优雅降级？",
+        label: "对话式执行入口",
+        content: "将底部输入区设计成主要工作台：角色选择、快捷能力标签、附件与语音入口集中在同一处，用户既可以自然语言提问，也可以一键进入税务体检、政策匹配、专家咨询、企业风险扫描等高频任务。",
       },
       {
-        label: "五大智能体角色体系",
-        content: "将五类 AI 能力封装为角色化智能体：风控决策（风险扫描与预警）、智能营销（潜客发现与推荐）、政策匹配（补贴申报全流程）、智能信贷（百款方案匹配）、报告洞察（多维度专业报告）。每个智能体有独立的使用场景、对话风格和信息展示模式，但共享统一的设计规范。",
+        label: "五类数字人角色体系",
+        content: "将税务、销售、老板、财务、信贷五类业务视角角色化。每个数字人都保留统一的头像、状态、角色切换和欢迎语结构，同时通过不同任务入口承接差异化场景，降低用户理解成本。",
       },
       {
-        label: "五大数字员工 · 多角色工作台",
-        content: "针对不同企业角色设计专属工作面板——老板看经营驾驶舱与风险预警，财务操作票据识别与智能记账，采购监控供应商风险评级，销售关注商机预测与话术辅助，中介聚焦客源匹配。同一套数据，五种视角，五种交互。",
+        label: "场景任务卡片化",
+        content: "把抽象 AI 能力转成可点击任务卡，例如查找适用政策、税务头条、工商风险扫描、全面税务体检。卡片统一采用图标、标题、说明、箭头四段结构，让用户不用先学习 prompt，也能快速开始。",
       },
       {
-        label: "从 0 到 1 设计规范框架",
-        content: "在项目初期同步搭建设计规范框架与组件库，定义统一的色彩体系、字体层级、间距网格和组件变体。指导实习生依据规范进行页面延展，确保五位智能体和五大工作台的视觉一致性，也为后续产品迭代奠定规模化基础。",
+        label: "自动化任务闭环",
+        content: "在定时任务等二级页面中，把通过对话创建和新建任务并列，支持行业每日快讯、每周线索挖掘等模板，体现从一次性问答到持续自动化执行的产品延展。",
+      },
+      {
+        label: "深色工作台设计规范",
+        content: "建立统一的深色界面规范：侧边栏、会话列表、角色头像、任务卡、标签按钮、表格和空状态保持一致的圆角、描边、层级与 hover 反馈，保证多模块快速扩展时仍然像同一套产品。",
       },
     ],
   },
@@ -67,7 +71,8 @@ export const worksData: Work[] = [
     client: "滴滴代驾旗下 · 新桔代驾",
     category: "IP设计",
     year: "2022 — 2023",
-    cover: "/images/works/game-cover.jpg",
+    cover: "/images/works/pack/xinju-card.png",
+    heroCover: "/images/works/pack/xinju-hero.png",
     videoUrl: "/videos/xinju-demo.mp4",
     summaryZh:
       "为滴滴代驾旗下品牌'新桔代驾'设计'桔小代'IP 形象体系，建立 3D 模型资产库与延展规范，带动品牌识别与业务增长。",
@@ -90,8 +95,9 @@ export const worksData: Work[] = [
     titleEn: "Weifengqi Brand Case",
     client: "杭州微风企科技",
     category: "品牌全案",
-    year: "2023 — 至今",
-    cover: "/images/works/fintech-cover.jpg",
+    year: "2023 — 2025",
+    cover: "/images/works/pack/weifengqi-brand-card.png",
+    heroCover: "/images/works/pack/weifengqi-brand-hero.png",
     summaryZh:
       "主导两届'财税数字化大会'及'AI 时代商业智能创新峰会'主视觉设计，建立企业品牌视觉规范与 VI 系统。",
     problemZh:
@@ -110,12 +116,13 @@ export const worksData: Work[] = [
   },
   {
     slug: "weifengqi-ip",
-    titleZh: "微风企 IP 设计 · 小微",
+    titleZh: "微风企 IP 设计",
     titleEn: "Weifengqi Mascot · Xiaowei",
     client: "杭州微风企科技",
     category: "IP设计",
-    year: "2024 — 至今",
-    cover: "/images/works/4.jpg",
+    year: "2024 — 2025",
+    cover: "/images/works/pack/xiaowei-card.png",
+    heroCover: "/images/works/pack/xiaowei-hero.png",
     summaryZh:
       "为微风企设计品牌 IP'小微'，构建从形象设定、表情体系到营销场景延展的完整 IP 生态，强化品牌亲和力。",
     problemZh:
@@ -128,6 +135,10 @@ export const worksData: Work[] = [
       "/images/works/weifengqi-ip-1.jpg",
       "/images/works/weifengqi-ip-2.jpg",
       "/images/works/weifengqi-ip-3.jpg",
+      "/images/works/pack/xiaowei-board-1.png",
+      "/images/works/pack/xiaowei-board-2.png",
+      "/images/works/pack/xiaowei-board-3.png",
+      "/images/works/pack/xiaowei-board-4.png",
     ],
     tagsZh: ["IP设计", "品牌人格化", "B2B品牌", "表情体系"],
   },
@@ -138,7 +149,8 @@ export const worksData: Work[] = [
     client: "多客户",
     category: "运营设计",
     year: "2020 — 至今",
-    cover: "/images/works/8.jpg",
+    cover: "/images/works/pack/marketing-card.png",
+    heroCover: "/images/works/pack/marketing-hero.png",
     summaryZh:
       "覆盖多行业营销运营视觉设计，包括线上活动、广告海报、品牌合作及运营推广视觉物料。",
     problemZh:
@@ -155,6 +167,8 @@ export const worksData: Work[] = [
       "/images/works/marketing-detail-20.jpg",
       "/images/works/marketing-detail-21.jpg",
       "/images/works/marketing-detail-22.jpg",
+      "/images/works/pack/marketing-detail-25.jpg",
+      "/images/works/pack/marketing-detail-26.jpg",
     ],
     tagsZh: ["运营设计", "品牌合作", "活动视觉", "模板库"],
   },
@@ -165,20 +179,28 @@ export const worksData: Work[] = [
     client: "个人项目",
     category: "设计实验",
     year: "2024 — 至今",
-    cover: "/images/works/7.jpg",
+    cover: "/images/works/self-driven-earmo/card-cover.jpg",
+    heroCover: "/images/works/self-driven-earmo/cover.png",
+    videoUrl: "/videos/self-driven-earmo/demo.mp4",
     summaryZh:
-      "从真实工作痛点出发，自驱开发 Figma 插件、设计组件库与 AI 工作流，探索设计效率的边界。",
+      "从真实工作痛点出发，自驱探索 AI 工作流与内容运营实验，把设计能力延展到工具效率、个人表达和平台传播。",
     problemZh:
-      "日常设计工作存在大量重复操作——手动重绘流程图、组件复用率低、多尺寸适配耗时。需要工具化、系统化的解决思路。",
+      "日常设计工作存在大量重复操作，也存在个人表达被动、作品传播半径有限的问题。除了提升设计效率，也需要把设计判断转化为能被平台验证、持续迭代的内容系统。",
     approachZh:
-      "自研 Flow2Figma 插件实现流程图自动转译，搭建医学插图组件库覆盖 32 个高频组件，引入 AI 辅助设计流程探索效率边界。",
+      "通过 AI 辅助设计流程减少重复劳动；同时围绕小红书、抖音等平台进行内容运营实验，从选题、封面、标题、节奏到数据反馈，验证设计表达如何进入真实传播场景。",
     resultZh:
-      "多个自研工具在日常工作中稳定使用，组件库覆盖 80% 课程场景，设计效率显著提升。",
+      "自驱项目逐渐从单点工具扩展为个人方法：既能提高日常设计效率，也能通过内容平台测试表达、积累影响力，并把反馈反哺到后续设计判断中。",
     images: [
-      "/images/works/6.jpg",
-      "/images/works/7.jpg",
-      "/images/works/5.jpg",
+      "/images/works/self-driven-earmo/1.png",
+      "/images/works/self-driven-earmo/2.png",
+      "/images/works/self-driven-earmo/3.png",
+      "/images/works/self-driven-earmo/4.png",
+      "/images/works/self-driven-earmo/5.png",
+      "/images/works/self-driven-earmo/6.png",
+      "/images/works/self-driven-earmo/7.png",
+      "/images/works/self-driven-earmo/8.png",
     ],
-    tagsZh: ["设计工具", "组件库", "AI工作流", "自驱项目"],
+    afterNoteImages: ["/images/works/pack/self-driven-detail-27.jpg"],
+    tagsZh: ["设计工具", "AI工作流", "内容运营", "自驱项目"],
   },
 ];

@@ -27,7 +27,7 @@ export function SectionHeading({
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
         />
         <motion.span
-          className="text-xs tracking-[0.25em] uppercase text-muted-light font-medium"
+          className="text-xs tracking-[0.16em] uppercase text-muted font-medium"
           initial={{ opacity: 0, x: -8 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.4, delay: 0.25 }}
@@ -39,7 +39,7 @@ export function SectionHeading({
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-base text-muted max-w-xl leading-relaxed">
+        <p className="mt-4 text-base text-muted max-w-xl leading-7">
           {description}
         </p>
       )}

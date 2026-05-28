@@ -4,9 +4,9 @@
   /* Clean tech palette — cool white + sharp green signal */
   --color-background: #f8f8fa;
   --color-foreground: #0f0f0f;
-  --color-muted: #6b7280;
-  --color-muted-light: #9ca3af;
-  --color-border: #e5e7eb;
+  --color-muted: #52525b;
+  --color-muted-light: #71717a;
+  --color-border: #d8dbe2;
   --color-border-light: #f3f4f6;
   --color-accent: #2d4a3e;
   --color-accent-hover: #1f3329;
@@ -19,8 +19,8 @@
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei",
     sans-serif;
-  --font-serif: "Fraunces", "Noto Serif SC", "Source Han Serif SC",
-    "Songti SC", "STSong", "SimSun", Georgia, serif;
+  --font-serif: "Fraunces", "Source Han Serif SC", "Noto Serif SC",
+    "PingFang SC", Georgia, serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
   --animate-shimmer: shimmer 5s ease-in-out infinite;
@@ -82,8 +82,6 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0.5px, transparent 0.5px);
-  background-size: 24px 24px;
 }
 
 ::selection {
@@ -96,10 +94,10 @@ body {
   height: 1px;
   background: linear-gradient(
     to right,
-    transparent,
-    var(--color-border) 20%,
-    var(--color-border) 80%,
-    transparent
+    transparent 5%,
+    var(--color-border-light) 30%,
+    var(--color-border-light) 70%,
+    transparent 95%
   );
 }
 
@@ -169,4 +167,70 @@ body {
   animation: var(--animate-scan);
   pointer-events: none;
   z-index: 5;
+}
+
+/* Noise texture overlay */
+.noise-texture {
+  position: relative;
+}
+.noise-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Purple glow effect */
+.purple-glow {
+  position: relative;
+}
+.purple-glow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(103, 88, 169, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Blueprint grid for technical sections */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(103, 88, 169, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 88, 169, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Shimmer animation for loading states */
+@keyframes shimmer-load {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer-load {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-load 2s ease-in-out infinite;
+}
+
+/* Glow pulse for interactive elements */
+@keyframes glow-purple {
+  0%, 100% { box-shadow: 0 0 20px rgba(103, 88, 169, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(103, 88, 169, 0.25), 0 0 80px rgba(103, 88, 169, 0.1); }
+}
+.animate-glow-purple {
+  animation: glow-purple 3s ease-in-out infinite;
 }

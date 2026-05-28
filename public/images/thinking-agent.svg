@@ -1,0 +1,29 @@
+<svg width="1254" height="1254" viewBox="0 0 1254 1254" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1254" height="1254" fill="#F5F0E7"/>
+  <rect x="96" y="96" width="1062" height="1062" rx="44" fill="#0A0D0B"/>
+  <path d="M206 278H1048" stroke="white" stroke-opacity="0.08"/>
+  <path d="M206 976H1048" stroke="white" stroke-opacity="0.08"/>
+  <circle cx="628" cy="566" r="302" fill="#D68B38" fill-opacity="0.08"/>
+  <circle cx="628" cy="566" r="184" stroke="#D68B38" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="628" cy="566" r="76" fill="#D68B38" fill-opacity="0.18"/>
+  <circle cx="628" cy="566" r="38" fill="#D68B38"/>
+  <rect x="214" y="360" width="226" height="122" rx="22" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.1"/>
+  <rect x="214" y="668" width="226" height="122" rx="22" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.1"/>
+  <rect x="814" y="360" width="226" height="122" rx="22" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.1"/>
+  <rect x="814" y="668" width="226" height="122" rx="22" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.1"/>
+  <path d="M440 421L590 536" stroke="#D68B38" stroke-opacity="0.45" stroke-width="3"/>
+  <path d="M440 729L590 596" stroke="#D68B38" stroke-opacity="0.45" stroke-width="3"/>
+  <path d="M814 421L666 536" stroke="#D68B38" stroke-opacity="0.45" stroke-width="3"/>
+  <path d="M814 729L666 596" stroke="#D68B38" stroke-opacity="0.45" stroke-width="3"/>
+  <rect x="252" y="397" width="96" height="14" rx="7" fill="white" fill-opacity="0.38"/>
+  <rect x="252" y="430" width="132" height="10" rx="5" fill="white" fill-opacity="0.16"/>
+  <rect x="252" y="705" width="114" height="14" rx="7" fill="white" fill-opacity="0.38"/>
+  <rect x="252" y="738" width="132" height="10" rx="5" fill="white" fill-opacity="0.16"/>
+  <rect x="852" y="397" width="92" height="14" rx="7" fill="white" fill-opacity="0.38"/>
+  <rect x="852" y="430" width="132" height="10" rx="5" fill="white" fill-opacity="0.16"/>
+  <rect x="852" y="705" width="124" height="14" rx="7" fill="white" fill-opacity="0.38"/>
+  <rect x="852" y="738" width="132" height="10" rx="5" fill="white" fill-opacity="0.16"/>
+  <text x="178" y="997" fill="white" fill-opacity="0.34" font-family="Inter, Arial, sans-serif" font-size="22" letter-spacing="8">AGENT WORKFLOW</text>
+  <text x="178" y="1068" fill="white" font-family="Georgia, serif" font-size="84" font-weight="700">Human in Loop</text>
+  <text x="178" y="1118" fill="white" fill-opacity="0.42" font-family="Inter, Arial, sans-serif" font-size="24">task planning / tool calling / judgement calibration</text>
+</svg>
