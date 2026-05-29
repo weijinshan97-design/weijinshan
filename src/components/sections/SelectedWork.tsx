@@ -25,7 +25,6 @@ function CreatorCaseCard({
           compact ? "min-h-[380px] lg:min-h-[500px]" : "min-h-[420px] md:min-h-[560px]"
         }`}
       >
-        <div className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:radial-gradient(rgba(255,255,255,0.85)_1px,transparent_1px)] [background-size:8px_8px]" />
 
         <div className="relative z-10">
           <div

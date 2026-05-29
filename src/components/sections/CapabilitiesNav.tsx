@@ -41,7 +41,6 @@ export function CapabilitiesNav() {
       className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden bg-[#070808]"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_42%,rgba(88,60,180,0.12),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(60,80,180,0.12),transparent_32%),linear-gradient(180deg,#070808_0%,#0c0f0f_100%)]" />
-      <div className="absolute inset-0 opacity-[0.1] [background-image:radial-gradient(rgba(255,255,255,0.7)_1px,transparent_1px)] [background-size:4px_4px]" />
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/14 to-transparent" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
@@ -79,7 +78,7 @@ export function CapabilitiesNav() {
                   }}
                   className={`group rounded-2xl border p-4 md:p-6 text-left transition-all duration-500 ${
                     hoveredCap === i
-                      ? "border-[#7c5cbf]/24 bg-white/[0.075] shadow-[0_18px_60px_rgba(0,0,0,0.22)]"
+                      ? "border-[#1801ed]/24 bg-white/[0.075] shadow-[0_18px_60px_rgba(0,0,0,0.22)]"
                       : hoveredCap !== null
                         ? "border-white/7 bg-white/[0.028] opacity-55"
                         : "border-white/10 bg-white/[0.045]"
@@ -94,7 +93,7 @@ export function CapabilitiesNav() {
                   <div className="flex items-start gap-3 md:gap-5">
                     <span
                       className={`font-mono text-xs transition-colors duration-300 ${
-                        hoveredCap === i ? "text-[#7c5cbf]/70" : "text-white/24"
+                        hoveredCap === i ? "text-[#1801ed]/70" : "text-white/24"
                       }`}
                     >
                       {(i + 1).toString().padStart(2, "0")}
@@ -115,7 +114,7 @@ export function CapabilitiesNav() {
                     <span
                       className={`mt-1 hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border text-sm transition-all duration-300 md:inline-flex ${
                         hoveredCap === i
-                          ? "translate-x-0 border-[#7c5cbf]/24 text-[#7c5cbf]/70"
+                          ? "translate-x-0 border-[#1801ed]/24 text-[#1801ed]/70"
                           : "translate-x-2 border-white/10 text-white/22"
                       }`}
                     >

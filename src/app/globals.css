@@ -8,7 +8,7 @@
   --color-muted-light: #71717a;
   --color-border: #d8dbe2;
   --color-border-light: #f3f4f6;
-  --color-accent: #2d4a3e;
+  --color-accent: rgb(24, 1, 237);
   --color-accent-hover: #1f3329;
   --color-accent-surface: #e8f0ec;
   --color-surface: #f0f0f3;
@@ -54,10 +54,10 @@
 
 @keyframes glow-pulse {
   0%, 100% {
-    box-shadow: 0 0 30px rgba(45, 74, 62, 0.04), 0 0 60px rgba(45, 74, 62, 0.02);
+    box-shadow: 0 0 30px rgba(24, 1, 237, 0.04), 0 0 60px rgba(24, 1, 237, 0.02);
   }
   50% {
-    box-shadow: 0 0 60px rgba(45, 74, 62, 0.10), 0 0 120px rgba(45, 74, 62, 0.04);
+    box-shadow: 0 0 60px rgba(24, 1, 237, 0.10), 0 0 120px rgba(24, 1, 237, 0.04);
   }
 }
 
