@@ -1,16 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { aboutData } from "@/data/about";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { ParticleText } from "@/components/ui/ParticleText";
 
 export function About() {
   const [hoveredExp, setHoveredExp] = useState<number | null>(null);
+  const [showParticles, setShowParticles] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="about" className="px-6 md:px-8 lg:px-12 pt-[50vh] md:pt-[55vh] pb-16 md:pb-24 bg-background">
-      <div className="max-w-[1200px] mx-auto">
+    <section
+      ref={sectionRef}
+      id="about"
+      className="relative px-6 md:px-8 lg:px-12 pt-[50vh] md:pt-[55vh] pb-16 md:pb-24 bg-background"
+    >
+      {/* Particle effect background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <ParticleText
+          texts={aboutData.experience.map((exp) => ({
+            company: exp.company,
+            period: exp.period,
+            role: exp.role,
+          }))}
+          isVisible={isVisible && showParticles}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-[1200px] mx-auto">
         <FadeIn>
           {/* Summary */}
           <div>
@@ -25,10 +60,16 @@ export function About() {
 
         <FadeIn delay={0.1}>
           <div className="mt-12 md:mt-16">
-            <div className="mb-6 md:mb-8">
+            <div className="flex items-center justify-between mb-6 md:mb-8">
               <span className="text-xs tracking-[0.14em] uppercase text-muted font-medium">
                 工作经历
               </span>
+              <button
+                onClick={() => setShowParticles(!showParticles)}
+                className="text-xs text-muted-light hover:text-foreground transition-colors"
+              >
+                {showParticles ? "关闭粒子" : "开启粒子"}
+              </button>
             </div>
             <div className="space-y-5 md:space-y-6">
               {aboutData.experience.map((exp, i) => (
