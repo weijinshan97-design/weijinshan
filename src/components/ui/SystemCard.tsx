@@ -233,36 +233,31 @@ function FlowPluginShowcase() {
             ))}
           </div>
 
-          <div className="relative mt-14 h-[330px] rounded-2xl border border-white/10 bg-[#f7f3ea] p-4 shadow-2xl shadow-black/25">
-            <div className="absolute inset-x-4 top-4 flex items-center justify-between border-b border-black/8 pb-3">
-              <span className="text-[10px] uppercase tracking-[0.18em] text-black/32">
-                Generated Flow Draft
+          <div className="relative mt-10 rounded-2xl border border-white/10 bg-[#0a0a0c] p-6 shadow-2xl shadow-black/40">
+            <div className="flex items-center justify-between mb-6">
+              <span className="text-[10px] uppercase tracking-[0.18em] text-white/30">
+                Flow Pipeline
               </span>
-              <span className="rounded-full bg-[#25362d]/8 px-2.5 py-1 text-[10px] font-semibold text-[#25362d]/60">
-                12px Grid
-              </span>
+              <span className="text-[10px] text-white/20">→</span>
             </div>
 
-            <div className="absolute left-[24%] top-[33%] h-px w-[22%] bg-[#7c5cbf]/45" />
-            <div className="absolute right-[24%] top-[33%] h-px w-[22%] bg-[#7c5cbf]/45" />
-            <div className="absolute left-[49%] top-[38%] h-[27%] w-px bg-[#7c5cbf]/45" />
-            <div className="absolute left-[35%] bottom-[31%] h-px w-[30%] bg-[#7c5cbf]/45" />
-            <div className="absolute left-[35%] bottom-[31%] h-[9%] w-px bg-[#7c5cbf]/45" />
-            <div className="absolute right-[30%] bottom-[31%] h-[9%] w-px bg-[#7c5cbf]/45" />
-
-            {nodes.map((node) => (
-              <div
-                key={node.label}
-                className={`absolute w-[30%] rounded-xl border border-[#25362d]/10 bg-white px-2.5 py-3 shadow-[0_12px_34px_rgba(37,54,45,0.08)] md:px-4 ${node.className}`}
-              >
-                <p className="text-[10px] uppercase tracking-[0.16em] text-[#25362d]/38">
-                  {node.meta}
-                </p>
-                <p className="mt-1.5 text-xs font-semibold text-[#25362d] md:text-sm">
-                  {node.label}
-                </p>
-              </div>
-            ))}
+            <div className="flex items-center gap-3 overflow-x-auto pb-2">
+              {nodes.map((node, i) => (
+                <div key={node.label} className="flex items-center gap-3 shrink-0">
+                  <div className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                    <p className="text-[9px] uppercase tracking-[0.16em] text-[#7c5cbf]/60">
+                      {node.meta}
+                    </p>
+                    <p className="mt-1 text-xs font-semibold text-white/80">
+                      {node.label}
+                    </p>
+                  </div>
+                  {i < nodes.length - 1 && (
+                    <span className="text-white/15 text-xs">→</span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="mt-5 grid grid-cols-3 gap-3">
