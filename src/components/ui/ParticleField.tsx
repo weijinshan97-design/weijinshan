@@ -18,7 +18,7 @@ export function ParticleField() {
   const animFrameRef = useRef<number>(0);
 
   const initParticles = useCallback((width: number, height: number) => {
-    const gap = 28;
+    const gap = 18;
     const cols = Math.ceil(width / gap) + 1;
     const rows = Math.ceil(height / gap) + 1;
     const particles: Particle[] = [];
