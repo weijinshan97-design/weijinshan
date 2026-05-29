@@ -831,15 +831,11 @@ export default async function WorkPage({ params }: WorkPageProps) {
               {insightCards.map((card) => (
                 <div key={card.num}>
                   <div className="flex items-center gap-2.5 mb-4">
-                    <span className={`text-[10px] font-mono font-semibold uppercase tracking-[0.2em] ${
-                      card.accent ? "text-[#d68b38]/60" : "text-white/25"
-                    }`}>
+                    <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#7c5cbf]/60">
                       {card.num}
                     </span>
                     <span className="h-px flex-1 bg-white/[0.06]" />
-                    <span className={`text-[10px] font-semibold uppercase tracking-[0.22em] ${
-                      card.accent ? "text-[#d68b38]/70" : "text-white/32"
-                    }`}>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#7c5cbf]/70">
                       {card.label}
                     </span>
                   </div>
