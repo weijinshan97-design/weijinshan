@@ -943,15 +943,28 @@ export default async function WorkPage({ params }: WorkPageProps) {
               项目视频
             </span>
             <div className="mt-8">
-              <video
-                src={work.videoUrl}
-                controls
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="w-full h-auto rounded-xl"
-              />
+              {work.slug === "self-driven-design" ? (
+                <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    src="//player.bilibili.com/player.html?bvid=BV1sDVa6vEkR&page=1&high_quality=1&danmaku=0"
+                    scrolling="no"
+                    border="0"
+                    frameBorder="no"
+                    allowFullScreen={true}
+                    className="absolute top-0 left-0 w-full h-full"
+                  />
+                </div>
+              ) : (
+                <video
+                  src={work.videoUrl}
+                  controls
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-auto rounded-xl"
+                />
+              )}
             </div>
           </div>
         </section>
