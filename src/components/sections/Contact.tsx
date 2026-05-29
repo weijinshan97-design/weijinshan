@@ -126,7 +126,7 @@ export function Contact() {
             viewport={{ once: false, margin: "0px 0px -80px 0px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             style={{ transformOrigin: "top" }}
-            className="absolute bottom-0 left-0 right-0 z-10 text-center font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold leading-[1.02] tracking-normal text-white whitespace-nowrap italic"
+            className="absolute bottom-0 left-0 right-0 z-10 text-center font-serif text-[2rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-8xl font-bold leading-[1.02] tracking-normal text-white whitespace-nowrap italic"
           >
             DESIGN BEYOND VISUALS
           </motion.h2>

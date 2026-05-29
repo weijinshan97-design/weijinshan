@@ -21,8 +21,8 @@ function CreatorCaseCard({
   return (
     <Link href={`/work/${work.slug}`} className="group block h-full">
       <article
-        className={`relative flex h-full flex-col overflow-hidden rounded-[1.45rem] bg-[#202020] p-6 text-white shadow-[0_24px_70px_rgba(15,15,15,0.1)] transition-all duration-500 hover:-translate-y-1 hover:bg-[#1b1b1b] hover:shadow-[0_34px_100px_rgba(15,15,15,0.16)] md:p-8 ${
-          compact ? "min-h-[430px] lg:min-h-[500px]" : "min-h-[500px] md:min-h-[560px]"
+        className={`relative flex h-full flex-col overflow-hidden rounded-[1.45rem] bg-[#202020] p-5 text-white shadow-[0_24px_70px_rgba(15,15,15,0.1)] transition-all duration-500 hover:-translate-y-1 hover:bg-[#1b1b1b] hover:shadow-[0_34px_100px_rgba(15,15,15,0.16)] md:p-8 ${
+          compact ? "min-h-[380px] lg:min-h-[500px]" : "min-h-[420px] md:min-h-[560px]"
         }`}
       >
         <div className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:radial-gradient(rgba(255,255,255,0.85)_1px,transparent_1px)] [background-size:8px_8px]" />
@@ -60,7 +60,7 @@ function CreatorCaseCard({
             </span>
           </div>
 
-          <div className="mt-8 grid gap-3 text-sm font-light text-white/70 md:grid-cols-[1fr_auto] md:text-base">
+          <div className="mt-6 md:mt-8 grid gap-3 text-sm font-light text-white/70 md:grid-cols-[1fr_auto] md:text-base">
             <p className="min-w-0 truncate">{work.client}</p>
             <p className="shrink-0 text-white/70">{work.year}</p>
           </div>

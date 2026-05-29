@@ -74,7 +74,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={entered ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-              className="whitespace-nowrap text-center font-serif text-[clamp(1.9rem,8.2vw,8.25rem)] font-bold leading-[1.02] tracking-normal"
+              className="whitespace-nowrap text-center font-serif text-[clamp(1.6rem,8.2vw,8.25rem)] font-bold leading-[1.02] tracking-normal"
             >
               {siteConfig.titleZh}
             </motion.h1>
@@ -84,7 +84,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={entered ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mx-auto mt-5 md:mt-7 w-full max-w-[min(88vw,760px)] text-center text-xs sm:text-sm md:text-base font-normal tracking-[0.24em] md:tracking-[0.32em] leading-7 md:leading-8"
+            className="mx-auto mt-4 md:mt-7 w-full max-w-[min(92vw,760px)] text-center text-[11px] sm:text-sm md:text-base font-normal tracking-[0.2em] md:tracking-[0.32em] leading-6 md:leading-8"
           >
             持续在商业视觉之外，探索工具、系统与更有效的解决方式。
           </motion.p>
@@ -135,7 +135,7 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="mt-20 relative">
+          <div className="mt-12 md:mt-20 relative">
             {/* Decorative English title */}
             <div
               className={`hidden lg:block absolute right-0 bottom-0 pointer-events-none transition-opacity duration-500 ${
@@ -162,18 +162,18 @@ export function Hero() {
             </div>
 
             <div className="text-left max-w-[720px]">
-              <div className="mb-10">
+              <div className="mb-6 md:mb-10">
                 <span className="text-xs tracking-[0.14em] uppercase text-muted font-medium">
                   工作经历
                 </span>
               </div>
               <div className="relative">
                 <div className="absolute left-[8px] top-2 bottom-2 w-px bg-border-light hidden sm:block" />
-                <div className="space-y-5">
+                <div className="space-y-4 md:space-y-5">
                 {aboutData.experience.map((exp, i) => (
                   <div
                     key={i}
-                    className="flex gap-5 group cursor-default"
+                    className="flex gap-3 md:gap-5 group cursor-default"
                     onMouseEnter={() => setHoveredExp(i)}
                     onMouseLeave={() => setHoveredExp(null)}
                   >
@@ -187,18 +187,18 @@ export function Hero() {
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-baseline gap-3 flex-wrap">
-                        <span className="text-lg font-medium text-foreground">
+                      <div className="flex items-baseline gap-2 md:gap-3 flex-wrap">
+                        <span className="text-base md:text-lg font-medium text-foreground">
                           {exp.company}
                         </span>
-                        <span className="text-base text-muted">
+                        <span className="text-sm md:text-base text-muted">
                           {exp.role}
                         </span>
                       </div>
-                      <span className="block text-sm text-muted font-mono mt-0.5">
+                      <span className="block text-xs md:text-sm text-muted font-mono mt-0.5">
                         {exp.period}
                       </span>
-                      <span className="block text-sm text-muted mt-1">
+                      <span className="block text-xs md:text-sm text-muted mt-1">
                         {exp.tags}
                       </span>
 
@@ -212,28 +212,28 @@ export function Hero() {
                             className="overflow-hidden"
                           >
                             <div className="mt-4 pl-0 pb-2">
-                              <p className="text-sm tracking-[0.1em] text-muted font-medium mb-2">
+                              <p className="text-xs md:text-sm tracking-[0.1em] text-muted font-medium mb-2">
                                 工作内容
                               </p>
-                              <ul className="space-y-1.5">
+                              <ul className="space-y-1 md:space-y-1.5">
                                 {exp.detail.map((item, j) => (
                                   <li
                                     key={j}
-                                    className="text-base text-muted leading-relaxed flex gap-2"
+                                    className="text-sm md:text-base text-muted leading-relaxed flex gap-2"
                                   >
                                     <span className="text-muted-light shrink-0">·</span>
                                     <span>{item}</span>
                                   </li>
                                 ))}
                               </ul>
-                              <p className="text-sm tracking-[0.1em] text-muted font-medium mt-5 mb-2">
+                              <p className="text-xs md:text-sm tracking-[0.1em] text-muted font-medium mt-4 md:mt-5 mb-2">
                                 项目成果
                               </p>
-                              <ul className="space-y-1.5">
+                              <ul className="space-y-1 md:space-y-1.5">
                                 {exp.achievements.map((item, j) => (
                                   <li
                                     key={j}
-                                    className="text-base text-muted leading-relaxed"
+                                    className="text-sm md:text-base text-muted leading-relaxed"
                                   >
                                     {item}
                                   </li>
