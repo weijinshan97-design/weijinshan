@@ -159,7 +159,7 @@ function FlowPluginShowcase() {
     <div className="mb-12 overflow-hidden rounded-2xl bg-[#080b0a] ring-1 ring-white/10 shadow-[0_28px_90px_rgba(6,8,8,0.26)]">
       <div className="grid lg:grid-cols-[0.86fr_1.14fr]">
         <div className="relative overflow-hidden border-b border-white/10 p-6 md:p-8 lg:border-b-0 lg:border-r">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_8%,rgba(214,139,56,0.2),transparent_30%),linear-gradient(160deg,rgba(255,255,255,0.08),transparent_42%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_8%,rgba(124,92,191,0.2),transparent_30%),linear-gradient(160deg,rgba(255,255,255,0.08),transparent_42%)]" />
           <div className="relative rounded-2xl border border-white/10 bg-white/[0.045] p-4 shadow-2xl shadow-black/30 backdrop-blur">
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <div className="flex items-center gap-2">
@@ -174,7 +174,7 @@ function FlowPluginShowcase() {
 
             <div className="py-6">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#d68b38] text-sm font-bold text-[#15110c]">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#7c5cbf] text-sm font-bold text-[#15110c]">
                   F2
                 </span>
                 <div>
@@ -191,7 +191,7 @@ function FlowPluginShowcase() {
                       screenshot / markdown / html
                     </p>
                   </div>
-                  <span className="rounded-full bg-[#d68b38]/12 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#d68b38]">
+                  <span className="rounded-full bg-[#7c5cbf]/12 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#7c5cbf]">
                     Ready
                   </span>
                 </div>
@@ -208,12 +208,12 @@ function FlowPluginShowcase() {
                       <p className="text-xs font-semibold text-white/72">{title}</p>
                       <p className="mt-0.5 truncate text-[11px] text-white/32">{desc}</p>
                     </div>
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#d68b38]/70" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#7c5cbf]/70" />
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 rounded-xl bg-[#d68b38] px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em] text-[#17120c]">
+              <div className="mt-6 rounded-xl bg-[#7c5cbf] px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em] text-[#17120c]">
                 Generate clean Figma draft
               </div>
             </div>
@@ -243,12 +243,12 @@ function FlowPluginShowcase() {
               </span>
             </div>
 
-            <div className="absolute left-[24%] top-[33%] h-px w-[22%] bg-[#d68b38]/45" />
-            <div className="absolute right-[24%] top-[33%] h-px w-[22%] bg-[#d68b38]/45" />
-            <div className="absolute left-[49%] top-[38%] h-[27%] w-px bg-[#d68b38]/45" />
-            <div className="absolute left-[35%] bottom-[31%] h-px w-[30%] bg-[#d68b38]/45" />
-            <div className="absolute left-[35%] bottom-[31%] h-[9%] w-px bg-[#d68b38]/45" />
-            <div className="absolute right-[30%] bottom-[31%] h-[9%] w-px bg-[#d68b38]/45" />
+            <div className="absolute left-[24%] top-[33%] h-px w-[22%] bg-[#7c5cbf]/45" />
+            <div className="absolute right-[24%] top-[33%] h-px w-[22%] bg-[#7c5cbf]/45" />
+            <div className="absolute left-[49%] top-[38%] h-[27%] w-px bg-[#7c5cbf]/45" />
+            <div className="absolute left-[35%] bottom-[31%] h-px w-[30%] bg-[#7c5cbf]/45" />
+            <div className="absolute left-[35%] bottom-[31%] h-[9%] w-px bg-[#7c5cbf]/45" />
+            <div className="absolute right-[30%] bottom-[31%] h-[9%] w-px bg-[#7c5cbf]/45" />
 
             {nodes.map((node) => (
               <div
@@ -288,12 +288,12 @@ function PortfolioSiteShowcase() {
     <div className="mb-14 overflow-hidden rounded-2xl bg-[#070808] ring-1 ring-white/10 shadow-[0_28px_90px_rgba(6,8,8,0.32)]">
       <div className="grid min-h-[420px] lg:grid-cols-[0.92fr_1.08fr]">
         <div className="relative overflow-hidden p-6 md:p-8 lg:p-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_38%,rgba(214,139,56,0.24),transparent_28%),linear-gradient(135deg,rgba(45,74,62,0.34),transparent_42%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_38%,rgba(124,92,191,0.24),transparent_28%),linear-gradient(135deg,rgba(45,74,62,0.34),transparent_42%)]" />
           <div className="absolute inset-0 opacity-[0.12] [background-image:radial-gradient(rgba(255,255,255,0.7)_1px,transparent_1px)] [background-size:4px_4px]" />
           <div className="relative flex h-full flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/40">
-                <span className="h-2 w-2 rounded-full bg-[#d68b38]/80" />
+                <span className="h-2 w-2 rounded-full bg-[#7c5cbf]/80" />
                 AI Assisted Portfolio
               </div>
               <h4 className="mt-10 font-serif text-5xl font-bold leading-[0.98] tracking-normal text-white md:text-6xl lg:text-7xl">

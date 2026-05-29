@@ -3,7 +3,7 @@ import { SystemItem } from "@/lib/types";
 export const systemsData: SystemItem[] = [
   {
     id: "ai-portfolio-site",
-    nameZh: "与 AI 共建的个人现场",
+    nameZh: "AI 协作搭建个人网站",
     descriptionZh:
       "这个网站本身就是 AI 协作的产物。用 Claude Code 搭架构、写组件、调样式，用对话迭代文案和信息层级，我负责判断方向、校准审美、决定取舍。",
     problemZh:
