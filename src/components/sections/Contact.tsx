@@ -101,10 +101,11 @@ export function Contact() {
               <a
                 href="/files/resume.pdf"
                 download
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 text-sm text-white/35 hover:text-white/70 hover:border-white/20 hover:-translate-y-0.5 transition-all duration-500"
+                className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#7c5cbf]/30 text-sm text-white/50 hover:text-white/90 hover:border-[#7c5cbf]/50 hover:-translate-y-0.5 transition-all duration-500 overflow-hidden"
               >
-                下载简历 PDF
-                <span className="text-xs opacity-50">↓</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#7c5cbf]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                <span className="relative">下载简历 PDF</span>
+                <span className="relative text-xs opacity-50 group-hover:opacity-80 transition-opacity">↓</span>
               </a>
             </div>
           </FadeIn>
