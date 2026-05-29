@@ -117,8 +117,8 @@ export function Contact() {
         style={{ height: "clamp(100px, 13vw, 190px)" }}
       >
         <div className="relative mx-auto h-full max-w-[1200px] px-6">
-          <div className="absolute left-1/2 bottom-[12%] h-[clamp(76px,10vw,146px)] w-[clamp(76px,10vw,146px)] -translate-x-1/2 rounded-full bg-dark shadow-[0_0_26px_rgba(214,139,56,0.24),0_0_58px_rgba(214,139,56,0.12)]" />
-          <div className="absolute left-1/2 bottom-[-28%] h-[clamp(112px,14vw,210px)] w-[clamp(112px,14vw,210px)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(214,139,56,0.17)_0%,rgba(214,139,56,0.06)_38%,transparent_68%)] blur-xl" />
+          <div className="absolute left-1/2 bottom-[12%] h-[clamp(76px,10vw,146px)] w-[clamp(76px,10vw,146px)] -translate-x-1/2 rounded-full bg-dark shadow-[0_0_26px_rgba(88,60,180,0.24),0_0_58px_rgba(88,60,180,0.12)]" />
+          <div className="absolute left-1/2 bottom-[-28%] h-[clamp(112px,14vw,210px)] w-[clamp(112px,14vw,210px)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(88,60,180,0.17)_0%,rgba(88,60,180,0.06)_38%,transparent_68%)] blur-xl" />
 
           <motion.h2
             initial={{ y: 42, opacity: 0, scaleY: 1.28 }}
