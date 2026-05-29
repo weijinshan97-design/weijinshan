@@ -32,27 +32,27 @@ export function Hero() {
   });
 
   // Black overlay — slides up (spring-smoothed)
-  const overlayY = useTransform(smoothProgress, [0.10, 0.34], ["0%", "-100%"]);
+  const overlayY = useTransform(smoothProgress, [0.08, 0.30], ["0%", "-100%"]);
 
   // Bottom text fades out
-  const bottomOpacity = useTransform(smoothProgress, [0, 0.02, 0.04, 1], [1, 1, 0, 0]);
+  const bottomOpacity = useTransform(smoothProgress, [0, 0.02, 0.06, 1], [1, 1, 0, 0]);
 
   // Title color: white → black
   const titleColor = useTransform(
     smoothProgress,
-    [0.12, 0.24],
+    [0.10, 0.20],
     ["rgb(255,255,255)", "rgb(10,10,10)"]
   );
 
   const ctaColor = useTransform(
     smoothProgress,
-    [0.12, 0.24],
+    [0.10, 0.20],
     ["rgba(255,255,255,0.48)", "rgb(113,113,122)"]
   );
 
   // Keep the title present while the about content rises, then let it leave upward.
-  const titleY = useTransform(smoothProgress, [0, 0.32, 0.54], ["0vh", "0vh", "-34vh"]);
-  const titleOpacity = useTransform(smoothProgress, [0, 0.46, 0.62], [1, 1, 0]);
+  const titleY = useTransform(smoothProgress, [0, 0.28, 0.42], ["0vh", "0vh", "-20vh"]);
+  const titleOpacity = useTransform(smoothProgress, [0, 0.30, 0.40], [1, 1, 0]);
 
   return (
     <section id="home" ref={sectionRef} className="relative bg-dark">
@@ -122,7 +122,7 @@ export function Hero() {
       {/* About — revealed as black overlay lifts */}
       <div
         id="about"
-        className="relative z-0 pt-[72vh] md:pt-[78vh] pb-0 px-6 md:px-8 lg:px-12 bg-background"
+        className="relative z-0 pt-[50vh] md:pt-[55vh] pb-0 px-6 md:px-8 lg:px-12 bg-background"
       >
         <div className="max-w-[1200px] mx-auto">
           {/* Summary */}
