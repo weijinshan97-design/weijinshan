@@ -16,6 +16,7 @@ export function ParticleField() {
   const mouseRef = useRef({ x: -1000, y: -1000 });
   const particlesRef = useRef<Particle[]>([]);
   const animFrameRef = useRef<number>(0);
+  const prefersReducedMotion = useRef(false);
 
   const initParticles = useCallback((width: number, height: number) => {
     const gap = 14;
@@ -48,6 +49,13 @@ export function ParticleField() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    prefersReducedMotion.current = motionQuery.matches;
+    const handleMotionChange = (e: MediaQueryListEvent) => {
+      prefersReducedMotion.current = e.matches;
+    };
+    motionQuery.addEventListener("change", handleMotionChange);
+
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
       canvas.width = window.innerWidth * dpr;
@@ -73,7 +81,10 @@ export function ParticleField() {
     window.addEventListener("mouseleave", handleMouseLeave);
 
     const animate = () => {
-      if (!ctx) return;
+      if (!ctx || prefersReducedMotion.current) {
+        animFrameRef.current = requestAnimationFrame(animate);
+        return;
+      }
 
       ctx.clearRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
 
@@ -121,6 +132,7 @@ export function ParticleField() {
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
+      motionQuery.removeEventListener("change", handleMotionChange);
       cancelAnimationFrame(animFrameRef.current);
     };
   }, [initParticles]);

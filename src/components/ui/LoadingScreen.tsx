@@ -121,14 +121,23 @@ export function LoadingScreen() {
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(true);
   const [step, setStep] = useState(0);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  const shouldShow = mounted && pathname === "/";
+  const shouldShow = mounted && pathname === "/" && !prefersReducedMotion;
 
   useEffect(() => {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(motionQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    motionQuery.addEventListener("change", handler);
+
     const timer = window.setTimeout(() => {
       setMounted(true);
     }, 0);
-    return () => window.clearTimeout(timer);
+    return () => {
+      window.clearTimeout(timer);
+      motionQuery.removeEventListener("change", handler);
+    };
   }, []);
 
   useEffect(() => {

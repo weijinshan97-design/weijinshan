@@ -37,15 +37,6 @@ function ParallaxNumber({
   );
 }
 
-function SectionConnector() {
-  return (
-    <div className="flex flex-col items-center gap-1.5 my-2">
-      <div className="w-px h-10 bg-[#d4cec0]/40" />
-      <span className="block w-2.5 h-2.5 border-r border-b border-[#d4cec0]/40 rotate-45" />
-    </div>
-  );
-}
-
 function SubPointItem({ point }: { point: SubPoint }) {
   return (
     <div className="flex gap-5 group/point">
@@ -95,6 +86,7 @@ function CollapsibleSection({
     <div className="border-b border-border-light/20 last:border-b-0">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         className="w-full flex items-center gap-4 py-5 text-left group/accordion"
       >
         <span
@@ -475,9 +467,8 @@ export function SystemCard({ system, index }: SystemCardProps) {
   const isEven = index % 2 === 0;
   const ref = useRef<HTMLDivElement>(null);
   const isFlow = system.id === "flow-to-figma";
-  const isComponentLib = system.id === "design-component-library";
   const isPortfolioSite = system.id === "ai-portfolio-site";
-  const hasSubPoints = isFlow || isComponentLib || isPortfolioSite;
+  const hasSubPoints = isFlow || isPortfolioSite;
 
   return (
     <div ref={ref} className="group relative">
@@ -499,11 +490,6 @@ export function SystemCard({ system, index }: SystemCardProps) {
               {isFlow && (
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/8 text-accent/60 font-medium">
                   Core
-                </span>
-              )}
-              {isComponentLib && (
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/8 text-accent/60 font-medium">
-                  32 Components
                 </span>
               )}
               {isPortfolioSite && (
@@ -553,69 +539,6 @@ export function SystemCard({ system, index }: SystemCardProps) {
             </div>
           )}
 
-          {/* ComponentLib special rendering with sub-points (no collapsible) */}
-          {isComponentLib ? (
-            <div className="space-y-0">
-              {/* Problem */}
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-foreground/10 shrink-0" />
-                  <span className="text-xs tracking-[0.25em] uppercase text-muted font-semibold">
-                    问题
-                  </span>
-                </div>
-                <p className="text-lg md:text-xl font-serif text-foreground/75 leading-relaxed max-w-3xl mb-10">
-                  {system.problemZh}
-                </p>
-                <div className="space-y-6">
-                  {system.problemPoints?.map((point, i) => (
-                    <SubPointItem key={i} point={point} />
-                  ))}
-                </div>
-              </div>
-
-              <SectionConnector />
-
-              {/* Method */}
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-foreground/10 shrink-0" />
-                  <span className="text-xs tracking-[0.25em] uppercase text-muted font-semibold">
-                    方法
-                  </span>
-                </div>
-                <p className="text-lg md:text-xl font-serif text-foreground/75 leading-relaxed max-w-3xl mb-10">
-                  {system.methodZh}
-                </p>
-                <div className="space-y-6">
-                  {system.methodPoints?.map((point, i) => (
-                    <SubPointItem key={i} point={point} />
-                  ))}
-                </div>
-              </div>
-
-              <SectionConnector />
-
-              {/* Result */}
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-accent shrink-0" />
-                  <span className="text-xs tracking-[0.25em] uppercase text-accent font-semibold">
-                    成果
-                  </span>
-                </div>
-                <p className="text-lg md:text-xl font-serif text-accent/80 leading-relaxed max-w-3xl mb-10">
-                  {system.resultZh}
-                </p>
-                <div className="space-y-6">
-                  {system.resultPoints?.map((point, i) => (
-                    <SubPointItem key={i} point={point} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          ) : null}
-
           {/* Default flow for systems without sub-points */}
           {!hasSubPoints && (
             <div className="space-y-10 md:space-y-12">
@@ -663,50 +586,8 @@ export function SystemCard({ system, index }: SystemCardProps) {
         </div>
 
 
-        {/* Demo showcase — Component Library: P0 organ grid */}
-        {isComponentLib && (
-          <div className="border-t border-border-light/30 mx-8 md:mx-10 lg:mx-14 pt-8 pb-10">
-            <div className="flex items-center justify-between mb-5">
-              <span className="text-[10px] tracking-[0.2em] uppercase text-muted-light font-medium">
-                P0 · 核心器官组件
-              </span>
-              <span className="text-[10px] tracking-[0.15em] text-muted-light/50 font-medium">
-                覆盖 80% 课程场景
-              </span>
-            </div>
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
-              {[
-                { emoji: "🧠", name: "大脑", code: "OR-01", en: "Brain" },
-                { emoji: "🫀", name: "心脏", code: "OR-02", en: "Heart" },
-                { emoji: "🫁", name: "肺脏", code: "OR-03", en: "Lungs" },
-                { emoji: "🩸", name: "肝脏", code: "OR-04", en: "Liver" },
-                { emoji: "🫘", name: "肾脏", code: "OR-05", en: "Kidney" },
-                { emoji: "🫗", name: "胃", code: "OR-06", en: "Stomach" },
-              ].map((organ) => (
-                <div
-                  key={organ.code}
-                  className="relative rounded-xl bg-gradient-to-b from-[#fcfbf7] to-[#f6f3ea] border border-border-light/30 p-4 md:p-5 flex flex-col items-center text-center transition-all duration-300 hover:border-accent/15 hover:shadow-lg hover:shadow-accent/[0.04] hover:-translate-y-0.5 cursor-default"
-                >
-                  <span className="absolute top-2 right-2 text-[9px] text-muted-light/40 font-mono tracking-wider">
-                    {organ.code}
-                  </span>
-                  <span className="text-3xl md:text-4xl mb-2 opacity-80">{organ.emoji}</span>
-                  <span className="text-sm font-semibold text-foreground/80">{organ.name}</span>
-                  <span className="text-[10px] text-muted-light/50 mt-0.5">{organ.en}</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 flex items-center justify-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent/30" />
-              <span className="text-[10px] text-muted-light/50 tracking-wide">
-                统一命名规范 · 标准插图风格 · 团队直接复用
-              </span>
-            </div>
-          </div>
-        )}
-
         {/* Media */}
-        {!isFlow && !isComponentLib && system.media.length > 0 && (
+        {!isFlow && system.media.length > 0 && (
           <div className="border-t border-border-light/30 mx-8 md:mx-10 lg:mx-14 py-8">
             {system.media.map((m, i) => (
               <MediaDisplay key={i} media={m} />

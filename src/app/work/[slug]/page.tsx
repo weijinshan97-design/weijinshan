@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Image from "next/image";
 import { worksData } from "@/data/works";
 
 interface WorkPageProps {
@@ -7,6 +9,23 @@ interface WorkPageProps {
 
 export function generateStaticParams() {
   return worksData.map((w) => ({ slug: w.slug }));
+}
+
+export async function generateMetadata({ params }: WorkPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const work = worksData.find((w) => w.slug === slug);
+  if (!work) return {};
+
+  return {
+    title: `${work.titleZh} — 魏晋山`,
+    description: work.summaryZh,
+    openGraph: {
+      title: `${work.titleZh} — 魏晋山`,
+      description: work.summaryZh,
+      url: `https://jinshan.design/work/${work.slug}`,
+      type: "article",
+    },
+  };
 }
 
 function WbitDeepDive() {
@@ -928,11 +947,15 @@ export default async function WorkPage({ params }: WorkPageProps) {
             </span>
             <div className="mt-8 space-y-8">
               {work.images.map((img, i) => (
-                <img
+                <Image
                   key={i}
                   src={img}
                   alt={`${work.titleZh} — 项目图片 ${i + 1}`}
+                  width={1080}
+                  height={720}
                   className="w-full h-auto rounded-xl"
+                  sizes="(max-width: 768px) 100vw, 1080px"
+                  priority={i === 0}
                 />
               ))}
             </div>
@@ -959,11 +982,14 @@ export default async function WorkPage({ params }: WorkPageProps) {
             {work.afterNoteImages && work.afterNoteImages.length > 0 && (
               <div className="mt-8 space-y-8">
                 {work.afterNoteImages.map((img, i) => (
-                  <img
+                  <Image
                     key={img}
                     src={img}
                     alt={`${work.titleZh} — 延展图片 ${i + 1}`}
+                    width={1080}
+                    height={720}
                     className="w-full h-auto rounded-xl"
+                    sizes="(max-width: 768px) 100vw, 1080px"
                   />
                 ))}
               </div>

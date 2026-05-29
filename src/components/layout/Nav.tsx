@@ -99,6 +99,7 @@ export function Nav() {
           className="md:hidden flex flex-col gap-1.5 p-2 -mr-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
           <span
             className={`block w-5 h-px transition-all duration-300 ${

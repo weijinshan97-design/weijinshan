@@ -1,10 +1,28 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { thinkingData } from "@/data/thinking";
 
 interface ThinkingPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: ThinkingPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const entry = thinkingData.find((t) => t.slug === slug);
+  if (!entry) return {};
+
+  return {
+    title: `${entry.titleZh} — 魏晋山`,
+    description: entry.summaryZh,
+    openGraph: {
+      title: `${entry.titleZh} — 魏晋山`,
+      description: entry.summaryZh,
+      url: `https://jinshan.design/thinking/${entry.slug}`,
+      type: "article",
+    },
+  };
 }
 
 const aiNewsClips = [
