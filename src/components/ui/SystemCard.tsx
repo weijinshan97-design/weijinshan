@@ -220,7 +220,7 @@ function FlowPluginShowcase() {
           </div>
         </div>
 
-        <div className="relative min-h-[440px] overflow-hidden bg-[#111513] p-5 md:p-7">
+        <div className="relative overflow-hidden bg-[#111513] p-5 md:p-7">
           <div className="absolute left-8 top-7 z-10 flex flex-wrap gap-2">
             {["无 SVG 依赖", "可编辑图层", "干净结构"].map((tag) => (
               <span
