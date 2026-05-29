@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/data/site";
 import { aboutData } from "@/data/about";
+import { ParticleField } from "@/components/ui/ParticleField";
 
 export function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -56,6 +57,17 @@ export function Hero() {
 
   return (
     <section id="home" ref={sectionRef} className="relative bg-dark">
+      {/* Purple/blue glow — bottom half */}
+      <div className="fixed inset-0 z-[2] pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-[radial-gradient(ellipse_at_50%_80%,rgba(88,60,180,0.18)_0%,rgba(60,80,180,0.08)_35%,transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[radial-gradient(ellipse_at_50%_100%,rgba(100,60,200,0.12)_0%,transparent_60%)]" />
+      </div>
+
+      {/* Particle field */}
+      <div className="fixed inset-0 z-[3]">
+        <ParticleField />
+      </div>
+
       {/* Black overlay — slides up */}
       <motion.div
         className="fixed inset-0 bg-dark z-10 pointer-events-none"
