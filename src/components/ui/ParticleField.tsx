@@ -18,7 +18,7 @@ export function ParticleField() {
   const animFrameRef = useRef<number>(0);
 
   const initParticles = useCallback((width: number, height: number) => {
-    const gap = 18;
+    const gap = 14;
     const cols = Math.ceil(width / gap) + 1;
     const rows = Math.ceil(height / gap) + 1;
     const particles: Particle[] = [];
@@ -107,7 +107,7 @@ export function ParticleField() {
         const alpha = Math.min(0.35, 0.12 + displacement * 0.003);
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
         ctx.fill();
       }
