@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
 import { CapabilitiesNav } from "@/components/sections/CapabilitiesNav";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { Systems } from "@/components/sections/Systems";
@@ -35,6 +36,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <About />
       <CaseBridge />
       <SectionDivider />
       <CapabilitiesNav />
