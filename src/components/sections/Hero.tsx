@@ -135,7 +135,7 @@ export function Hero() {
       {/* About — revealed as black overlay lifts */}
       <div
         id="about"
-        className="relative z-0 pt-[10vh] md:pt-[15vh] pb-0 px-6 md:px-8 lg:px-12 bg-background"
+        className="relative z-0 pt-[50vh] md:pt-[55vh] pb-0 px-6 md:px-8 lg:px-12 bg-background"
       >
         <div className="max-w-[1200px] mx-auto">
           {/* Summary */}
