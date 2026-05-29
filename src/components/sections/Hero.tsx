@@ -33,27 +33,27 @@ export function Hero() {
   });
 
   // Black overlay — slides up (spring-smoothed)
-  const overlayY = useTransform(smoothProgress, [0.08, 0.30], ["0%", "-100%"]);
+  const overlayY = useTransform(smoothProgress, [0.04, 0.20], ["0%", "-100%"]);
 
   // Bottom text fades out
-  const bottomOpacity = useTransform(smoothProgress, [0, 0.02, 0.06, 1], [1, 1, 0, 0]);
+  const bottomOpacity = useTransform(smoothProgress, [0, 0.01, 0.04, 1], [1, 1, 0, 0]);
 
   // Title color: white → black
   const titleColor = useTransform(
     smoothProgress,
-    [0.10, 0.20],
+    [0.06, 0.14],
     ["rgb(255,255,255)", "rgb(10,10,10)"]
   );
 
   const ctaColor = useTransform(
     smoothProgress,
-    [0.10, 0.20],
+    [0.06, 0.14],
     ["rgba(255,255,255,0.48)", "rgb(113,113,122)"]
   );
 
   // Title slides up with black overlay and disappears together
-  const titleY = useTransform(smoothProgress, [0, 0.08, 0.30], ["0vh", "0vh", "-30vh"]);
-  const titleOpacity = useTransform(smoothProgress, [0, 0.20, 0.30], [1, 1, 0]);
+  const titleY = useTransform(smoothProgress, [0, 0.04, 0.20], ["0vh", "0vh", "-30vh"]);
+  const titleOpacity = useTransform(smoothProgress, [0, 0.14, 0.20], [1, 1, 0]);
 
   return (
     <section id="home" ref={sectionRef} className="relative bg-dark">
