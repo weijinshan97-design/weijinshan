@@ -54,7 +54,7 @@ export function Hero() {
   const titleOpacity = useTransform(smoothProgress, [0, 0.14, 0.20], [1, 1, 0]);
 
   return (
-    <section id="home" ref={sectionRef} className="relative h-[200vh] bg-dark">
+    <section id="home" ref={sectionRef} className="relative h-[200vh]">
       {/* Black overlay — slides up */}
       <motion.div
         className="fixed inset-0 bg-dark z-10 pointer-events-none"
