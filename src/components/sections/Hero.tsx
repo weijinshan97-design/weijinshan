@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { siteConfig } from "@/data/site";
+import { About } from "@/components/sections/About";
 import { ParticleField } from "@/components/ui/ParticleField";
 
 export function Hero() {
@@ -31,30 +32,30 @@ export function Hero() {
   });
 
   // Black overlay — slides up (spring-smoothed)
-  const overlayY = useTransform(smoothProgress, [0.04, 0.20], ["0%", "-100%"]);
+  const overlayY = useTransform(smoothProgress, [0, 0.30], ["0%", "-100%"]);
 
   // Bottom text fades out
-  const bottomOpacity = useTransform(smoothProgress, [0, 0.01, 0.04, 1], [1, 1, 0, 0]);
+  const bottomOpacity = useTransform(smoothProgress, [0, 0.05, 0.15, 1], [1, 1, 0, 0]);
 
   // Title color: white → black
   const titleColor = useTransform(
     smoothProgress,
-    [0.06, 0.14],
+    [0.05, 0.20],
     ["rgb(255,255,255)", "rgb(10,10,10)"]
   );
 
   const ctaColor = useTransform(
     smoothProgress,
-    [0.06, 0.14],
+    [0.05, 0.20],
     ["rgba(255,255,255,0.48)", "rgb(113,113,122)"]
   );
 
   // Title slides up with black overlay and disappears together
-  const titleY = useTransform(smoothProgress, [0, 0.04, 0.20], ["0vh", "0vh", "-30vh"]);
-  const titleOpacity = useTransform(smoothProgress, [0, 0.14, 0.20], [1, 1, 0]);
+  const titleY = useTransform(smoothProgress, [0, 0.30], ["0vh", "-30vh"]);
+  const titleOpacity = useTransform(smoothProgress, [0, 0.25, 0.30], [1, 1, 0]);
 
   return (
-    <section id="home" ref={sectionRef} className="relative h-[200vh]">
+    <section id="home" ref={sectionRef} className="relative bg-dark">
       {/* Black overlay — slides up */}
       <motion.div
         className="fixed inset-0 bg-dark z-10 pointer-events-none"
@@ -129,6 +130,9 @@ export function Hero() {
           </p>
         </motion.div>
       </motion.div>
+
+      {/* About — revealed as black overlay lifts */}
+      <About />
     </section>
   );
 }

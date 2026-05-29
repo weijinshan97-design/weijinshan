@@ -9,7 +9,7 @@ export function About() {
   const [hoveredExp, setHoveredExp] = useState<number | null>(null);
 
   return (
-    <section id="about" className="px-6 md:px-8 lg:px-12 py-16 md:py-24 bg-background -mt-[160vh] relative z-10">
+    <section id="about" className="px-6 md:px-8 lg:px-12 pt-[50vh] md:pt-[55vh] pb-16 md:pb-24 bg-background">
       <div className="max-w-[1200px] mx-auto">
         <FadeIn>
           {/* Summary */}
