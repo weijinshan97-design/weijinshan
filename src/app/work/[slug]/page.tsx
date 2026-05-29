@@ -795,38 +795,30 @@ export default async function WorkPage({ params }: WorkPageProps) {
 
   return (
     <>
-      {/* Hero — full bleed cover */}
+      {/* Hero — clean dark header */}
       {!isWbit && (
-        <section className="relative h-[60vh] md:h-[80vh] overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center scale-105"
-            style={{ backgroundImage: `url(${heroCover})` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/55 to-[#0a0a0a]/8" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,transparent_55%,rgba(0,0,0,0.45)_100%)]" />
-          <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 lg:p-16">
-            <div className="max-w-[1100px] mx-auto">
-              <div className="flex items-center gap-4 mb-6">
-                <span className="h-px w-8 bg-white/25" />
-                <span className="text-[10px] tracking-[0.22em] uppercase text-white/40 font-medium">
-                  {work.client}
-                </span>
-                <span className="w-1 h-1 rounded-full bg-white/12" />
-                <span className="text-[10px] tracking-[0.22em] uppercase text-white/40 font-medium">
-                  {work.year}
-                </span>
-                <span className="w-1 h-1 rounded-full bg-white/12" />
-                <span className="text-[10px] tracking-[0.22em] uppercase text-white/40 font-medium">
-                  {work.category}
-                </span>
-              </div>
-              <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white tracking-tight leading-[0.94] max-w-4xl">
-                {work.titleZh}
-              </h1>
-              <p className="mt-6 text-sm md:text-base text-white/30 leading-relaxed max-w-2xl font-light">
-                {work.summaryZh}
-              </p>
+        <section className="relative bg-[#0a0a0a] pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-8 lg:px-12">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="h-px w-8 bg-white/25" />
+              <span className="text-[10px] tracking-[0.22em] uppercase text-white/40 font-medium">
+                {work.client}
+              </span>
+              <span className="w-1 h-1 rounded-full bg-white/12" />
+              <span className="text-[10px] tracking-[0.22em] uppercase text-white/40 font-medium">
+                {work.year}
+              </span>
+              <span className="w-1 h-1 rounded-full bg-white/12" />
+              <span className="text-[10px] tracking-[0.22em] uppercase text-white/40 font-medium">
+                {work.category}
+              </span>
             </div>
+            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[0.94] max-w-4xl">
+              {work.titleZh}
+            </h1>
+            <p className="mt-5 text-sm md:text-base text-white/30 leading-relaxed max-w-2xl font-light">
+              {work.summaryZh}
+            </p>
           </div>
         </section>
       )}
