@@ -325,7 +325,7 @@ function PortfolioSiteShowcase() {
             </div>
             <div className="bg-[#09090b] px-5 py-8 text-center">
               <p className="text-[10px] uppercase tracking-[0.22em] text-white/34">
-                Product Design / AI / System
+                产品设计 / AI / 系统
               </p>
               <p className="mt-6 whitespace-nowrap font-serif text-[2rem] font-bold text-white md:text-[2.6rem]">
                 从视觉，走向更多可能
@@ -337,7 +337,7 @@ function PortfolioSiteShowcase() {
             <div className="grid gap-4 bg-[#f8f8fa] p-5 md:grid-cols-2">
               {["经历重组", "案例分层", "AI 协作", "持续迭代"].map((item) => (
                 <div key={item} className="rounded-lg bg-white px-4 py-4 shadow-sm">
-                  <p className="text-[10px] uppercase tracking-[0.16em] text-muted">Module</p>
+                  <p className="text-[10px] uppercase tracking-[0.16em] text-muted">模块</p>
                   <p className="mt-2 text-sm font-semibold text-foreground">{item}</p>
                 </div>
               ))}
@@ -346,9 +346,9 @@ function PortfolioSiteShowcase() {
 
           <div className="mt-5 grid grid-cols-3 gap-3">
             {[
-              ["01", "Narrative"],
-              ["02", "Interface"],
-              ["03", "Iteration"],
+              ["01", "叙事线"],
+              ["02", "界面层"],
+              ["03", "迭代环"],
             ].map(([num, label]) => (
               <div key={num} className="rounded-lg border border-white/10 bg-white/[0.04] p-3">
                 <p className="font-mono text-xs text-white/28">{num}</p>
