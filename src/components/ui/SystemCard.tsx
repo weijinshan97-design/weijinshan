@@ -168,7 +168,7 @@ function FlowPluginShowcase() {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
               </div>
               <span className="text-[10px] uppercase tracking-[0.18em] text-white/32">
-                Plugin Panel
+                插件面板
               </span>
             </div>
 
@@ -179,7 +179,7 @@ function FlowPluginShowcase() {
                 </span>
                 <div>
                   <p className="text-base font-semibold text-white">Flow2Figma</p>
-                  <p className="mt-0.5 text-xs text-white/38">Structure to editable layout</p>
+                  <p className="mt-0.5 text-xs text-white/38">结构化流程图转可编辑版式</p>
                 </div>
               </div>
 
@@ -188,11 +188,11 @@ function FlowPluginShowcase() {
                   <div>
                     <p className="text-sm font-medium text-white/76">流程图输入</p>
                     <p className="mt-1 text-xs leading-5 text-white/34">
-                      screenshot / markdown / html
+                      截图 / Markdown / HTML
                     </p>
                   </div>
                   <span className="rounded-full bg-[#7c5cbf]/12 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#7c5cbf]">
-                    Ready
+                    就绪
                   </span>
                 </div>
               </div>
@@ -214,7 +214,7 @@ function FlowPluginShowcase() {
               </div>
 
               <div className="mt-6 rounded-xl bg-[#7c5cbf] px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em] text-[#17120c]">
-                Generate clean Figma draft
+                生成规范 Figma 稿
               </div>
             </div>
           </div>
@@ -222,7 +222,7 @@ function FlowPluginShowcase() {
 
         <div className="relative min-h-[440px] overflow-hidden bg-[#111513] p-5 md:p-7">
           <div className="absolute left-8 top-7 z-10 flex flex-wrap gap-2">
-            {["Zero SVG", "Editable Layers", "Clean Structure"].map((tag) => (
+            {["无 SVG 依赖", "可编辑图层", "干净结构"].map((tag) => (
               <span
                 key={tag}
                 className="rounded-full border border-white/10 bg-black/18 px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-white/42 backdrop-blur"
@@ -235,7 +235,7 @@ function FlowPluginShowcase() {
           <div className="relative mt-10 rounded-2xl border border-white/10 bg-[#0a0a0c] p-6 shadow-2xl shadow-black/40">
             <div className="flex items-center justify-between mb-6">
               <span className="text-[10px] uppercase tracking-[0.18em] text-white/30">
-                Flow Pipeline
+                流程管线
               </span>
               <span className="text-[10px] text-white/20">→</span>
             </div>
@@ -261,9 +261,9 @@ function FlowPluginShowcase() {
 
           <div className="mt-5 grid grid-cols-3 gap-3">
             {[
-              ["Manual", "Hours"],
-              ["Draft", "Minutes"],
-              ["Focus", "Logic"],
+              ["手动重绘", "数小时"],
+              ["生成底稿", "几分钟"],
+              ["聚焦判断", "逻辑层"],
             ].map(([label, value]) => (
               <div key={label} className="rounded-xl border border-white/10 bg-white/[0.04] p-3">
                 <p className="text-[10px] uppercase tracking-[0.16em] text-white/28">{label}</p>
@@ -288,7 +288,7 @@ function PortfolioSiteShowcase() {
             <div>
               <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/40">
                 <span className="h-2 w-2 rounded-full bg-[#7c5cbf]/80" />
-                AI Assisted Portfolio
+                AI 协作作品集
               </div>
               <h4 className="mt-10 font-serif text-5xl font-bold leading-[0.98] tracking-normal text-white md:text-6xl lg:text-7xl">
                 自我表达
@@ -301,7 +301,7 @@ function PortfolioSiteShowcase() {
             </div>
 
             <div className="mt-10 grid grid-cols-3 gap-3 text-center">
-              {["VS Code", "Codex", "Design Eye"].map((item) => (
+              {["VS Code", "Claude Code", "设计判断"].map((item) => (
                 <div
                   key={item}
                   className="rounded-lg border border-white/10 bg-white/[0.045] px-3 py-3 text-[10px] uppercase tracking-[0.14em] text-white/48"
@@ -320,7 +320,7 @@ function PortfolioSiteShowcase() {
               <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
               <span className="ml-3 text-[10px] uppercase tracking-[0.16em] text-black/35">
-                localhost / portfolio system
+                本地调试 / 作品集系统
               </span>
             </div>
             <div className="bg-[#09090b] px-5 py-8 text-center">
