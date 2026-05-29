@@ -221,7 +221,6 @@ function FlowPluginShowcase() {
         </div>
 
         <div className="relative min-h-[440px] overflow-hidden bg-[#111513] p-5 md:p-7">
-          <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,0.75)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.75)_1px,transparent_1px)] [background-size:32px_32px]" />
           <div className="absolute left-8 top-7 z-10 flex flex-wrap gap-2">
             {["Zero SVG", "Editable Layers", "Clean Structure"].map((tag) => (
               <span
