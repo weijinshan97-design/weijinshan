@@ -15,17 +15,17 @@ function WbitDeepDive() {
       {/* ── SECTION 01 ── 概念引入：数字智能的涌现 */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#08060e] noise-texture">
         <div className="pointer-events-none absolute inset-0 z-0">
-          <div className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6758A9]/12 blur-[180px]" />
-          <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6758A9]/8 blur-[100px]" />
+          <div className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4035e1]/12 blur-[180px]" />
+          <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#4035e1]/8 blur-[100px]" />
         </div>
         <div className="relative z-10 mx-auto max-w-[1480px] px-5 py-24 md:px-8 md:py-32 lg:px-12">
           <div className="flex flex-col items-center text-center">
-            <span className="mb-6 font-mono text-[10px] uppercase tracking-[0.3em] text-[#6758A9]/70">Section 01</span>
+            <span className="mb-6 font-mono text-[10px] uppercase tracking-[0.3em] text-[#4035e1]/70">Section 01</span>
             <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-white/45">The Manifesto: Emergence of Digital Intelligence</h2>
             <h1 className="mt-6 font-serif text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-6xl lg:text-7xl">企业AI就用Wbit</h1>
             <div className="relative mt-16 w-full max-w-2xl">
-              <div className="pointer-events-none absolute inset-0 z-0 rounded-3xl bg-[#6758A9]/8 blur-[60px] animate-glow-purple" />
-              <div className="relative z-10 overflow-hidden rounded-3xl border border-white/[0.08] bg-[#0d0d0d] shadow-[0_40px_120px_rgba(103,88,169,0.15)]">
+              <div className="pointer-events-none absolute inset-0 z-0 rounded-3xl bg-[#4035e1]/8 blur-[60px] animate-glow-purple" />
+              <div className="relative z-10 overflow-hidden rounded-3xl border border-white/[0.08] bg-[#0d0d0d] shadow-[0_40px_120px_rgba(64,53,225,0.15)]">
                 <div className="flex items-center justify-between border-b border-white/[0.06] bg-white/[0.02] px-5 py-3">
                   <div className="flex items-center gap-2">
                     <span className="h-2.5 w-2.5 rounded-full bg-[#ff665e]" />
@@ -38,8 +38,8 @@ function WbitDeepDive() {
                   {/* PLACEHOLDER: 替换为 AI 控制器组件的精确渲染图 */}
                   <div className="flex min-h-[300px] items-center justify-center rounded-2xl border border-dashed border-white/[0.08] bg-white/[0.01]">
                     <div className="text-center">
-                      <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#6758A9]/10 ring-1 ring-[#6758A9]/20">
-                        <span className="text-2xl font-bold text-[#6758A9]/60">AI</span>
+                      <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#4035e1]/10 ring-1 ring-[#4035e1]/20">
+                        <span className="text-2xl font-bold text-[#4035e1]/60">AI</span>
                       </div>
                       <p className="text-xs text-white/35">AI Controller Component</p>
                       <p className="mt-1 text-[10px] text-white/25">1:1 精确渲染 / 请替换为实际组件截图</p>
@@ -75,7 +75,7 @@ function WbitDeepDive() {
         <div className="mx-auto max-w-[1480px]">
           <div>
             <div className="text-center">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Background</span>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Background</span>
               <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">项目背景</h2>
             </div>
             <div>
@@ -109,7 +109,7 @@ function WbitDeepDive() {
       <section className="bg-[#08060e] px-5 py-20 md:px-8 md:py-28 lg:px-12">
         <div className="mx-auto max-w-[1480px]">
           <div className="text-center">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Design Philosophy</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Design Philosophy</span>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">从「会聊天」到「能办事」</h2>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-white/50 font-light md:text-lg">
               传统 AI 助手停留在问答层面，用户问一句、AI 答一句，对话结束即价值终止。Wbit 的设计核心是把每一次对话变成一个可执行的任务——用户提出问题，AI 不仅给出答案，还拆解成步骤、生成报告、创建监测、预约专家，让一次交互产生持续价值。
@@ -149,7 +149,7 @@ function WbitDeepDive() {
       <section className="bg-[#08060e] px-5 py-20 md:px-8 md:py-28 lg:px-12">
         <div className="mx-auto max-w-[1480px]">
           <div className="mb-12 text-center">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Design Language</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Design Language</span>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">设计语言</h2>
           </div>
           <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
@@ -164,7 +164,7 @@ function WbitDeepDive() {
                   { color: "#191B1C", name: "BG" },
                   { color: "#242729", name: "Surface" },
                   { color: "#7ECF82", name: "Success" },
-                  { color: "#7792F0", name: "Info" },
+                  { color: "#2b6adb", name: "Info" },
                 ].map((t) => (
                   <div key={t.color} className="text-center">
                     <span className="block h-16 w-full rounded-xl border border-white/[0.06]" style={{ backgroundColor: t.color }} />
@@ -272,7 +272,7 @@ function WbitDeepDive() {
       <section className="bg-[#08060e] px-5 py-20 md:px-8 md:py-28 lg:px-12">
         <div className="mx-auto max-w-[1480px]">
           <div className="mb-12 text-center">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Homepage</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Homepage</span>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">首页设计</h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/40 font-light">用户打开 Wbit 的第一秒，需要回答三个问题：我是谁？我要做什么？从哪里开始？首页的核心任务不是展示功能，而是帮用户用最短路径完成第一次有效交互。</p>
           </div>
@@ -319,7 +319,7 @@ function WbitDeepDive() {
       <section className="bg-[#08060e] px-5 py-20 md:px-8 md:py-28 lg:px-12">
         <div className="mx-auto max-w-[1480px]">
           <div className="mb-12 text-center">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Interaction Design</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Interaction Design</span>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">交互设计</h2>
           </div>
           <div className="grid gap-8 lg:grid-cols-2">
@@ -332,7 +332,7 @@ function WbitDeepDive() {
                 {[
                   { range: "≤ 3s", action: "微动效加载", desc: "短暂等待用动画过渡，不打断用户心流", color: "#7ECF82" },
                   { range: "3–10s", action: "思维链展示", desc: "展示 AI 推理过程，把等待变成可视化的思考", color: "#f29a57" },
-                  { range: "> 10s", action: "后台异步", desc: "转为后台任务，完成后推送通知", color: "#7792F0" },
+                  { range: "> 10s", action: "后台异步", desc: "转为后台任务，完成后推送通知", color: "#2b6adb" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg font-mono text-xs font-bold" style={{ backgroundColor: `${item.color}15`, color: `${item.color}90` }}>{item.range}</span>
@@ -379,7 +379,7 @@ function WbitDeepDive() {
                   { level: "3", title: "三级反馈动作（隐性角落）", desc: "赞 / 踩，收纳在角落不干扰主流程" },
                 ].map((item) => (
                   <div key={item.level} className="flex items-start gap-4 rounded-xl bg-[#0d0d0d] p-5">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#6758A9]/10 text-sm font-bold text-[#6758A9]/60">{item.level}</span>
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#4035e1]/10 text-sm font-bold text-[#4035e1]/60">{item.level}</span>
                     <div>
                       <h4 className="text-sm font-semibold text-white/70">{item.title}</h4>
                       <p className="mt-1 text-xs text-white/40">{item.desc}</p>
@@ -435,7 +435,7 @@ function WbitDeepDive() {
       <section className="bg-[#08060e] px-5 py-20 md:px-8 md:py-28 lg:px-12">
         <div className="mx-auto max-w-[1480px]">
           <div className="mb-12 text-center">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">AI Capabilities</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">AI Capabilities</span>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">智能内核</h2>
           </div>
           <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
@@ -448,7 +448,7 @@ function WbitDeepDive() {
                 {[
                   { value: "+16%", label: "准确率提升", color: "#7ECF82" },
                   { value: "3min", label: "生成体检报告", color: "#f29a57" },
-                  { value: "70%", label: "人工审核下降", color: "#7792F0" },
+                  { value: "70%", label: "人工审核下降", color: "#2b6adb" },
                 ].map((stat) => (
                   <div key={stat.label} className="rounded-xl bg-[#0d0d0d] p-4 text-center">
                     <span className="font-mono text-2xl font-bold" style={{ color: `${stat.color}90` }}>{stat.value}</span>
@@ -491,8 +491,8 @@ function WbitDeepDive() {
               { name: "风控决策", desc: "多维风险智能扫描", color: "#ff665e" },
               { name: "智能营销", desc: "AI 高效拓客", color: "#f29a57" },
               { name: "政策匹配", desc: "政策补贴高效触达", color: "#7ECF82" },
-              { name: "智能信贷", desc: "百款方案智能匹配", color: "#7792F0" },
-              { name: "报告洞察", desc: "专业报告自动生成", color: "#6758A9" },
+              { name: "智能信贷", desc: "百款方案智能匹配", color: "#2b6adb" },
+              { name: "报告洞察", desc: "专业报告自动生成", color: "#4035e1" },
             ].map((agent) => (
               <div key={agent.name} className="rounded-xl bg-[#0d0d0d] p-4">
                 <span className="block h-2 w-2 rounded-full" style={{ backgroundColor: `${agent.color}60` }} />
@@ -508,7 +508,7 @@ function WbitDeepDive() {
       <section className="bg-[#08060e] px-5 py-20 md:px-8 md:py-28 lg:px-12">
         <div className="mx-auto max-w-[1480px]">
           <div className="mb-12 text-center">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Business Modes</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Business Modes</span>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">五大业务模式</h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/40 font-light">从单一的税务咨询延展到五大业务模式，每个模式都有独立的入口、流程和交付物。</p>
           </div>
@@ -524,10 +524,10 @@ function WbitDeepDive() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {[
               { name: "税务服务", desc: "双重风险核查，5 分钟出具风险报告", color: "#f29a57" },
-              { name: "小微信贷", desc: "百款方案智能匹配，信贷极速触达", color: "#7792F0" },
+              { name: "小微信贷", desc: "百款方案智能匹配，信贷极速触达", color: "#2b6adb" },
               { name: "找客户", desc: "多维度精准筛选，主动推荐机会", color: "#7ECF82" },
               { name: "找补贴", desc: "政策补贴高效触达，申报全程辅导", color: "#ff665e" },
-              { name: "AI 专家分身", desc: "多智能体协同，AI 到人工服务闭环", color: "#6758A9" },
+              { name: "AI 专家分身", desc: "多智能体协同，AI 到人工服务闭环", color: "#4035e1" },
             ].map((mode) => (
               <div key={mode.name} className="rounded-2xl bg-[#0d0d0d] p-6">
                 <span className="block h-2 w-2 rounded-full" style={{ backgroundColor: `${mode.color}60` }} />
@@ -568,7 +568,7 @@ function WbitDeepDive() {
       <section className="bg-[#08060e] px-5 py-20 md:px-8 md:py-28 lg:px-12">
         <div className="mx-auto max-w-[1480px]">
           <div className="mb-12 text-center">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Methodology</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Methodology</span>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">体系与标准</h2>
           </div>
           <div className="overflow-hidden rounded-[2rem] border border-white/[0.06] bg-[#0d0d0d]">
@@ -592,7 +592,7 @@ function WbitDeepDive() {
                 ].map((item) => (
                   <div key={item.id} className="group rounded-xl border border-white/[0.04] bg-white/[0.015] p-5 transition-all hover:border-[#7ECF82]/10 hover:bg-white/[0.025]">
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs text-[#6758A9]/60">{item.id}</span>
+                      <span className="font-mono text-xs text-[#4035e1]/60">{item.id}</span>
                       <h4 className="text-sm font-semibold text-white/75">{item.title}</h4>
                     </div>
                     <p className="mt-2 text-xs leading-5 text-white/40">{item.desc}</p>
@@ -613,7 +613,7 @@ function WbitDeepDive() {
       <section className="bg-[#08060e] px-5 py-20 md:px-8 md:py-28 lg:px-12">
         <div className="mx-auto max-w-[1480px]">
           <div className="mb-12 text-center">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Results</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Results</span>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">真实业务成果</h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-white/40 font-light">产品上线后服务税务、金融、政务园区等多行业客户，以下是部分可量化的业务指标。</p>
           </div>
@@ -621,7 +621,7 @@ function WbitDeepDive() {
             {[
               { industry: "金融行业", metric: "客户转化率提升", value: "近 3 倍", color: "#f29a57" },
               { industry: "税务机构", metric: "营收增长提升", value: "30%", color: "#7ECF82" },
-              { industry: "政务园区", metric: "产业治理效率提升", value: "60%", color: "#7792F0" },
+              { industry: "政务园区", metric: "产业治理效率提升", value: "60%", color: "#2b6adb" },
             ].map((item) => (
               <div key={item.industry} className="rounded-2xl bg-[#0d0d0d] p-8 text-center">
                 <span className="text-xs text-white/30">{item.industry}</span>
@@ -652,7 +652,7 @@ function WbitDeepDive() {
       <section className="bg-[#08060e] px-5 py-20 md:px-8 md:py-28 lg:px-12">
         <div className="mx-auto max-w-[1480px]">
           <div className="mb-12 text-center">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Screen Gallery</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Screen Gallery</span>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl">页面展示</h2>
           </div>
           {/* PLACEHOLDER: 页面展示总览图 */}
@@ -714,7 +714,7 @@ function WbitDeepDive() {
       <section className="bg-[#08060e] px-5 py-20 md:px-8 md:py-32 lg:px-12">
         <div className="mx-auto max-w-[900px]">
           <div className="text-center">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Summary</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Summary</span>
             <h2 className="mt-6 font-serif text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">写在最后</h2>
           </div>
 
@@ -733,7 +733,7 @@ function WbitDeepDive() {
           <div className="mt-16 border-t border-white/[0.06] pt-12">
             <div className="grid gap-8 md:grid-cols-2">
               <div>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Credits</span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Credits</span>
                 <div className="mt-4 space-y-3">
                   {[
                     { role: "产品设计", name: "魏晋山" },
@@ -748,7 +748,7 @@ function WbitDeepDive() {
                 </div>
               </div>
               <div>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6758A9]/60">Thanks</span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">Thanks</span>
                 <p className="mt-4 text-sm leading-7 text-white/40 font-light">
                   感谢微风企科技的产品、研发和运营团队在项目过程中的紧密协作。感谢每一位参与可用性测试的用户，你们的真实反馈让这个产品越来越好。
                 </p>
@@ -831,11 +831,11 @@ export default async function WorkPage({ params }: WorkPageProps) {
               {insightCards.map((card) => (
                 <div key={card.num}>
                   <div className="flex items-center gap-2.5 mb-4">
-                    <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#1801ed]/60">
+                    <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">
                       {card.num}
                     </span>
                     <span className="h-px flex-1 bg-white/[0.06]" />
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#1801ed]/70">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4035e1]/70">
                       {card.label}
                     </span>
                   </div>

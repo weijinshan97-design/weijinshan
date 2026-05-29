@@ -101,9 +101,9 @@ export function Contact() {
               <a
                 href="/files/resume.pdf"
                 download
-                className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#1801ed]/30 text-sm text-white/50 hover:text-white/90 hover:border-[#1801ed]/50 hover:-translate-y-0.5 transition-all duration-500 overflow-hidden"
+                className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#4035e1]/30 text-sm text-white/50 hover:text-white/90 hover:border-[#4035e1]/50 hover:-translate-y-0.5 transition-all duration-500 overflow-hidden"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#1801ed]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#4035e1]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                 <span className="relative">下载简历 PDF</span>
                 <span className="relative text-xs opacity-50 group-hover:opacity-80 transition-opacity">↓</span>
               </a>
@@ -118,8 +118,8 @@ export function Contact() {
         style={{ height: "clamp(100px, 13vw, 190px)" }}
       >
         <div className="relative mx-auto h-full max-w-[1200px] px-6">
-          <div className="absolute left-1/2 bottom-[12%] h-[clamp(76px,10vw,146px)] w-[clamp(76px,10vw,146px)] -translate-x-1/2 rounded-full bg-dark shadow-[0_0_26px_rgba(88,60,180,0.24),0_0_58px_rgba(88,60,180,0.12)]" />
-          <div className="absolute left-1/2 bottom-[-28%] h-[clamp(112px,14vw,210px)] w-[clamp(112px,14vw,210px)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(88,60,180,0.17)_0%,rgba(88,60,180,0.06)_38%,transparent_68%)] blur-xl" />
+          <div className="absolute left-1/2 bottom-[12%] h-[clamp(76px,10vw,146px)] w-[clamp(76px,10vw,146px)] -translate-x-1/2 rounded-full bg-dark shadow-[0_0_26px_rgba(64,53,225,0.24),0_0_58px_rgba(64,53,225,0.12)]" />
+          <div className="absolute left-1/2 bottom-[-28%] h-[clamp(112px,14vw,210px)] w-[clamp(112px,14vw,210px)] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(64,53,225,0.17)_0%,rgba(64,53,225,0.06)_38%,transparent_68%)] blur-xl" />
 
           <motion.h2
             initial={{ y: 42, opacity: 0, scaleY: 1.28 }}

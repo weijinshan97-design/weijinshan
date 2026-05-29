@@ -29,7 +29,7 @@ function PrismLight() {
           style={{
             transform: "skewX(-22deg) rotate(-8deg)",
             background:
-              "linear-gradient(100deg, rgba(25,35,255,0.86), rgba(39,118,255,0.74) 26%, rgba(44,224,255,0.74) 50%, rgba(255,242,138,0.82) 72%, rgba(255,82,47,0.52) 100%)",
+              "linear-gradient(100deg, rgba(64,53,225,0.86), rgba(43,106,219,0.74) 26%, rgba(44,224,255,0.74) 50%, rgba(255,242,138,0.82) 72%, rgba(255,82,47,0.52) 100%)",
           }}
         />
         <div
@@ -37,7 +37,7 @@ function PrismLight() {
           style={{
             transform: "rotate(-8deg)",
             background:
-              "radial-gradient(ellipse at 70% 58%, rgba(255,255,230,0.9) 0%, rgba(255,214,66,0.8) 15%, rgba(43,222,255,0.58) 34%, rgba(41,50,255,0.44) 58%, rgba(0,0,0,0) 78%)",
+              "radial-gradient(ellipse at 70% 58%, rgba(255,255,230,0.9) 0%, rgba(255,214,66,0.8) 15%, rgba(43,222,255,0.58) 34%, rgba(64,53,225,0.44) 58%, rgba(0,0,0,0) 78%)",
           }}
         />
       </motion.div>
@@ -58,7 +58,7 @@ function PrismLight() {
           style={{
             transform: "skewX(-20deg) rotate(-9deg)",
             background:
-              "linear-gradient(100deg, rgba(34,46,255,0.9), rgba(39,218,255,0.86) 46%, rgba(255,244,122,0.5) 72%, rgba(0,0,0,0) 100%)",
+              "linear-gradient(100deg, rgba(64,53,225,0.9), rgba(39,218,255,0.86) 46%, rgba(255,244,122,0.5) 72%, rgba(0,0,0,0) 100%)",
           }}
         />
       </motion.div>

@@ -63,8 +63,8 @@ export function Hero() {
         style={{ y: overlayY }}
       >
         {/* Purple/blue glow — bottom half */}
-        <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-[radial-gradient(ellipse_at_50%_80%,rgba(88,60,180,0.18)_0%,rgba(60,80,180,0.08)_35%,transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[radial-gradient(ellipse_at_50%_100%,rgba(100,60,200,0.12)_0%,transparent_60%)]" />
+        <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-[radial-gradient(ellipse_at_50%_80%,rgba(64,53,225,0.18)_0%,rgba(43,106,219,0.08)_35%,transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[radial-gradient(ellipse_at_50%_100%,rgba(64,53,225,0.12)_0%,transparent_60%)]" />
       </motion.div>
 
       {/* Particle field — on top of black overlay */}

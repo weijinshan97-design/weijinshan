@@ -159,7 +159,7 @@ function FlowPluginShowcase() {
     <div className="mb-12 overflow-hidden rounded-2xl bg-[#080b0a] ring-1 ring-white/10 shadow-[0_28px_90px_rgba(6,8,8,0.26)]">
       <div className="grid lg:grid-cols-[0.86fr_1.14fr]">
         <div className="relative overflow-hidden border-b border-white/10 p-6 md:p-8 lg:border-b-0 lg:border-r">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_8%,rgba(24,1,237,0.2),transparent_30%),linear-gradient(160deg,rgba(255,255,255,0.08),transparent_42%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_8%,rgba(64,53,225,0.2),transparent_30%),linear-gradient(160deg,rgba(255,255,255,0.08),transparent_42%)]" />
           <div className="relative rounded-2xl border border-white/10 bg-white/[0.045] p-4 shadow-2xl shadow-black/30 backdrop-blur">
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <div className="flex items-center gap-2">
@@ -174,7 +174,7 @@ function FlowPluginShowcase() {
 
             <div className="py-6">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#1801ed] text-sm font-bold text-[#15110c]">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#4035e1] text-sm font-bold text-white">
                   F2
                 </span>
                 <div>
@@ -191,7 +191,7 @@ function FlowPluginShowcase() {
                       截图 / Markdown / HTML
                     </p>
                   </div>
-                  <span className="rounded-full bg-[#1801ed]/12 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#1801ed]">
+                  <span className="rounded-full bg-[#4035e1]/12 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
                     就绪
                   </span>
                 </div>
@@ -208,12 +208,12 @@ function FlowPluginShowcase() {
                       <p className="text-xs font-semibold text-white/72">{title}</p>
                       <p className="mt-0.5 truncate text-[11px] text-white/32">{desc}</p>
                     </div>
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#1801ed]/70" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#4035e1]/70" />
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 rounded-xl bg-[#1801ed] px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em] text-[#17120c]">
+              <div className="mt-6 rounded-xl bg-[#4035e1] px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.12em] text-white">
                 生成规范 Figma 稿
               </div>
             </div>
@@ -244,7 +244,7 @@ function FlowPluginShowcase() {
               {nodes.map((node, i) => (
                 <div key={node.label} className="flex items-center gap-3 shrink-0">
                   <div className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3">
-                    <p className="text-[9px] uppercase tracking-[0.16em] text-[#1801ed]/60">
+                    <p className="text-[9px] uppercase tracking-[0.16em] text-[#4035e1]/60">
                       {node.meta}
                     </p>
                     <p className="mt-1 text-xs font-semibold text-white/80">
@@ -282,11 +282,11 @@ function PortfolioSiteShowcase() {
     <div className="mb-14 overflow-hidden rounded-2xl bg-[#070808] ring-1 ring-white/10 shadow-[0_28px_90px_rgba(6,8,8,0.32)]">
       <div className="grid min-h-[420px] lg:grid-cols-[0.92fr_1.08fr]">
         <div className="relative overflow-hidden p-6 md:p-8 lg:p-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_38%,rgba(24,1,237,0.24),transparent_28%),linear-gradient(135deg,rgba(24,1,237,0.18),transparent_42%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_38%,rgba(64,53,225,0.24),transparent_28%),linear-gradient(135deg,rgba(64,53,225,0.18),transparent_42%)]" />
           <div className="relative flex h-full flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/40">
-                <span className="h-2 w-2 rounded-full bg-[#1801ed]/80" />
+                <span className="h-2 w-2 rounded-full bg-[#4035e1]/80" />
                 AI 协作作品集
               </div>
               <h4 className="mt-10 font-serif text-5xl font-bold leading-[0.98] tracking-normal text-white md:text-6xl lg:text-7xl">
