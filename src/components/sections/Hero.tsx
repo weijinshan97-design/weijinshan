@@ -57,22 +57,23 @@ export function Hero() {
 
   return (
     <section id="home" ref={sectionRef} className="relative bg-dark">
-      {/* Purple/blue glow — bottom half */}
-      <div className="fixed inset-0 z-[2] pointer-events-none">
-        <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-[radial-gradient(ellipse_at_50%_80%,rgba(88,60,180,0.18)_0%,rgba(60,80,180,0.08)_35%,transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[radial-gradient(ellipse_at_50%_100%,rgba(100,60,200,0.12)_0%,transparent_60%)]" />
-      </div>
-
-      {/* Particle field */}
-      <div className="fixed inset-0 z-[3]">
-        <ParticleField />
-      </div>
-
       {/* Black overlay — slides up */}
       <motion.div
         className="fixed inset-0 bg-dark z-10 pointer-events-none"
         style={{ y: overlayY }}
-      />
+      >
+        {/* Purple/blue glow — bottom half */}
+        <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-[radial-gradient(ellipse_at_50%_80%,rgba(88,60,180,0.18)_0%,rgba(60,80,180,0.08)_35%,transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[radial-gradient(ellipse_at_50%_100%,rgba(100,60,200,0.12)_0%,transparent_60%)]" />
+      </motion.div>
+
+      {/* Particle field — on top of black overlay */}
+      <motion.div
+        className="fixed inset-0 z-[11] pointer-events-none"
+        style={{ y: overlayY }}
+      >
+        <ParticleField />
+      </motion.div>
 
       {/* Title — fixed, scrolls with content after it appears */}
       <motion.div

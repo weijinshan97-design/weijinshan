@@ -128,7 +128,7 @@ export function ParticleField() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 z-[1] pointer-events-auto"
+      className="absolute inset-0 pointer-events-auto"
       style={{ opacity: 0.6 }}
     />
   );
