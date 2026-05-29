@@ -51,9 +51,9 @@ export function Hero() {
     ["rgba(255,255,255,0.48)", "rgb(113,113,122)"]
   );
 
-  // Keep the title present while the about content rises, then let it leave upward.
-  const titleY = useTransform(smoothProgress, [0, 0.28, 0.42], ["0vh", "0vh", "-20vh"]);
-  const titleOpacity = useTransform(smoothProgress, [0, 0.30, 0.40], [1, 1, 0]);
+  // Title slides up with black overlay and disappears together
+  const titleY = useTransform(smoothProgress, [0, 0.08, 0.30], ["0vh", "0vh", "-30vh"]);
+  const titleOpacity = useTransform(smoothProgress, [0, 0.20, 0.30], [1, 1, 0]);
 
   return (
     <section id="home" ref={sectionRef} className="relative bg-dark">
@@ -148,118 +148,65 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="mt-12 md:mt-20 relative">
-            {/* Decorative English title */}
-            <div
-              className={`hidden lg:block absolute right-0 bottom-0 pointer-events-none transition-opacity duration-500 ${
-                hoveredExp !== null ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              <div className="flex flex-col items-end gap-1 select-none">
-                <span className="text-[10rem] xl:text-[12rem] font-bold leading-[0.7] tracking-tighter text-muted-light/6">
-                  WORK
-                </span>
-                <span className="text-[7.5rem] xl:text-[9rem] font-bold leading-[0.75] tracking-wide text-muted-light/5">
-                  EXPERIENCE
-                </span>
-              </div>
-              <div className="absolute inset-0 overflow-hidden blur-md">
-                <div
-                  className="absolute inset-0 animate-shimmer"
-                  style={{
-                    background: "linear-gradient(105deg, transparent 30%, rgba(45,74,62,0.06) 50%, transparent 70%)",
-                    backgroundSize: "200% 100%",
-                  }}
-                />
-              </div>
+          <div className="mt-12 md:mt-16">
+            <div className="mb-6 md:mb-8">
+              <span className="text-xs tracking-[0.14em] uppercase text-muted font-medium">
+                工作经历
+              </span>
             </div>
-
-            <div className="text-left max-w-[720px]">
-              <div className="mb-6 md:mb-10">
-                <span className="text-xs tracking-[0.14em] uppercase text-muted font-medium">
-                  工作经历
-                </span>
-              </div>
-              <div className="relative">
-                <div className="absolute left-[8px] top-2 bottom-2 w-px bg-border-light hidden sm:block" />
-                <div className="space-y-4 md:space-y-5">
-                {aboutData.experience.map((exp, i) => (
-                  <div
-                    key={i}
-                    className="flex gap-3 md:gap-5 group cursor-default"
-                    onMouseEnter={() => setHoveredExp(i)}
-                    onMouseLeave={() => setHoveredExp(null)}
-                  >
-                    <div className="relative shrink-0 mt-1.5 hidden sm:block">
-                      <span
-                        className={`block w-[17px] h-[17px] rounded-full border-2 transition-colors duration-300 ${
-                          i === 0 || hoveredExp === i
-                            ? "bg-accent border-accent"
-                            : "bg-white border-border"
-                        }`}
-                      />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-baseline gap-2 md:gap-3 flex-wrap">
-                        <span className="text-base md:text-lg font-medium text-foreground">
-                          {exp.company}
-                        </span>
-                        <span className="text-sm md:text-base text-muted">
-                          {exp.role}
-                        </span>
-                      </div>
-                      <span className="block text-xs md:text-sm text-muted font-mono mt-0.5">
-                        {exp.period}
-                      </span>
-                      <span className="block text-xs md:text-sm text-muted mt-1">
-                        {exp.tags}
-                      </span>
-
-                      <AnimatePresence>
-                        {hoveredExp === i && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.35, ease: "easeInOut" }}
-                            className="overflow-hidden"
-                          >
-                            <div className="mt-4 pl-0 pb-2">
-                              <p className="text-xs md:text-sm tracking-[0.1em] text-muted font-medium mb-2">
-                                工作内容
-                              </p>
-                              <ul className="space-y-1 md:space-y-1.5">
-                                {exp.detail.map((item, j) => (
-                                  <li
-                                    key={j}
-                                    className="text-sm md:text-base text-muted leading-relaxed flex gap-2"
-                                  >
-                                    <span className="text-muted-light shrink-0">·</span>
-                                    <span>{item}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                              <p className="text-xs md:text-sm tracking-[0.1em] text-muted font-medium mt-4 md:mt-5 mb-2">
-                                项目成果
-                              </p>
-                              <ul className="space-y-1 md:space-y-1.5">
-                                {exp.achievements.map((item, j) => (
-                                  <li
-                                    key={j}
-                                    className="text-sm md:text-base text-muted leading-relaxed"
-                                  >
-                                    {item}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
+            <div className="space-y-5 md:space-y-6">
+              {aboutData.experience.map((exp, i) => (
+                <div
+                  key={i}
+                  className="group cursor-default"
+                  onMouseEnter={() => setHoveredExp(i)}
+                  onMouseLeave={() => setHoveredExp(null)}
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <span className="text-base md:text-lg font-medium text-foreground">
+                      {exp.company}
+                    </span>
+                    <span className="text-xs text-muted font-mono shrink-0">
+                      {exp.period}
+                    </span>
                   </div>
-                ))}
-              </div>
+                  <div className="mt-1.5 flex items-center gap-2">
+                    <span className="text-sm text-muted">
+                      {exp.role}
+                    </span>
+                    <span className="text-muted-light">·</span>
+                    <span className="text-xs text-muted-light">
+                      {exp.tags}
+                    </span>
+                  </div>
+
+                  <AnimatePresence>
+                    {hoveredExp === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-3 pb-1">
+                          <ul className="space-y-1">
+                            {exp.detail.map((item, j) => (
+                              <li
+                                key={j}
+                                className="text-sm text-muted leading-relaxed flex gap-2"
+                              >
+                                <span className="text-muted-light shrink-0">·</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
             </div>
           </div>
 
