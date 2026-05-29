@@ -910,7 +910,6 @@ export default async function WorkPage({ params }: WorkPageProps) {
                   <iframe
                     src="//player.bilibili.com/player.html?bvid=BV1sDVa6vEkR&page=1&high_quality=1&danmaku=0"
                     scrolling="no"
-                    border="0"
                     frameBorder="no"
                     allowFullScreen={true}
                     className="absolute top-0 left-0 w-full h-full"
