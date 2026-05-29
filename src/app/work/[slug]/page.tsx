@@ -831,71 +831,33 @@ export default async function WorkPage({ params }: WorkPageProps) {
         </section>
       )}
 
-      {/* Content — three cards */}
+      {/* Content — three sections */}
       {!isWbit && (
-        <section className="px-6 md:px-8 lg:px-12 py-16 md:py-24">
+        <section className="px-6 md:px-8 lg:px-12 py-12 md:py-20">
           <div className="max-w-[1080px] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-10">
               {insightCards.map((card) => (
-                <article
-                  key={card.num}
-                  className={`group relative min-h-[320px] overflow-hidden rounded-2xl border p-7 md:p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_70px_rgba(0,0,0,0.28)] ${
-                    card.accent
-                      ? "border-[#d68b38]/20 bg-white/[0.07] hover:border-[#d68b38]/32"
-                      : "border-white/10 bg-white/[0.045] hover:border-white/18 hover:bg-white/[0.065]"
-                  }`}
-                >
-                  <div
-                    className={`absolute -right-16 -top-16 h-44 w-44 rounded-full blur-2xl transition-opacity duration-500 group-hover:opacity-100 ${
-                      card.accent
-                        ? "bg-[#d68b38]/16 opacity-80"
-                        : "bg-white/[0.06] opacity-60"
-                    }`}
-                  />
-                  <span
-                    className={`absolute right-6 top-5 font-mono text-7xl font-bold leading-none select-none ${
-                      card.accent ? "text-[#d68b38]/10" : "text-white/[0.045]"
-                    }`}
-                  >
-                    {card.num}
-                  </span>
-
-                  <div className="relative z-10 flex h-full flex-col">
-                    <div className="flex items-center gap-3">
-                      <span
-                        className={`h-2.5 w-2.5 rounded-full ${
-                          card.accent ? "bg-[#d68b38]" : "bg-white/18"
-                        }`}
-                      />
-                      <span
-                        className={`text-[10px] font-semibold uppercase tracking-[0.22em] ${
-                          card.accent ? "text-[#d68b38]/70" : "text-white/32"
-                        }`}
-                      >
-                        {card.label}
-                      </span>
-                    </div>
-
-                    <h2 className="mt-10 font-serif text-2xl font-bold leading-tight text-white md:text-3xl">
-                      {card.title}
-                    </h2>
-                    <p className="mt-5 text-sm md:text-base text-white/56 leading-7">
-                      {card.text}
-                    </p>
-
-                    <div className="mt-auto pt-8">
-                      <span
-                        className={`inline-flex h-9 w-9 items-center justify-center rounded-full border text-sm transition-all duration-300 group-hover:translate-x-1 ${
-                          card.accent
-                            ? "border-[#d68b38]/24 text-[#d68b38]/72"
-                            : "border-white/10 text-white/26"
-                        }`}
-                      >
-                        →
-                      </span>
-                    </div>
+                <div key={card.num}>
+                  <div className="flex items-center gap-2.5 mb-4">
+                    <span className={`text-[10px] font-mono font-semibold uppercase tracking-[0.2em] ${
+                      card.accent ? "text-[#d68b38]/60" : "text-white/25"
+                    }`}>
+                      {card.num}
+                    </span>
+                    <span className="h-px flex-1 bg-white/[0.06]" />
+                    <span className={`text-[10px] font-semibold uppercase tracking-[0.22em] ${
+                      card.accent ? "text-[#d68b38]/70" : "text-white/32"
+                    }`}>
+                      {card.label}
+                    </span>
                   </div>
-                </article>
+                  <h2 className="font-serif text-xl font-bold text-white mb-3">
+                    {card.title}
+                  </h2>
+                  <p className="text-sm text-white/50 leading-7">
+                    {card.text}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
