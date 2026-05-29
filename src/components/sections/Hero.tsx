@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/data/site";
 import { aboutData } from "@/data/about";
 import { ParticleField } from "@/components/ui/ParticleField";
@@ -163,11 +163,18 @@ export function Hero() {
                   onMouseLeave={() => setHoveredExp(null)}
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <span className={`text-base md:text-lg font-medium transition-colors duration-200 ${
-                      hoveredExp === i ? "text-accent" : "text-foreground"
-                    }`}>
-                      {exp.company}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className={`text-base md:text-lg font-medium transition-colors duration-200 ${
+                        hoveredExp === i ? "text-accent" : "text-foreground"
+                      }`}>
+                        {exp.company}
+                      </span>
+                      <span className={`text-xs transition-all duration-200 ${
+                        hoveredExp === i ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
+                      }`}>
+                        ↓
+                      </span>
+                    </div>
                     <span className="text-xs text-muted font-mono shrink-0">
                       {exp.period}
                     </span>
@@ -181,6 +188,32 @@ export function Hero() {
                       {exp.tags}
                     </span>
                   </div>
+
+                  <AnimatePresence>
+                    {hoveredExp === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-3 pb-1">
+                          <ul className="space-y-1">
+                            {exp.detail.map((item, j) => (
+                              <li
+                                key={j}
+                                className="text-sm text-muted leading-relaxed flex gap-2"
+                              >
+                                <span className="text-muted-light shrink-0">·</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
             </div>
