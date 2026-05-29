@@ -163,9 +163,18 @@ export function Hero() {
                   onMouseLeave={() => setHoveredExp(null)}
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <span className="text-base md:text-lg font-medium text-foreground">
-                      {exp.company}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className={`text-base md:text-lg font-medium transition-colors duration-200 ${
+                        hoveredExp === i ? "text-accent" : "text-foreground"
+                      }`}>
+                        {exp.company}
+                      </span>
+                      <span className={`text-xs transition-all duration-200 ${
+                        hoveredExp === i ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
+                      }`}>
+                        ↓
+                      </span>
+                    </div>
                     <span className="text-xs text-muted font-mono shrink-0">
                       {exp.period}
                     </span>
