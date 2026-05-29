@@ -62,16 +62,6 @@ export function CapabilitiesNav() {
               <p className="mt-3 md:mt-5 max-w-sm text-xs md:text-sm leading-5 md:leading-7 text-white/44">
                 三条能力线共同支撑后面的案例：视觉经验负责表达，自动化负责效率，系统思维负责把问题推进到落地。
               </p>
-              <div className="mt-5 md:mt-8 grid max-w-sm grid-cols-3 gap-2 md:gap-3">
-                {["Visual", "AI Flow", "System"].map((label) => (
-                  <div
-                    key={label}
-                    className="rounded-lg border border-white/10 bg-white/[0.045] px-2 py-2 md:px-3 md:py-3 text-center text-[9px] md:text-[10px] uppercase tracking-[0.14em] text-white/45"
-                  >
-                    {label}
-                  </div>
-                ))}
-              </div>
             </div>
 
             <div className="grid gap-2 md:gap-3">
