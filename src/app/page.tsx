@@ -1,10 +1,13 @@
 import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
 import { CapabilitiesNav } from "@/components/sections/CapabilitiesNav";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { Systems } from "@/components/sections/Systems";
 import { Thinking } from "@/components/sections/Thinking";
 import { ScrollText } from "@/components/sections/ScrollText";
 import { Contact } from "@/components/sections/Contact";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { SlideIn } from "@/components/ui/SlideIn";
 
 function SectionDivider() {
   return (
@@ -17,16 +20,18 @@ function SectionDivider() {
 function CaseBridge() {
   return (
     <section className="bg-background px-6 pb-9 pt-14 md:px-8 md:pb-10 md:pt-16 lg:px-12">
-      <div className="mx-auto grid max-w-[1200px] gap-8 border-t border-border/70 pt-8 md:grid-cols-[0.82fr_1.18fr] md:items-end">
-        <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted">
-            Experience Into Practice
-          </p>
-          <p className="mt-4 font-serif text-lg leading-9 text-foreground/85 whitespace-nowrap md:text-2xl">
-            过往经历沉淀为方法，真实项目验证为结果。
-          </p>
+      <SlideIn direction="right">
+        <div className="mx-auto grid max-w-[1200px] gap-8 pt-8 md:grid-cols-[0.82fr_1.18fr] md:items-end">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted">
+              Experience Into Practice
+            </p>
+            <p className="mt-4 font-serif text-lg leading-9 text-foreground/85 whitespace-nowrap md:text-2xl">
+              过往经历沉淀为方法，真实项目验证为结果。
+            </p>
+          </div>
         </div>
-      </div>
+      </SlideIn>
     </section>
   );
 }
@@ -35,17 +40,34 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <CaseBridge />
+      <FadeIn>
+        <About />
+      </FadeIn>
+      <FadeIn>
+        <CaseBridge />
+      </FadeIn>
       <SectionDivider />
-      <CapabilitiesNav />
+      <FadeIn>
+        <CapabilitiesNav />
+      </FadeIn>
       <SectionDivider />
-      <SelectedWork />
+      <FadeIn>
+        <SelectedWork />
+      </FadeIn>
       <SectionDivider />
-      <Systems />
+      <FadeIn>
+        <Systems />
+      </FadeIn>
       <SectionDivider />
-      <Thinking />
-      <ScrollText />
-      <Contact />
+      <FadeIn>
+        <Thinking />
+      </FadeIn>
+      <FadeIn>
+        <ScrollText />
+      </FadeIn>
+      <FadeIn>
+        <Contact />
+      </FadeIn>
     </>
   );
 }

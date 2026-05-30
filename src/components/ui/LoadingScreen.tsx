@@ -122,6 +122,7 @@ export function LoadingScreen() {
   const [visible, setVisible] = useState(true);
   const [step, setStep] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [resourcesLoaded, setResourcesLoaded] = useState(false);
 
   const shouldShow = mounted && pathname === "/" && !prefersReducedMotion;
 
@@ -158,6 +159,42 @@ export function LoadingScreen() {
     return () => timers.forEach(clearTimeout);
   }, [shouldShow, visible]);
 
+  // Detect when critical resources are loaded
+  useEffect(() => {
+    if (!shouldShow) return;
+
+    let cancelled = false;
+
+    const checkResources = async () => {
+      try {
+        // Wait for fonts to be ready
+        await document.fonts.ready;
+
+        // Check if document is fully loaded
+        if (document.readyState !== "complete") {
+          await new Promise<void>((resolve) => {
+            window.addEventListener("load", () => resolve(), { once: true });
+          });
+        }
+
+        if (!cancelled) {
+          setResourcesLoaded(true);
+        }
+      } catch {
+        // If any check fails, still mark as loaded to avoid blocking forever
+        if (!cancelled) {
+          setResourcesLoaded(true);
+        }
+      }
+    };
+
+    checkResources();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [shouldShow]);
+
   const dismiss = useCallback(() => {
     window.scrollTo(0, 0);
     setVisible(false);
@@ -168,9 +205,14 @@ export function LoadingScreen() {
 
   useEffect(() => {
     if (!shouldShow || !visible || step < 7) return;
-    const timer = setTimeout(dismiss, 2100);
+
+    // Animation is complete at step 7
+    // If resources already loaded, dismiss after standard 2100ms
+    // If resources not loaded yet, wait up to 5s then dismiss anyway
+    const delay = resourcesLoaded ? 2100 : 5000;
+    const timer = setTimeout(dismiss, delay);
     return () => clearTimeout(timer);
-  }, [shouldShow, visible, step, dismiss]);
+  }, [shouldShow, visible, step, dismiss, resourcesLoaded]);
 
   if (!shouldShow) return null;
 

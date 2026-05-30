@@ -11,12 +11,19 @@ interface Particle {
   vy: number;
 }
 
-export function ParticleField() {
+interface ParticleFieldProps {
+  scatter?: number; // 0 = normal, 1 = fully scattered
+}
+
+export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
   const particlesRef = useRef<Particle[]>([]);
   const animFrameRef = useRef<number>(0);
   const prefersReducedMotion = useRef(false);
+  const scatterRef = useRef(scatter);
+
+  scatterRef.current = scatter;
 
   const initParticles = useCallback((width: number, height: number) => {
     const gap = 14;
@@ -93,20 +100,40 @@ export function ParticleField() {
       const repelStrength = 8;
       const returnStrength = 0.08;
       const damping = 0.85;
+      const currentScatter = scatterRef.current;
+
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
 
       for (const p of particlesRef.current) {
-        const dx = p.x - mouse.x;
-        const dy = p.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (currentScatter > 0) {
+          // Scatter mode: push particles away from center
+          const dx = p.x - centerX;
+          const dy = p.y - centerY;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const scatterForce = currentScatter * 15;
+          p.vx += (dx / dist) * scatterForce * 0.3;
+          p.vy += (dy / dist) * scatterForce * 0.3;
+          // Reduce return strength when scattering
+          const weakReturn = returnStrength * (1 - currentScatter * 0.9);
+          p.vx += (p.originX - p.x) * weakReturn;
+          p.vy += (p.originY - p.y) * weakReturn;
+        } else {
+          // Normal mode: mouse repel + return to origin
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < repelRadius && dist > 0) {
-          const force = (repelRadius - dist) / repelRadius;
-          p.vx += (dx / dist) * force * repelStrength;
-          p.vy += (dy / dist) * force * repelStrength;
+          if (dist < repelRadius && dist > 0) {
+            const force = (repelRadius - dist) / repelRadius;
+            p.vx += (dx / dist) * force * repelStrength;
+            p.vy += (dy / dist) * force * repelStrength;
+          }
+
+          p.vx += (p.originX - p.x) * returnStrength;
+          p.vy += (p.originY - p.y) * returnStrength;
         }
 
-        p.vx += (p.originX - p.x) * returnStrength;
-        p.vy += (p.originY - p.y) * returnStrength;
         p.vx *= damping;
         p.vy *= damping;
         p.x += p.vx;
@@ -117,9 +144,12 @@ export function ParticleField() {
         );
         const alpha = Math.min(0.35, 0.12 + displacement * 0.003);
 
+        // Fade out particles as they scatter more
+        const scatterAlpha = 1 - currentScatter * 0.7;
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${alpha * scatterAlpha})`;
         ctx.fill();
       }
 
