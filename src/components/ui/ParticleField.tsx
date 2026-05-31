@@ -12,7 +12,7 @@ interface Particle {
 }
 
 interface ParticleFieldProps {
-  scatter?: number; // 0 = normal, 1 = fully scattered
+  scatter?: number;
 }
 
 export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
@@ -76,6 +76,7 @@ export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
     resize();
     window.addEventListener("resize", resize);
 
+    // Mouse events
     const handleMouseMove = (e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     };
@@ -84,8 +85,28 @@ export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
       mouseRef.current = { x: -1000, y: -1000 };
     };
 
+    // Touch events
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        mouseRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        mouseRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }
+    };
+
+    const handleTouchEnd = () => {
+      mouseRef.current = { x: -1000, y: -1000 };
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd);
 
     const animate = () => {
       if (!ctx || prefersReducedMotion.current) {
@@ -107,15 +128,20 @@ export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
 
       for (const p of particlesRef.current) {
         if (currentScatter > 0) {
-          // Scatter mode: push particles away from center
+          // Scatter mode
           const dx = p.x - centerX;
           const dy = p.y - centerY;
           const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-          const scatterForce = currentScatter * 15;
+
+          const angle = Math.atan2(dy, dx) + (Math.random() - 0.5) * 0.5;
+          const scatterForce = currentScatter * 25;
+
+          p.vx += Math.cos(angle) * scatterForce * 0.5;
+          p.vy += Math.sin(angle) * scatterForce * 0.5;
           p.vx += (dx / dist) * scatterForce * 0.3;
           p.vy += (dy / dist) * scatterForce * 0.3;
-          // Reduce return strength when scattering
-          const weakReturn = returnStrength * (1 - currentScatter * 0.9);
+
+          const weakReturn = returnStrength * (1 - currentScatter * 0.95);
           p.vx += (p.originX - p.x) * weakReturn;
           p.vy += (p.originY - p.y) * weakReturn;
         } else {
@@ -134,8 +160,9 @@ export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
           p.vy += (p.originY - p.y) * returnStrength;
         }
 
-        p.vx *= damping;
-        p.vy *= damping;
+        const currentDamping = currentScatter > 0 ? 0.92 : damping;
+        p.vx *= currentDamping;
+        p.vy *= currentDamping;
         p.x += p.vx;
         p.y += p.vy;
 
@@ -144,12 +171,19 @@ export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
         );
         const alpha = Math.min(0.35, 0.12 + displacement * 0.003);
 
-        // Fade out particles as they scatter more
-        const scatterAlpha = 1 - currentScatter * 0.7;
+        // Glow effect near mouse
+        let finalAlpha = alpha;
+        const distToMouse = Math.sqrt((p.x - mouse.x) ** 2 + (p.y - mouse.y) ** 2);
+        if (distToMouse < 100 && currentScatter === 0) {
+          finalAlpha = Math.min(0.5, alpha + (1 - distToMouse / 100) * 0.3);
+        }
+
+        // Fade during scatter
+        const scatterAlpha = Math.max(0, 1 - currentScatter * 1.2);
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${alpha * scatterAlpha})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${finalAlpha * scatterAlpha})`;
         ctx.fill();
       }
 
@@ -162,6 +196,9 @@ export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
       motionQuery.removeEventListener("change", handleMotionChange);
       cancelAnimationFrame(animFrameRef.current);
     };

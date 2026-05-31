@@ -8,7 +8,7 @@ export const worksData: Work[] = [
     client: "杭州微风企科技",
     category: "AI 产品设计",
     year: "2024 — 2026",
-    cover: "/images/works/wbit-cover-new.png",
+    cover: "/images/wbit-hero.png",
     summaryZh:
       "0-1 主导 Wbit AI 助手平台整体产品设计，将税务、销售、老板、财务、信贷五类数字人整合进同一套对话式工作台，通过任务卡片、快捷能力标签和定时任务，把企业经营问题转化为可执行的 AI 工作流。",
     problemZh:

@@ -100,7 +100,7 @@ export function Contact() {
             <div className="mt-24 flex justify-center">
               <a
                 href="/files/resume.pdf"
-                download
+                download="魏晋山--设计作品集--联系18093167205.pdf"
                 className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-[#4035e1]/30 text-sm text-white/50 hover:text-white/90 hover:border-[#4035e1]/50 hover:-translate-y-0.5 transition-all duration-500 overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#4035e1]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />

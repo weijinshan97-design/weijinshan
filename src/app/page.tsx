@@ -8,6 +8,7 @@ import { ScrollText } from "@/components/sections/ScrollText";
 import { Contact } from "@/components/sections/Contact";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SlideIn } from "@/components/ui/SlideIn";
+import { ScrollingText } from "@/components/ui/ScrollingText";
 
 function SectionDivider() {
   return (
@@ -19,19 +20,14 @@ function SectionDivider() {
 
 function CaseBridge() {
   return (
-    <section className="bg-background px-6 pb-9 pt-14 md:px-8 md:pb-10 md:pt-16 lg:px-12">
-      <SlideIn direction="right">
-        <div className="mx-auto grid max-w-[1200px] gap-8 pt-8 md:grid-cols-[0.82fr_1.18fr] md:items-end">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted">
-              Experience Into Practice
-            </p>
-            <p className="mt-4 font-serif text-lg leading-9 text-foreground/85 whitespace-nowrap md:text-2xl">
-              过往经历沉淀为方法，真实项目验证为结果。
-            </p>
-          </div>
-        </div>
-      </SlideIn>
+    <section className="relative py-8 md:py-12 overflow-hidden bg-background border-y border-border-light">
+      {/* Edge fade masks */}
+      <div className="absolute inset-y-0 left-0 w-16 md:w-24 z-10 pointer-events-none bg-gradient-to-r from-background to-transparent" />
+      <div className="absolute inset-y-0 right-0 w-16 md:w-24 z-10 pointer-events-none bg-gradient-to-l from-background to-transparent" />
+      <ScrollingText
+        text="过往经历沉淀为方法 → 真实项目验证为结果 · 过往经历沉淀为方法 → 真实项目验证为结果 · 过往经历沉淀为方法 → 真实项目验证为结果"
+        textEn="EXPERIENCE INTO PRACTICE · EXPERIENCE INTO PRACTICE · EXPERIENCE INTO PRACTICE · EXPERIENCE INTO PRACTICE"
+      />
     </section>
   );
 }

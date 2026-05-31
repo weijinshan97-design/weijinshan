@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState, useCallback } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
 import { siteConfig } from "@/data/site";
 import { ParticleField } from "@/components/ui/ParticleField";
 
@@ -9,6 +9,7 @@ export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const [entered, setEntered] = useState(false);
   const [scatter, setScatter] = useState(0);
+  const scatterProgress = useMotionValue(0);
 
   useEffect(() => {
     const handleDismiss = () => setEntered(true);
@@ -20,6 +21,14 @@ export function Hero() {
     };
   }, []);
 
+  // Sync motion value to state for canvas
+  useEffect(() => {
+    const unsubscribe = scatterProgress.on("change", (v) => {
+      setScatter(v);
+    });
+    return unsubscribe;
+  }, [scatterProgress]);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -28,63 +37,55 @@ export function Hero() {
   // Convert scroll to scatter - bidirectional
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
-      const scatterValue = Math.min(1, v / 0.6);
-      setScatter(scatterValue);
+      const scatterValue = Math.min(1, v / 0.3);
+      scatterProgress.set(scatterValue);
     });
     return unsubscribe;
-  }, [scrollYProgress]);
+  }, [scrollYProgress, scatterProgress]);
 
-  // Click handler - smooth scroll down, scatter follows scroll
+  // Click handler - animate scatter
   const handleClick = useCallback(() => {
-    window.scrollTo({
-      top: window.innerHeight * 0.8,
-      behavior: "smooth",
+    animate(scatterProgress, 1, {
+      duration: 0.6,
+      ease: "easeOut",
     });
-  }, []);
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth",
+      });
+    }, 200);
+  }, [scatterProgress]);
 
-  // Title fades out based on scatter
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.3, 0.6], [1, 1, 0]);
-  const titleY = useTransform(scrollYProgress, [0, 0.3, 0.6], ["0px", "0px", "-40px"]);
-
-  // CTA text fades out
-  const ctaOpacity = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 1, 0]);
-
-  // Scroll hint fades out faster
-  const scrollOpacity = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 1, 0]);
-
-  // Background color transitions from dark to light
-  const bgColor = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ["#0a0a0a", "#0a0a0a", "var(--color-background)"]
-  );
-
-  // Glow opacity fades out
-  const glowOpacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 1, 0]);
+  // Title and glow fade based on scatter
+  const titleOpacity = Math.max(0, 1 - scatter * 2);
+  const glowOpacity = Math.max(0, 1 - scatter * 2);
 
   return (
-    <motion.section
+    <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen overflow-hidden cursor-pointer"
-      style={{ backgroundColor: bgColor }}
+      className="relative min-h-screen overflow-hidden cursor-pointer bg-[#0a0a0a]"
       onClick={handleClick}
     >
-      {/* Particle field with scatter */}
+      {/* Particle field */}
       <div className="absolute inset-0 pointer-events-none">
         <ParticleField scatter={scatter} />
       </div>
 
-      {/* Glow effects - fade out on scatter */}
-      <motion.div className="absolute inset-0" style={{ opacity: glowOpacity }}>
+      {/* Glow effects */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ opacity: glowOpacity }}
+      >
         <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-[radial-gradient(ellipse_at_50%_80%,rgba(64,53,225,0.18)_0%,rgba(43,106,219,0.08)_35%,transparent_70%)]" />
         <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[radial-gradient(ellipse_at_50%_100%,rgba(64,53,225,0.12)_0%,transparent_60%)]" />
-      </motion.div>
+      </div>
 
-      {/* Title — fades out on scatter */}
-      <motion.div
+      {/* Title */}
+      <div
         className="absolute top-[16vh] md:top-[14vh] left-0 right-0 px-6 md:px-8 lg:px-12 pointer-events-none"
-        style={{ opacity: titleOpacity, y: titleY }}
+        style={{ opacity: titleOpacity }}
       >
         <div className="flex flex-col items-center">
           <div className="inline-block mx-auto">
@@ -98,7 +99,6 @@ export function Hero() {
             </motion.h1>
           </div>
           <motion.p
-            style={{ opacity: ctaOpacity }}
             initial={{ opacity: 0, y: 10 }}
             animate={entered ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
@@ -107,12 +107,12 @@ export function Hero() {
             持续在商业视觉之外，探索工具、系统与更有效的解决方式。
           </motion.p>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Bottom scroll hint — fades out faster */}
-      <motion.div
-        style={{ opacity: scrollOpacity }}
+      {/* Bottom scroll hint */}
+      <div
         className="absolute bottom-10 md:bottom-16 left-0 right-0 px-6 md:px-8 lg:px-12 flex flex-col items-center gap-6 pointer-events-none"
+        style={{ opacity: titleOpacity }}
       >
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -135,7 +135,7 @@ export function Hero() {
             {siteConfig.descriptionZh}
           </p>
         </motion.div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 }
