@@ -141,14 +141,7 @@ export function LoadingScreen() {
     };
   }, []);
 
-  useEffect(() => {
-    if (!shouldShow) return;
-    // Prevent browser from restoring scroll position
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-    window.scrollTo(0, 0);
-  }, [shouldShow]);
+  // Removed automatic scroll to top - let browser handle scroll restoration
 
   useEffect(() => {
     if (!shouldShow || !visible) return;
