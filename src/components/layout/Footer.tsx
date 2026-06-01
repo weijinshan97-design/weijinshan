@@ -1,7 +1,30 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { navItems, siteConfig } from "@/data/site";
 
 export function Footer() {
+  const [visits, setVisits] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Use a simple localStorage counter
+    const key = "jinshan_visits";
+    const stored = localStorage.getItem(key);
+    const count = stored ? parseInt(stored) + 1 : 1;
+    localStorage.setItem(key, count.toString());
+
+    // Fetch from API (falls back to local count)
+    fetch("https://api.countapi.xyz/hit/jinshan.design/visits")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.value) setVisits(data.value);
+      })
+      .catch(() => {
+        setVisits(count);
+      });
+  }, []);
+
   return (
     <footer className="border-t border-border-light bg-surface">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 py-12 md:py-16">
@@ -39,9 +62,19 @@ export function Footer() {
           <p className="text-xs text-muted-light/50">
             &copy; {new Date().getFullYear()} {siteConfig.nameZh}. All rights reserved.
           </p>
-          <p className="text-xs text-muted-light/40">
-            Built with care. Not generated.
-          </p>
+          <div className="flex items-center gap-2">
+            <p className="text-xs text-muted-light/40">
+              Built with care. Not generated.
+            </p>
+            {visits !== null && (
+              <>
+                <span className="text-xs text-muted-light/30">·</span>
+                <span className="text-xs text-muted-light/40 font-mono" title="Total visits">
+                  {visits.toLocaleString()} views
+                </span>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </footer>
