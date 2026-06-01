@@ -124,7 +124,7 @@ export function LoadingScreen() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [resourcesLoaded, setResourcesLoaded] = useState(false);
 
-  const shouldShow = mounted && pathname === "/" && !prefersReducedMotion;
+  const shouldShow = mounted && pathname === "/";
 
   useEffect(() => {
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");

@@ -5,24 +5,18 @@ import Link from "next/link";
 import { navItems, siteConfig } from "@/data/site";
 
 export function Footer() {
-  const [visits, setVisits] = useState<number | null>(null);
+  const [visits, setVisits] = useState<number>(0);
 
   useEffect(() => {
-    // Use a simple localStorage counter
-    const key = "jinshan_visits";
-    const stored = localStorage.getItem(key);
-    const count = stored ? parseInt(stored) + 1 : 1;
-    localStorage.setItem(key, count.toString());
-
-    // Fetch from API (falls back to local count)
-    fetch("https://api.countapi.xyz/hit/jinshan.design/visits")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.value) setVisits(data.value);
-      })
-      .catch(() => {
-        setVisits(count);
-      });
+    try {
+      const key = "jinshan_visits";
+      const stored = localStorage.getItem(key);
+      const count = stored ? parseInt(stored) + 1 : 1;
+      localStorage.setItem(key, count.toString());
+      setVisits(count);
+    } catch {
+      setVisits(0);
+    }
   }, []);
 
   return (
