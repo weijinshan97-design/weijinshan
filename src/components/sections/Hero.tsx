@@ -69,7 +69,7 @@ export function Hero() {
       onClick={handleClick}
     >
       {/* Particle field */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none" style={{ opacity: Math.max(0.3, 1 - scatter) }}>
         <ParticleField scatter={scatter} />
       </div>
 

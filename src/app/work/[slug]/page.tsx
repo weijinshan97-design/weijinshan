@@ -67,7 +67,7 @@ function WbitDeepDive() {
             </div>
           </div>
           <div className="relative">
-            <img alt="Wbit Platform Interface" className="rounded-xl w-full object-cover" src="/images/wbit-hero.png" />
+            <img alt="Wbit Platform Interface" className="rounded-xl w-full object-cover" src="/images/webp/wbit-hero.webp" />
           </div>
         </div>
       </section>
@@ -176,7 +176,7 @@ function WbitDeepDive() {
           {/* Full-width image */}
           <div className="relative w-full aspect-[16/8] rounded-2xl overflow-hidden border border-[#d9c2b0]/20 mb-12">
             <img
-              src="/images/wbit-digital-workers.png"
+              src="/images/webp/wbit-digital-workers.webp"
               alt="Wbit 数字人矩阵展示"
               className="w-full h-full object-cover"
             />
@@ -184,7 +184,7 @@ function WbitDeepDive() {
           {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {[
-              { iconPath: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z", title: "税务数字人", desc: "全面税务风险扫描与政策匹配，自动生成税务体检报告与合规建议。", logic: "逻辑：推理引擎", color: "#fca039" },
+              { iconPath: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z", title: "税务数字人", desc: "全面税务风险扫描与政策匹配，自动生成税务体检报告与合规建议。", logic: "逻辑：推理引擎", color: "#fca039", img: "/images/webp/persona-ceo.webp" },
               { iconPath: "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z", title: "销售数字人", desc: "预测销售趋势与丢单风险，提供话术支持与策略调整提示，助力业绩增长。", logic: "逻辑：趋势预测", color: "#10b981" },
               { iconPath: "M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z", title: "老板数字人", desc: "自动识别经营异常与机会点，推送预警与战略建议，辅助关键决策。", logic: "逻辑：异常识别", color: "#fca039" },
               { iconPath: "M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941", title: "财税数字人", desc: "智能票据识别、智能记账与税务计算，人工审核工作量下降 70%。", logic: "逻辑：智能记账", color: "#10b981" },

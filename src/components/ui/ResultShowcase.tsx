@@ -3,11 +3,11 @@
 import { useState, useCallback, useEffect } from "react";
 
 const screens = [
-  { title: "找补贴", img: "/images/wbit-carousel-1.png" },
-  { title: "工具合并", img: "/images/wbit-carousel-2.png" },
-  { title: "查风险", img: "/images/wbit-carousel-3.png" },
-  { title: "找客户", img: "/images/wbit-carousel-4.png" },
-  { title: "视觉UI", img: "/images/wbit-carousel-5.png" },
+  { title: "找补贴", img: "/images/webp/wbit-carousel-1.webp" },
+  { title: "工具合并", img: "/images/webp/wbit-carousel-2.webp" },
+  { title: "查风险", img: "/images/webp/wbit-carousel-3.webp" },
+  { title: "找客户", img: "/images/webp/wbit-carousel-4.webp" },
+  { title: "视觉UI", img: "/images/webp/wbit-carousel-5.webp" },
 ];
 
 export function ResultShowcase() {
