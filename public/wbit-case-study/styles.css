@@ -82,7 +82,7 @@ main {
 .hero,
 .section {
   position: relative;
-  padding: clamp(52px, 6.4vw, 98px) clamp(22px, 5vw, 78px);
+  padding: clamp(52px, 6.4vw, 98px) clamp(28px, 6vw, 96px);
 }
 
 .hero {
@@ -3585,11 +3585,10 @@ figcaption {
   position: relative;
   z-index: 1;
   max-width: 1050px;
-  margin: 0 auto;
-  padding: 0 24px;
 }
 
 .band-title.center {
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -3637,6 +3636,9 @@ figcaption {
   overflow: hidden;
   border-top: 1px solid rgba(255,255,255,.16);
   border-bottom: 1px solid rgba(255,255,255,.16);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .three-metrics div,
@@ -5001,6 +5003,7 @@ figcaption {
   font-size: clamp(54px, 7vw, 108px);
   font-weight: 950;
   line-height: 0.9;
+  white-space: nowrap;
 }
 
 .result-metrics p {

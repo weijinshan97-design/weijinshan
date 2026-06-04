@@ -30,6 +30,12 @@ export async function generateMetadata({ params }: WorkPageProps): Promise<Metad
 }
 
 function WbitDeepDive() {
+  /*
+    Wbit 特殊详情页
+    - 这里只负责把 Wbit 独立案例挂到 /work/wbit-ai-platform
+    - 具体页面内容在 public/wbit-case-study/index.html
+    - 具体样式在 public/wbit-case-study/styles.css
+  */
   return (
     <section className="bg-[#050606] pt-20 md:pt-24">
       <WbitCaseFrame />
