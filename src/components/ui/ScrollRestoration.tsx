@@ -7,6 +7,12 @@ export function ScrollRestoration() {
   const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname === "/") {
+      sessionStorage.removeItem(`scroll-${pathname}`);
+      window.scrollTo(0, 0);
+      return;
+    }
+
     // Save scroll position before navigating away
     const handleBeforeUnload = () => {
       sessionStorage.setItem(`scroll-${pathname}`, window.scrollY.toString());

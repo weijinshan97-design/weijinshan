@@ -7,7 +7,7 @@ import { ParticleField } from "@/components/ui/ParticleField";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [entered, setEntered] = useState(false);
+  const [entered, setEntered] = useState(true);
   const [scatter, setScatter] = useState(0);
   const scatterProgress = useMotionValue(0);
 
@@ -90,8 +90,8 @@ export function Hero() {
         <div className="flex flex-col items-center">
           <div className="inline-block mx-auto">
             <motion.h1
-              initial={{ opacity: 0, y: 12 }}
-              animate={entered ? { opacity: 1, y: 0 } : {}}
+              initial={false}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
               className="whitespace-nowrap text-center font-serif text-[clamp(1.6rem,8.2vw,8.25rem)] font-bold leading-[1.02] tracking-normal text-white"
             >
@@ -99,8 +99,8 @@ export function Hero() {
             </motion.h1>
           </div>
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={entered ? { opacity: 1, y: 0 } : {}}
+            initial={false}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="mx-auto mt-4 md:mt-7 w-full max-w-[min(92vw,760px)] text-center text-[11px] sm:text-sm md:text-base font-normal tracking-[0.2em] md:tracking-[0.32em] leading-6 md:leading-8 text-white/48"
           >
@@ -115,8 +115,8 @@ export function Hero() {
         style={{ opacity: titleOpacity }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={entered ? { opacity: 1, y: 0 } : {}}
+          initial={false}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex flex-col items-center gap-6"
         >

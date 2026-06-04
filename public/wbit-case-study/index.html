@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wbit AI Agent UX Case Study</title>
+    <link rel="stylesheet" href="./styles.css?v=45" />
+  </head>
+  <body>
+    <main class="poster-case">
+      <section class="poster-hero">
+        <div class="poster-nav">
+          <span>Wbit / Enterprise AI Agent</span>
+          <span>UX Case Study / PC + Mobile</span>
+        </div>
+        <div class="poster-hero-grid">
+          <div>
+            <p class="poster-kicker">Case Thesis</p>
+            <h1>重构可执行的<br />AI 财税工作流。</h1>
+            <p class="poster-lead">
+              Wbit 面向小微企业的税务、政策、融资与经营风险场景。这个案例的核心不是重画一个漂亮界面，
+              而是让不会写 Prompt 的用户，也能通过 Agent 完成专业判断、结果复核和后续服务承接。
+            </p>
+          </div>
+          <div class="poster-role">
+            <span>Role</span>
+            <strong>UX / UI Designer</strong>
+            <span>Scope</span>
+            <strong>Agent interaction, PC workbench, mobile touchpoints</strong>
+          </div>
+        </div>
+        <figure class="poster-hero-device">
+          <img src="./assets/wbit-hero-laptop.png" alt="Wbit desktop product interface on laptop" />
+          <figcaption>真实产品画面：PC 工作台需要承载角色入口、企业上下文、任务引导和结果承接。</figcaption>
+        </figure>
+        <div class="hero-context-grid">
+          <article>
+            <span>Business Goal</span>
+            <strong>降低人工咨询成本</strong>
+            <p>用 Agent 完成问题初筛、材料补齐和报告生成，让专家处理更复杂的问题。</p>
+          </article>
+          <article>
+            <span>User Goal</span>
+            <strong>不用懂 Prompt，也能完成专业判断</strong>
+            <p>把自然问题翻译成财税任务，让用户清楚看见依据、风险和下一步。</p>
+          </article>
+          <article>
+            <span>Design Scope</span>
+            <strong>PC 深度处理，移动端触达跟进</strong>
+            <p>PC 承载分析和配置，移动端负责提醒、确认、补材料和服务进度。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="poster-band background-band">
+        <div class="ghost-word">Background</div>
+        <div class="band-title">
+          <span>01</span>
+          <h2>项目背景</h2>
+          <p>财税服务正在从“事后记账”，转向“实时风险识别和经营决策辅助”。</p>
+        </div>
+        <div class="background-copy">
+          <p>
+            金税四期、全电发票和企业数据治理，让企业经营中的风险、政策和融资线索越来越依赖实时数据判断。
+            小微企业知道自己可能有问题，但常常不知道该怎么问、该信什么、下一步该怎么处理。
+          </p>
+          <p>
+            因此 Wbit 的机会不是做一个更会聊天的 AI，而是把 AI、企业数据、专家服务和持续监测整合成一个经营服务入口。
+          </p>
+        </div>
+        <div class="three-metrics background-insights">
+          <article>
+            <strong>01</strong>
+            <span>行业变化</span>
+            <p>
+              财税监管从抽样和人工申报，转向发票、流水、申报、经营数据的实时交叉校验。
+              企业问题不再只发生在报税节点，而是随时可能被数据识别出来。
+            </p>
+            <em>所以设计要从“用户来查”转向“系统主动发现风险”。</em>
+          </article>
+          <article>
+            <strong>02</strong>
+            <span>用户门槛</span>
+            <p>
+              小微企业老板和财务人员不一定懂政策口径，也不一定会写 Prompt。
+              同一个问题，有人能描述成专业税务场景，有人只会说“我是不是有风险”。
+            </p>
+            <em>所以设计要用角色、任务模板和追问机制拉平 AI 使用能力。</em>
+          </article>
+          <article>
+            <strong>03</strong>
+            <span>服务闭环</span>
+            <p>
+              财税判断不能停在一句回答。用户真正需要的是风险依据、材料清单、处理建议，
+              以及必要时能转给专家继续处理。
+            </p>
+            <em>所以设计要把 AI 回答变成报告、任务和专家服务的起点。</em>
+          </article>
+        </div>
+      </section>
+
+      <section class="poster-band research-band">
+        <div class="band-title center">
+          <span>02</span>
+          <h2>用户分析</h2>
+          <p>用户差异不是职位差异，而是专业判断能力和 AI 使用能力的差异。</p>
+        </div>
+        <div class="quote-cloud">
+          <span>不知道怎么问</span>
+          <span>AI 说的我能信吗？</span>
+          <span>风险提醒之后谁来处理？</span>
+          <span>我只想知道下一步做什么</span>
+          <span>财税结果要有人兜底</span>
+        </div>
+        <div class="research-layout">
+          <div class="ai-level-panel">
+            <h3>AI 使用能力分层</h3>
+            <div class="ai-level-list">
+              <div>
+                <span>Level 01 / 不会问</span>
+                <strong>需要任务入口和示例问题</strong>
+                <i style="--w: 42%"></i>
+              </div>
+              <div>
+                <span>Level 02 / 问不准</span>
+                <strong>需要系统主动补齐上下文</strong>
+                <i style="--w: 38%"></i>
+              </div>
+              <div>
+                <span>Level 03 / 会使用</span>
+                <strong>需要自由输入和高级控制</strong>
+                <i style="--w: 20%"></i>
+              </div>
+            </div>
+          </div>
+          <div class="persona-lanes">
+            <article>
+              <strong>小微企业老板</strong>
+              <p>要快速判断风险和机会，不想被财税术语淹没。</p>
+              <em>设计回应：给经营摘要、风险等级和下一步建议。</em>
+            </article>
+            <article>
+              <strong>财务负责人</strong>
+              <p>关注依据、异常项、材料缺口和复核责任。</p>
+              <em>设计回应：展示来源、指标拆解和人工复核入口。</em>
+            </article>
+            <article>
+              <strong>企业服务顾问</strong>
+              <p>希望把咨询转成报告、任务和可交付服务。</p>
+              <em>设计回应：保留企业档案、历史上下文和服务进度。</em>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="poster-band competitor-band">
+        <div class="band-title">
+          <span>03</span>
+          <h2>竞品分析</h2>
+          <p>我不把竞品只看成界面风格，而是拆它们在“专业能力、AI 交互、服务承接”上的缺口。</p>
+        </div>
+        <div class="competitor-compare" aria-label="competitor comparison">
+          <div class="compare-head">
+            <span>竞品 / 类型</span>
+            <span>主要优势</span>
+            <span>体验缺口</span>
+            <span>Wbit 的改变</span>
+          </div>
+          <article>
+            <strong>金蝶 / 用友 / 传统财税 SaaS</strong>
+            <p>功能覆盖完整，适合专业财务人员。</p>
+            <p>入口复杂，普通老板很难把经营问题转成具体操作。</p>
+            <p>用数字人角色和任务模板，把功能入口翻译成业务场景。</p>
+          </article>
+          <article>
+            <strong>税友 / 亿企赢等财税服务平台</strong>
+            <p>有财税知识和专家服务资源。</p>
+            <p>响应链路偏人工，实时风险触达和持续监测不够强。</p>
+            <p>让 AI 先完成初筛、解释和报告，再把复杂问题转给专家。</p>
+          </article>
+          <article>
+            <strong>豆包 / ChatGPT / 通用 AI</strong>
+            <p>自然语言交互门槛低，回答速度快。</p>
+            <p>缺少企业档案、依据来源、风险边界和人工兜底。</p>
+            <p>把 Prompt 产品化，输出结论、依据、风险、动作和复核点。</p>
+          </article>
+        </div>
+        <div class="competitor-conclusion">
+          <span>Competitive conclusion</span>
+          <strong>竞品分别解决了“工具、知识、对话”，但没有把三者合成一条可执行的财税服务流程。</strong>
+          <p>
+            所以 Wbit 的设计方向不是再做一个万能聊天入口，而是把传统财税 SaaS 的数据能力、财税服务平台的专家能力、
+            通用 AI 的自然语言能力合并起来：前台用数字人和任务模板降低提问门槛，中台用企业上下文和 Prompt 约束保证输出可信，
+            后台用报告、材料、专家和进度完成服务承接。
+          </p>
+        </div>
+      </section>
+
+      <section class="poster-band problem-band">
+        <div class="band-title center">
+          <span>04</span>
+          <h2>解决痛点</h2>
+          <p>从用户和竞品缺口中，我把核心问题收敛成四个体验断点。</p>
+        </div>
+        <div class="problem-flow solution-flow">
+          <article>
+            <span>01</span>
+            <strong>不会问</strong>
+            <p>用户有经营问题，但不知道如何转换成专业提问。</p>
+            <em>解决方式：把空白输入框前置为“数字人角色 + 场景任务卡”，让用户先选目标，再进入对话。</em>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>不敢信</strong>
+            <p>财税结果有风险，用户需要知道 AI 为什么这么判断。</p>
+            <em>解决方式：结果页固定输出风险等级、判断依据、引用数据、缺失材料和人工复核点。</em>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>不连续</strong>
+            <p>普通 AI 回答结束后，用户仍然不知道下一步谁来处理。</p>
+            <em>解决方式：把回答转成报告、待办、材料清单和专家承接入口，让咨询变成服务流程。</em>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>多端割裂</strong>
+            <p>PC 适合深度分析，移动端适合提醒确认，但两端状态容易断开。</p>
+            <em>解决方式：PC 做报告和任务编排，移动端做风险提醒、材料补充、进度确认和老板摘要。</em>
+          </article>
+        </div>
+      </section>
+
+      <section class="poster-band design-band">
+        <div class="band-title">
+          <span>05</span>
+          <h2>交互详解</h2>
+          <p>交互不是把聊天框放大，而是把用户意图一步步转成可执行任务。</p>
+        </div>
+        <div class="tax-agent-story" aria-label="tax agent interaction story">
+          <div class="tax-agent-title">
+            <span>Scenario / Tax Agent</span>
+            <strong>从“我是不是有税务风险？”到一份可复核的税务体检报告。</strong>
+            <p>
+              我把交互起点放在税务数字人，而不是一个空白聊天框。因为财税场景里，用户真正缺的不是表达欲，
+              而是把模糊担心转成可执行任务的能力。
+            </p>
+          </div>
+          <div class="tax-agent-steps">
+            <article>
+              <span>01</span>
+              <strong>选择税务数字人</strong>
+              <p>系统切换到税务语境，展示税负异常、票税风险、合规体检等高频任务。</p>
+            </article>
+            <article>
+              <span>02</span>
+              <strong>选择任务模板</strong>
+              <p>用户不用自己写完整 Prompt，只需要选择“税务体检”或“发票风险排查”。</p>
+            </article>
+            <article>
+              <span>03</span>
+              <strong>补齐企业上下文</strong>
+              <p>系统自动带入行业、营收、开票、申报、历史异常，并提示缺失材料。</p>
+            </article>
+            <article>
+              <span>04</span>
+              <strong>生成结构化 Prompt</strong>
+              <p>把用户原话转换成角色、数据范围、判断标准、输出格式和风险边界。</p>
+            </article>
+            <article>
+              <span>05</span>
+              <strong>输出风险报告</strong>
+              <p>不是只给一句结论，而是输出风险等级、依据、异常项、建议动作。</p>
+            </article>
+            <article>
+              <span>06</span>
+              <strong>转入专家承接</strong>
+              <p>高风险或材料不足时，进入材料补齐、专家复核和后续处理进度。</p>
+            </article>
+          </div>
+        </div>
+        <div class="pc-wire-analysis" aria-label="pc interaction wireframe analysis">
+          <figure class="pc-wireframe">
+            <div class="wire-sidebar">企业空间<br />历史对话</div>
+            <div class="wire-agent">税务数字人 / 角色切换</div>
+            <div class="wire-task">税务体检 / 发票风险 / 申报建议</div>
+            <div class="wire-chat">用户原话 + Prompt 引导</div>
+            <div class="wire-result">风险报告 / 依据 / 下一步动作</div>
+          </figure>
+          <div class="wire-notes">
+            <article>
+              <span>01 / 税务数字人为什么是入口</span>
+              <p>税务问题天然有专业边界，不能让用户完全自由发散。先进入税务数字人，可以让系统锁定判断口径、数据范围和输出格式。</p>
+            </article>
+            <article>
+              <span>02 / 任务模板为什么在输入前</span>
+              <p>对不会写 Prompt 的用户来说，任务模板就是提问脚手架。它先把“担心有问题”收敛成税负异常、发票风险、申报建议等可执行任务。</p>
+            </article>
+            <article>
+              <span>03 / 对话口为什么仍然保留</span>
+              <p>模板解决“不会开始”，对话解决“继续追问”。报告生成后，用户可以围绕异常项追问、上传材料或让专家介入。</p>
+            </article>
+          </div>
+        </div>
+        <div class="agent-ecosystem" aria-label="five digital humans">
+          <div class="agent-hub">
+            <span>Agent System</span>
+            <strong>5 大数字人不是五个菜单，而是五种业务判断视角。</strong>
+            <p>税务数字人负责发现风险，财税数字人负责解释经营数据，老板数字人负责压缩成决策摘要，信贷数字人负责匹配融资机会，销售数字人负责客户线索和商机跟进。</p>
+          </div>
+          <div class="agent-orbit">
+            <article class="active"><div class="agent-avatar-slot"><img src="./assets/avatar-tax.png" alt="税务数字人" /></div><span>01</span><strong>税务数字人</strong><p>税负异常、票税风险、合规体检、申报建议。</p></article>
+            <article><div class="agent-avatar-slot"><img src="./assets/avatar-finance.png" alt="财税数字人" /></div><span>02</span><strong>财税数字人</strong><p>报表解读、经营指标、现金流和成本分析。</p></article>
+            <article><div class="agent-avatar-slot"><img src="./assets/avatar-boss.png" alt="老板数字人" /></div><span>03</span><strong>老板数字人</strong><p>把专业结论翻译成经营摘要和决策建议。</p></article>
+            <article><div class="agent-avatar-slot"><img src="./assets/avatar-credit.png" alt="信贷数字人" /></div><span>04</span><strong>信贷数字人</strong><p>融资资质、企业画像、政策和金融产品匹配。</p></article>
+            <article><div class="agent-avatar-slot"><img src="./assets/avatar-sales.png" alt="销售数字人" /></div><span>05</span><strong>销售数字人</strong><p>客户线索、销售话术、商机跟进、获客建议。</p></article>
+          </div>
+        </div>
+        <div class="prompt-translation">
+          <div>
+            <span>用户原话</span>
+            <strong>“最近公司税负是不是有点异常？”</strong>
+          </div>
+          <div>
+            <span>系统翻译</span>
+            <strong>税务角色 + 企业档案 + 风险体检 + 输出约束</strong>
+          </div>
+          <div>
+            <span>结果对象</span>
+            <strong>风险等级 / 依据来源 / 缺失材料 / 下一步动作</strong>
+          </div>
+        </div>
+        <div class="llm-flow" aria-label="prompt and llm flow">
+          <span>Prompt 产品化机制</span>
+          <div>意图识别</div>
+          <div>角色 Prompt</div>
+          <div>企业上下文变量</div>
+          <div>工具 / 知识调用</div>
+          <div>输出格式约束</div>
+          <div>风险边界与复核点</div>
+        </div>
+      </section>
+
+      <section class="poster-band visual-derivation-band">
+        <div class="band-title center">
+          <span>06</span>
+          <h2>视觉推导</h2>
+          <p>视觉规范不是重新做一套风格，而是从 Wbit 当前深色工作台里提取可延展的系统规则。</p>
+        </div>
+        <div class="visual-system-board" aria-label="wbit visual system">
+          <div class="palette-panel">
+            <span>Color System</span>
+            <strong>深灰工作台 + 暖橙行动色</strong>
+            <p>
+              背景不是纯黑，而是分成页面底色、侧栏底色、卡片底色和输入框底色。暖橙只用于“立即咨询、发送、确认处理”等明确行动，
+              金色用于认证和状态，避免把风险、品牌和按钮都混成一种颜色。
+            </p>
+            <div class="color-swatches">
+              <i style="--c:#1f2022"><b>#1F2022</b><small>页面背景</small></i>
+              <i style="--c:#282a2d"><b>#282A2D</b><small>侧栏 / 输入区</small></i>
+              <i style="--c:#303032"><b>#303032</b><small>内容卡片</small></i>
+              <i style="--c:#ff9f34"><b>#FF9F34</b><small>主行动色</small></i>
+              <i style="--c:#b58638"><b>#B58638</b><small>认证状态</small></i>
+              <i style="--c:#f3f3f0"><b>#F3F3F0</b><small>主文字</small></i>
+            </div>
+          </div>
+          <div class="interface-sample">
+            <div class="sample-sidebar">
+              <span>Wbit</span>
+              <i></i><i></i><i></i>
+            </div>
+            <div class="sample-main">
+              <strong>预约专家一对一指导</strong>
+              <div class="sample-tabs"><span></span><span></span></div>
+              <div class="sample-cards">
+                <article><b></b><em></em><p></p><button></button></article>
+                <article><b></b><em></em><p></p><button></button></article>
+                <article><b></b><em></em><p></p><button></button></article>
+              </div>
+              <div class="sample-input"></div>
+            </div>
+          </div>
+        </div>
+        <div class="visual-guidelines" aria-label="visual guidelines">
+          <article>
+            <span>01 / 背景层级</span>
+            <strong>用明度差建立空间，不靠重投影堆卡片。</strong>
+            <p>页面主背景保持最深，侧栏略亮，卡片再亮一层，输入框用边框和内阴影强调可输入状态。</p>
+          </article>
+          <article>
+            <span>02 / 行动色规则</span>
+            <strong>橙色只给用户下一步动作。</strong>
+            <p>咨询、发送、确认处理可以使用橙色；标签、装饰和大面积背景不使用橙色，保证按钮永远最清楚。</p>
+          </article>
+          <article>
+            <span>03 / 信息密度</span>
+            <strong>财税产品需要密，但不能乱。</strong>
+            <p>标题、说明、状态、操作要分层。专家卡片里头像和姓名是识别，认证是信任，按钮是动作，三者不能抢同一层级。</p>
+          </article>
+        </div>
+        <div class="style-specs refined-specs" aria-label="pc visual specifications">
+          <article>
+            <span>Font</span>
+            <strong>标题 28/36，正文 14/16，说明 12/14</strong>
+            <p>PC 工作台不需要夸张大字。标题负责模块定位，正文负责解释，弱文字控制在 60% 透明度以内，避免灰到不可读。</p>
+          </article>
+          <article>
+            <span>Spacing</span>
+            <strong>侧栏 280，内容区 72 起步，卡片间距 24</strong>
+            <p>左侧承载导航和历史上下文，中间区域留出呼吸感；专家卡片和结果卡片使用统一间距，保证横向扫描效率。</p>
+          </article>
+          <article>
+            <span>Component</span>
+            <strong>8-12 圆角，1px 边框，主按钮固定高度 44</strong>
+            <p>Wbit 的组件应该偏工具型和可信感。少用漂浮卡片，多用稳定容器、清晰边界和可预期的操作位置。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="poster-screens">
+        <div class="band-title screen-title">
+          <span>07</span>
+          <h2>页面展示</h2>
+          <p>从开始提问，到风险判断，再到服务闭环。</p>
+        </div>
+
+        <article class="screen-spread">
+          <figure class="screen-frame">
+            <img src="./assets/showcase-workbench.png" alt="Wbit PC workbench overview" />
+          </figure>
+          <aside>
+            <span>01 / Start</span>
+            <h3>PC 工作台总览</h3>
+            <p>解决用户不知道如何开始的问题。画面需要同时出现角色入口、任务卡、企业档案和输入区，让用户先进入业务任务，再进入自由对话。</p>
+            <em>设计判断：先用任务和场景给路径，再让用户进入自由对话。</em>
+          </aside>
+        </article>
+
+        <article class="screen-spread reverse">
+          <figure class="screen-frame report">
+            <img src="./assets/showcase-risk.png" alt="Wbit risk report interface" />
+          </figure>
+          <aside>
+            <span>02 / Trust</span>
+            <h3>风险报告页</h3>
+            <p>解决用户不敢信的问题。页面需要把结论、依据、风险等级、缺失材料和人工复核点组织成一个可判断的结果对象。</p>
+            <em>设计判断：结论必须和依据、等级、授权动作一起出现。</em>
+          </aside>
+        </article>
+
+        <article class="screen-spread">
+          <figure class="screen-frame mobile">
+            <img src="./assets/showcase-subsidy.png" alt="Wbit subsidy matching interface" />
+          </figure>
+          <aside>
+            <span>03 / Match</span>
+            <h3>政策补贴匹配页</h3>
+            <p>解决用户不知道自己能申报什么的问题。页面把政策级别、匹配度、最高补贴和申报周期放在同一个判断对象里。</p>
+            <em>设计判断：政策不是列表，而是可比较、可筛选、可继续申报的机会卡。</em>
+          </aside>
+        </article>
+
+        <article class="screen-spread reverse">
+          <figure class="screen-frame service">
+            <img src="./assets/showcase-expert.png" alt="Wbit AI expert service interface" />
+          </figure>
+          <aside>
+            <span>04 / Close Loop</span>
+            <h3>专家承接与任务进度</h3>
+            <p>解决 AI 回答后服务断掉的问题。页面需要证明报告如何进入任务、专家预约、材料补充和持续监测。</p>
+            <em>设计判断：AI 先完成初筛，复杂问题再交给专家继续处理。</em>
+          </aside>
+        </article>
+      </section>
+
+      <section class="poster-band result-band">
+        <div class="band-title">
+          <span>08</span>
+          <h2>业务验证</h2>
+          <p>设计是否成立，最终要看它有没有进入真实业务场景，并帮助用户更快完成判断和行动。</p>
+        </div>
+        <div class="result-lead">
+          <span>Pilot outcome / 政务园区</span>
+          <strong>产业治理效率提升 60%</strong>
+          <p>
+            在政务园区场景里，Wbit 通过 AI 产业链图谱与智能驾驶舱，把企业画像、风险状态、招商线索和政策服务整合到同一套工作流中。
+            设计重点从“展示数据”转向“辅助园区做判断”：哪些企业值得重点服务、哪些企业存在停业风险、哪些政策可以精准触达。
+          </p>
+        </div>
+        <div class="result-metrics" aria-label="product result metrics">
+          <article>
+            <span>金融行业</span>
+            <strong>近 3 倍</strong>
+            <p>客户转化率提升。帮助银行更快理解企业经营状态，从“不敢贷”转向更精准的授信判断。</p>
+          </article>
+          <article>
+            <span>税务机构</span>
+            <strong>30%</strong>
+            <p>营收增长提升。通过税务体检报告和后续服务建议，把代账服务升级为顾问式服务。</p>
+          </article>
+          <article class="featured">
+            <span>政务园区</span>
+            <strong>60%</strong>
+            <p>产业治理效率提升。通过产业链图谱、企业健康度和政策匹配，提升招商、治理和服务触达效率。</p>
+          </article>
+        </div>
+        <div class="result-method">
+          <article>
+            <span>Design takeaway</span>
+            <strong>真正产生价值的不是 AI 回答，而是回答之后能继续发生什么。</strong>
+          </article>
+          <article class="result-action-list">
+            <div><span>金融行业</span><p>把企业画像和风险判断接到授信筛选，帮助业务从“不敢贷”进入“精准贷”。</p></div>
+            <div><span>税务机构</span><p>把税务体检报告接到顾问服务，让 AI 结论继续转成客户可购买的解决方案。</p></div>
+            <div><span>政务园区</span><p>把产业链图谱接到招商、治理和政策触达，提升园区对企业状态的主动管理能力。</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="poster-band final-band">
+        <div class="band-title center">
+          <span>09</span>
+          <h2>最后总结</h2>
+          <p>这个项目让我更明确：AI Agent 的体验价值，不在于让用户多和 AI 聊几轮，而在于把不确定的问题变成可判断、可复核、可继续处理的工作流。</p>
+        </div>
+        <div class="final-thesis">
+          <span>My point of view</span>
+          <strong>好的 AI 产品设计，不是把复杂能力藏进一个聊天框，而是替用户组织问题、控制风险、交付下一步。</strong>
+        </div>
+        <div class="final-principles">
+          <article>
+            <span>01</span>
+            <strong>路径先于自由</strong>
+            <p>对财税这类高专业场景，完全自由输入并不一定代表低门槛。更好的方式是先给角色、任务和示例，让用户进入正确语境。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>依据先于结论</strong>
+            <p>AI 的回答越专业，越需要展示判断来源、数据范围、缺失材料和风险边界。可信任不是语气像专家，而是结果能被复核。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>动作先于智能</strong>
+            <p>用户最终不是为了看 AI 多聪明，而是为了知道下一步怎么做。报告、待办、专家承接和移动端提醒，才是智能真正落地的地方。</p>
+          </article>
+        </div>
+        <div class="methodology-strip" aria-label="project methodology">
+          <span>Methodology</span>
+          <div>行业变化</div>
+          <div>用户能力差异</div>
+          <div>竞品缺口</div>
+          <div>任务流重构</div>
+          <div>Prompt 产品化</div>
+          <div>服务闭环</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
