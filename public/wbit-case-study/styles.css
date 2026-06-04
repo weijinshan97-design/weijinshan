@@ -3405,6 +3405,16 @@ figcaption {
   padding: clamp(64px, 7vw, 120px) clamp(28px, 6vw, 96px);
 }
 
+/* Constrain content width on large screens */
+@media (min-width: 1400px) {
+  .poster-hero,
+  .poster-band,
+  .poster-screens {
+    padding-left: calc((100vw - 1200px) / 2);
+    padding-right: calc((100vw - 1200px) / 2);
+  }
+}
+
 .poster-hero {
   min-height: 0;
   background:
