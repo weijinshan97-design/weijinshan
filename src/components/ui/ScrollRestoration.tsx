@@ -7,6 +7,12 @@ export function ScrollRestoration() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // Disable browser's native scroll restoration
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    // On homepage, always scroll to top
     if (pathname === "/") {
       sessionStorage.removeItem(`scroll-${pathname}`);
       window.scrollTo(0, 0);

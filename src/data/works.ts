@@ -2,6 +2,39 @@ import { Work } from "@/lib/types";
 
 export const worksData: Work[] = [
   {
+    slug: "ai-agent-portfolio-system",
+    titleZh: "AI Agent 协作作品集系统",
+    titleEn: "AI Agent Portfolio System",
+    client: "个人项目",
+    category: "AI 协作 / 网页开发",
+    year: "2026",
+    cover: "/images/works/ai-agent-portfolio-home.png",
+    summaryZh:
+      "以个人作品集网站为载体，验证如何把 Codex 这类 AI Agent 用进真实设计开发流程：让 Agent 读取项目上下文、拆解任务、修改代码、调用本地工具、运行构建并在浏览器中验证结果。",
+    problemZh:
+      "原有作品分散在不同文件和页面中，案例叙事、页面结构和维护入口都不够稳定。项目需要解决的不只是网页好看，而是如何指挥 AI Agent 进入真实代码环境，并把设计反馈转成可执行、可验证的迭代。",
+    approachZh:
+      "把 AI 当作协作者而不是生成器：先通过对话拆解目标和信息架构，再让 Codex 进入真实 Next.js 项目，完成代码检索、组件修改、资源同步、构建检查、浏览器验证和上下文沉淀；过程中由设计师持续判断方向、质量和取舍。",
+    resultZh:
+      "完成个人网站首页、作品列表和 Wbit 深度案例，并沉淀出一套可复用的 Codex 协作方法：用明确目标约束 vibe coding，用 Skills 和本地工具完成开发落地，用构建与浏览器验证保证结果可用。",
+    images: [],
+    tagsZh: ["AI协作", "Codex Agent", "Vibe Coding", "前端落地", "设计工作流"],
+    highlights: [
+      {
+        label: "从模糊需求到任务拆解",
+        content: "把“想做一个个人网站”拆成首页叙事、作品详情、Wbit 案例重构、组件同步、样式调整和浏览器验证等具体任务。",
+      },
+      {
+        label: "真实代码环境协作",
+        content: "AI Agent 不是只生成静态页面，而是在真实 Next.js 项目里查找路由、修改组件、同步资源、运行构建并打开浏览器验证。",
+      },
+      {
+        label: "设计判断驱动迭代",
+        content: "通过人工反馈不断修正排版、留白、文案、模块顺序和视觉层级，让 AI 的输出进入设计师可控的审美和业务判断中。",
+      },
+    ],
+  },
+  {
     slug: "wbit-ai-platform",
     titleZh: "Wbit AI 助手平台",
     titleEn: "Wbit AI Assistant Platform",
