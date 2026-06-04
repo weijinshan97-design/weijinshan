@@ -3585,10 +3585,11 @@ figcaption {
   position: relative;
   z-index: 1;
   max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .band-title.center {
-  margin: 0 auto;
   text-align: center;
 }
 
