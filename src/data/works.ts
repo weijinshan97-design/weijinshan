@@ -1,8 +1,8 @@
-import { Work } from “@/lib/types”;
+import { Work } from "@/lib/types";
 
 export const worksData: Work[] = [
   {
-    slug: “wbit-ai-platform”,
+    slug: "wbit-ai-platform",
     titleZh: "Wbit AI 助手平台",
     titleEn: "Wbit AI Assistant Platform",
     client: "杭州微风企科技",
