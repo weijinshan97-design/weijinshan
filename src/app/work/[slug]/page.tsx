@@ -249,123 +249,114 @@ function AiAgentPortfolioCase() {
       <style>{`
         html, body { background: #070808; min-width: 1200px; }
         .ai-case-shell { width: 1200px; margin-left: auto; margin-right: auto; }
-        .ai-case-section { padding: 112px 0; }
+        .ai-case-section { padding: 148px 0; }
         .ai-case-kicker { font: 600 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: .22em; color: rgba(82,230,216,.74); }
-        .ai-case-title { font-size: 56px; line-height: 1.03; letter-spacing: 0; }
+        .ai-case-title { font-size: 56px; line-height: 1.12; letter-spacing: 0; word-break: keep-all; overflow-wrap: normal; }
         .ai-case-copy { font-size: 16px; line-height: 32px; color: rgba(255,255,255,.54); }
-        .ai-hero-title { font-size: 96px; line-height: .92; letter-spacing: 0; }
+        .ai-hero-title { font-size: 92px; line-height: 1.08; letter-spacing: 0; word-break: keep-all; overflow-wrap: normal; }
+        .ai-nowrap { white-space: nowrap; }
+        .ai-readable { text-wrap: pretty; }
         .ai-hero-outline { -webkit-text-stroke: 1px rgba(82,230,216,.18); color: transparent; }
         .ai-radius { border-radius: 18px; }
         .ai-radius-lg { border-radius: 28px; }
       `}</style>
-      <section className="relative h-[980px] overflow-hidden pt-28">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#030404_0%,#080b0c_54%,#050606_100%)]" />
-        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.12)_1px,transparent_1px)] [background-size:60px_60px]" />
-        <div className="absolute inset-0 opacity-[0.28] [background-image:repeating-linear-gradient(108deg,transparent_0,transparent_112px,rgba(82,230,216,.2)_113px,transparent_115px)]" />
+      <section className="relative h-[1240px] overflow-hidden bg-[#050606] pt-28 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_9%,rgba(47,128,255,0.18),transparent_28%),radial-gradient(circle_at_50%_64%,rgba(82,230,216,0.14),transparent_34%),linear-gradient(180deg,#050606_0%,#090c0e_56%,#050606_100%)]" />
+        <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.12)_1px,transparent_1px)] [background-size:64px_64px]" />
+        <div className="absolute inset-0 opacity-[0.26] [background-image:repeating-linear-gradient(108deg,transparent_0,transparent_112px,rgba(82,230,216,.18)_113px,transparent_115px)]" />
         <div className="absolute left-0 right-0 top-[74px] h-px bg-gradient-to-r from-transparent via-[#52e6d8]/45 to-transparent" />
-        <div className="ai-radius-lg absolute left-[calc(50%-610px)] top-[122px] h-[780px] w-[1180px] border border-white/[0.055]" />
-        <div className="absolute bottom-[-64px] left-[calc(50%-598px)] select-none font-mono text-[138px] font-black leading-none tracking-[-0.08em] text-white/[0.025]">
-          IMAGINATION TO SYSTEM
-        </div>
+        <div className="ai-radius-lg absolute left-[calc(50%-610px)] top-[126px] h-[1010px] w-[1180px] border border-white/[0.055]" />
         <div className="absolute left-[calc(50%-575px)] top-[120px] select-none font-mono text-[100px] font-black uppercase leading-none tracking-[-0.08em] ai-hero-outline">
           CODEX
         </div>
-
-        <div className="ai-case-shell relative h-[860px]">
-          <div className="absolute right-0 top-8 flex items-center gap-5 font-mono text-[11px] uppercase tracking-[0.22em] text-white/32">
-            <span>Next.js</span>
-            <span className="h-px w-12 bg-white/18" />
-            <span>Build passed</span>
-            <span className="h-2 w-2 bg-[#52e6d8]" />
-          </div>
-
-          <div className="absolute left-0 right-0 top-[72px] z-30 text-center">
-            <div className="mb-8 flex items-center justify-center gap-4">
-              <span className="h-px w-20 bg-[#52e6d8]" />
-              <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-[#52e6d8]/82">
-                Codex as Design Engine
-              </p>
-              <span className="h-px w-20 bg-[#52e6d8]" />
+        <div className="absolute bottom-[18px] left-[calc(50%-600px)] select-none font-mono text-[136px] font-black leading-none tracking-[-0.08em] text-white/[0.025]">
+          AGENTIC SYSTEM
+        </div>
+        <div className="ai-case-shell relative h-[1130px]">
+          <div className="absolute left-0 right-0 top-[136px] z-40 text-center">
+            <div className="mb-6 flex items-center justify-center gap-4 text-[22px] font-medium text-white/54">
+              <span className="ai-nowrap">Design ideas</span>
+              <span className="ai-nowrap rounded-full bg-[#52e6d8] px-6 py-2 text-base font-semibold text-[#061011] shadow-[0_10px_30px_rgba(82,230,216,0.22)]">
+                Codex Agent
+              </span>
+              <span className="ai-nowrap">running system</span>
             </div>
-            <h1 className="ai-hero-title font-serif font-bold">
-              设计想法交给 Codex
+            <h1 className="ai-hero-title font-serif font-bold tracking-normal text-white">
+              <span className="ai-nowrap inline-block">设计想法交给 Codex</span>
               <br />
-              变成可运行系统
+              <span className="ai-nowrap inline-block">变成可运行系统</span>
             </h1>
-            <p className="mx-auto mt-7 w-[760px] text-[17px] leading-9 text-white/58">
-              我把个人网站当成一次真实实验：用 Codex 读取项目、拆解任务、修改代码、运行检查，
-              再通过浏览器和设计判断，把 vibe coding 变成可控的设计开发流程。
+            <p className="mx-auto mt-8 w-[980px] text-center text-[17px] leading-8 text-white/56">
+              <span className="ai-nowrap inline-block">
+                我把个人网站当成一次真实实验：用 Codex 读取项目、拆解任务、修改代码、运行检查，
+              </span>
+              <br />
+              <span className="ai-nowrap inline-block">
+                再通过浏览器和设计判断，把 vibe coding 变成可控的设计开发流程
+              </span>
             </p>
           </div>
 
-          <div className="absolute left-[70px] top-[472px] z-20 h-[360px] w-[1030px] rounded-[44px] border border-[#b7eaff]/20 bg-[linear-gradient(180deg,rgba(143,203,255,0.16),rgba(82,230,216,0.04))] shadow-[0_38px_160px_rgba(21,93,255,0.18)]" />
-          <div className="absolute left-[110px] top-[402px] z-30 h-[450px] w-[1010px] overflow-hidden rounded-[34px] border border-white/14 bg-[#111416] p-3 shadow-[0_48px_180px_rgba(0,0,0,0.74)]">
+          <div className="absolute left-1/2 top-[458px] z-30 h-[144px] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#52e6d8]/50 to-transparent" />
+          <div className="absolute left-1/2 top-[520px] z-30 h-3 w-3 -translate-x-1/2 rounded-full bg-[#52e6d8] shadow-[0_0_36px_rgba(82,230,216,0.8)]" />
+          <div className="absolute left-[170px] top-[520px] z-30 w-[250px] border-t border-white/10 pt-4">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#52e6d8]/64">01 / Ideation</p>
+            <p className="ai-nowrap mt-3 text-sm leading-6 text-white/42">把模糊想法整理成可执行页面目标</p>
+          </div>
+          <div className="absolute right-[142px] top-[520px] z-30 w-[270px] border-t border-white/10 pt-4 text-right">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#52e6d8]/64">02 / Execution</p>
+            <p className="ai-nowrap mt-3 text-sm leading-6 text-white/42">让 Codex 完成代码、构建与浏览器验证</p>
+          </div>
+
+          <div className="absolute left-[126px] top-[560px] z-10 h-[180px] w-[948px] rounded-[50%] border border-[#52e6d8]/14" />
+          <div className="absolute left-[238px] top-[588px] z-10 h-[118px] w-[724px] rounded-[50%] border border-white/[0.045]" />
+
+          <div className="absolute left-[80px] top-[610px] z-20 h-[490px] w-[1040px] overflow-hidden rounded-[42px] border border-white/12 bg-[#111416] p-3 shadow-[0_52px_170px_rgba(0,0,0,0.58)]">
+            <div className="absolute left-0 right-0 top-0 z-30 flex h-11 items-center justify-between bg-[#101315]/92 px-5 text-xs text-white/46 backdrop-blur-md">
+              <div className="flex items-center gap-2">
+                <span className="h-3 w-3 rounded-full bg-[#ff6b6b]" />
+                <span className="h-3 w-3 rounded-full bg-[#ffc75f]" />
+                <span className="h-3 w-3 rounded-full bg-[#5bd47b]" />
+              </div>
+              <span className="rounded-full bg-white/[0.06] px-4 py-1 font-medium">weijinshan.design / home</span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/34">Portfolio Home</span>
+            </div>
             <Image
-              src="/images/works/ai-agent-portfolio-home.png"
+              src="/images/works/ai-agent-portfolio-home-wide.png"
               alt="个人作品集首页截图"
               width={1440}
-              height={1050}
-              className="h-full w-full rounded-[24px] object-cover opacity-72 saturate-[0.8]"
+              height={760}
+              className="h-full w-full rounded-[32px] object-cover pt-11 opacity-82 saturate-[0.9]"
               priority
             />
-            <div className="absolute inset-3 rounded-[24px] bg-[linear-gradient(180deg,rgba(5,6,6,0.28)_0%,rgba(5,6,6,0.06)_44%,rgba(5,6,6,0.46)_100%)]" />
-            <div className="absolute inset-x-3 top-3 h-[38%] rounded-t-[24px] bg-gradient-to-b from-[#050606]/78 to-transparent" />
+            <div className="absolute inset-x-3 bottom-3 h-[32%] rounded-b-[32px] bg-gradient-to-t from-[#050606]/64 to-transparent" />
           </div>
 
           <Image
-            src="/images/works/ai-agent-astronaut.svg"
+            src="/images/works/ai-agent-astronaut-real.png"
             alt="AI 探索宇航员视觉"
-            width={720}
-            height={900}
-            className="absolute left-[8px] top-[390px] z-40 h-[520px] w-auto drop-shadow-[0_40px_80px_rgba(37,121,255,0.36)]"
+            width={1024}
+            height={1024}
+            className="absolute left-[342px] top-[470px] z-40 h-[680px] w-auto drop-shadow-[0_56px_116px_rgba(82,230,216,0.34)]"
+            unoptimized
             priority
           />
 
-          <div className="ai-radius absolute left-[646px] top-[632px] z-50 w-[390px] border border-white/12 bg-[#050606]/88 p-5 backdrop-blur-md">
-            <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
-              <span className="font-mono text-xs uppercase tracking-[0.22em] text-white/32">Codex Run Log</span>
-              <span className="h-2 w-2 bg-[#52e6d8]" />
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 font-mono text-xs leading-6 text-white/56">
-              <p>&gt; read context</p>
-              <p>&gt; locate routes</p>
-              <p>&gt; patch UI</p>
-              <p className="text-[#52e6d8]">&gt; browser verify</p>
-            </div>
-          </div>
-
-          <div className="ai-radius absolute left-[330px] top-[814px] z-50 grid w-[570px] grid-cols-4 gap-px overflow-hidden border border-white/10 bg-white/10">
-            {[
-              ["01", "Context"],
-              ["02", "Code"],
-              ["03", "Build"],
-              ["04", "Browser"],
-            ].map(([num, label]) => (
-              <div key={label} className="bg-[#050606]/86 px-5 py-4">
-                <p className="font-mono text-[11px] text-[#52e6d8]/70">{num}</p>
-                <p className="mt-2 text-sm text-white/58">{label}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="ai-radius absolute right-[6px] top-[740px] z-50 w-[350px] border border-[#52e6d8]/22 bg-[#071112]/88 p-6 backdrop-blur-md">
-            <p className="text-xs uppercase tracking-[0.24em] text-[#52e6d8]/76">Core Thesis</p>
-            <p className="mt-4 text-sm leading-7 text-white/68">
-              AI 不替代设计判断，但可以放大设计师的执行力、组织力和跨工具落地能力。
-            </p>
-          </div>
+          <div className="absolute bottom-[-72px] left-0 right-0 z-50 h-[250px] bg-gradient-to-b from-transparent via-[#050606]/78 to-[#050606]" />
+          <div className="absolute bottom-[18px] left-1/2 z-50 h-36 w-px -translate-x-1/2 bg-gradient-to-b from-[#52e6d8]/0 via-[#52e6d8]/45 to-[#52e6d8]/0" />
         </div>
       </section>
 
-      <section className="ai-case-section">
+      <section className="relative z-20 pb-40 pt-24">
         <div className="ai-case-shell">
-          <div className="ai-radius-lg grid grid-cols-[400px_620px] gap-[120px] border border-white/10 p-12">
+          <div className="mx-auto mb-16 h-16 w-px bg-gradient-to-b from-[#52e6d8]/40 to-transparent" />
+          <div className="ai-radius-lg grid grid-cols-[400px_620px] gap-[120px] border border-white/10 p-16">
             <div>
               <span className="ai-case-kicker">01 / Project Background</span>
               <h2 className="ai-case-title mt-5 font-serif font-bold">
-                网页只是结果，
+                <span className="ai-nowrap inline-block">网页只是结果，</span>
                 <br />
-                工作流才是项目。
+                <span className="ai-nowrap inline-block">工作流才是项目</span>
               </h2>
             </div>
             <div className="ai-case-copy space-y-6">
@@ -385,7 +376,7 @@ function AiAgentPortfolioCase() {
       <section className="ai-case-section relative overflow-hidden">
         <div className="absolute left-1/2 top-28 h-[420px] w-[420px] -translate-x-1/2 rounded-full border border-[#52e6d8]/10" />
         <div className="ai-case-shell relative">
-          <div className="mb-16 grid grid-cols-[500px_460px] items-end justify-between">
+          <div className="mb-24 grid grid-cols-[500px_460px] items-end justify-between">
             <div>
               <span className="ai-case-kicker">02 / Collaboration Flow</span>
               <h2 className="ai-case-title mt-4 font-serif font-bold">AI Agent 协作流程</h2>
@@ -413,13 +404,13 @@ function AiAgentPortfolioCase() {
 
       <section className="ai-case-section">
         <div className="ai-case-shell">
-          <div className="mb-16 grid grid-cols-[480px_600px] items-end justify-between">
+          <div className="mb-24 grid grid-cols-[480px_600px] items-end justify-between">
             <div>
               <span className="ai-case-kicker">03 / Collaboration Roles</span>
               <h2 className="ai-case-title mt-4 font-serif font-bold">
-                AI 不是替我设计，
+                <span className="ai-nowrap inline-block">AI 不是替我设计，</span>
                 <br />
-                而是承担不同协作角色。
+                <span className="ai-nowrap inline-block">而是承担不同协作角色</span>
               </h2>
             </div>
             <p className="ai-case-copy">
@@ -459,13 +450,13 @@ function AiAgentPortfolioCase() {
       <section className="ai-case-section relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
         <div className="ai-case-shell">
-          <div className="mb-16 grid grid-cols-[460px_600px] items-end justify-between">
+          <div className="mb-24 grid grid-cols-[460px_600px] items-end justify-between">
             <div>
               <span className="ai-case-kicker">04 / Codex Development Stack</span>
               <h2 className="ai-case-title mt-4 font-serif font-bold">
-                Codex 不只是写代码，
+                <span className="ai-nowrap inline-block">Codex 不只是写代码，</span>
                 <br />
-                它能接住一整轮开发。
+                <span className="ai-nowrap inline-block">它能接住一整轮开发</span>
               </h2>
             </div>
             <p className="ai-case-copy">
@@ -507,13 +498,13 @@ function AiAgentPortfolioCase() {
 
       <section className="ai-case-section">
         <div className="ai-case-shell">
-          <div className="mb-16 grid grid-cols-[500px_560px] items-end justify-between">
+          <div className="mb-24 grid grid-cols-[500px_560px] items-end justify-between">
             <div>
               <span className="ai-case-kicker">05 / Skills & Vibe Coding</span>
               <h2 className="ai-case-title mt-4 font-serif font-bold">
-                把 vibe coding
+                <span className="ai-nowrap inline-block">把 vibe coding</span>
                 <br />
-                变成可控的设计开发。
+                <span className="ai-nowrap inline-block">变成可控的设计开发</span>
               </h2>
             </div>
             <p className="ai-case-copy">
@@ -606,9 +597,9 @@ function AiAgentPortfolioCase() {
             <div>
               <span className="ai-case-kicker">07 / Key Case</span>
               <h2 className="ai-case-title mt-5 font-serif font-bold">
-                以 Wbit 详情页为例，
+                <span className="ai-nowrap inline-block">以 Wbit 详情页为例，</span>
                 <br />
-                把 AI 用在真实迭代里。
+                <span className="ai-nowrap inline-block">把 AI 用在真实迭代里</span>
               </h2>
               <p className="ai-case-copy mt-7">
                 Wbit 原本只是一个已经做完但没有系统整理的项目。通过 Agent 协作，我把它补充成完整的 UX
@@ -664,9 +655,9 @@ function AiAgentPortfolioCase() {
             <div>
               <span className="ai-case-kicker">09 / Validation Loop</span>
               <h2 className="ai-case-title mt-4 font-serif font-bold">
-                让 AI 输出进入
+                <span className="ai-nowrap inline-block">让 AI 输出进入</span>
                 <br />
-                可验证循环。
+                <span className="ai-nowrap inline-block">可验证循环</span>
               </h2>
             </div>
             <p className="ai-case-copy">
@@ -709,10 +700,10 @@ function AiAgentPortfolioCase() {
       <section className="ai-case-section pb-36">
         <div className="ai-radius-lg ai-case-shell border border-[#52e6d8]/20 bg-[radial-gradient(circle_at_20%_10%,rgba(82,230,216,0.12),transparent_32%),rgba(255,255,255,0.035)] p-12">
           <span className="ai-case-kicker">11 / Methodology</span>
-          <h2 className="mt-5 w-[980px] font-serif text-[56px] font-bold leading-[1.04]">
-            AI Agent 协作不是一句 Prompt，
+          <h2 className="mt-5 w-[980px] font-serif text-[56px] font-bold leading-[1.12] [word-break:keep-all]">
+            <span className="ai-nowrap inline-block">AI Agent 协作不是一句 Prompt，</span>
             <br />
-            而是一套可验证的工作流。
+            <span className="ai-nowrap inline-block">而是一套可验证的工作流</span>
           </h2>
           <div className="ai-radius mt-12 grid grid-cols-3 gap-px overflow-hidden border border-white/10 bg-white/10">
             {[
