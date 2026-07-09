@@ -81,7 +81,7 @@ export function AIWorkflowPipeline() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="relative z-10 flex flex-1 flex-col"
             >
-              <div className="flex flex-1 flex-col gap-3 lg:pr-4">
+              <div className="flex flex-1 flex-col gap-3 text-center lg:pr-4 lg:text-left">
                 {/* Step number + title */}
                 <div className="shrink-0">
                   <span className="font-mono text-[11px] tracking-[0.2em] text-[#bf8eff]/50">
@@ -98,7 +98,7 @@ export function AIWorkflowPipeline() {
                 </p>
 
                 {/* Tool tags — pinned to bottom */}
-                <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
+                <div className="mt-auto flex flex-wrap justify-center gap-1.5 pt-2 lg:justify-start">
                   {step.tools.map((tool) => (
                     <span
                       key={tool}

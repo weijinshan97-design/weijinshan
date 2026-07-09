@@ -133,7 +133,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 60, rotate: -4, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
                 transition={{ duration: 1.1, delay: 0.58, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute left-1/2 top-[42%] z-10 h-[690px] w-[690px] -translate-x-1/2 -translate-y-1/2 md:left-[54%] md:h-[750px] md:w-[750px]"
+                className="absolute left-1/2 top-[42%] z-10 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 sm:h-[480px] sm:w-[480px] md:left-[54%] md:h-[750px] md:w-[750px]"
               >
                 <Image
                   src="/images/works/home-puzzle-character-v2.png"

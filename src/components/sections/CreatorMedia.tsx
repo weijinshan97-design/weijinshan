@@ -267,7 +267,7 @@ export function CreatorMedia() {
             ))}
           </div>
 
-          <aside className="micro-lift relative overflow-hidden rounded-[42px] border border-white/[0.09] bg-white/[0.045] p-7 backdrop-blur-xl md:p-8">
+          <aside className="micro-lift relative overflow-hidden rounded-[42px] border border-white/[0.09] bg-white/[0.045] p-5 backdrop-blur-xl md:p-8">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_14%,rgba(191,142,255,0.12),transparent_34%),radial-gradient(circle_at_84%_88%,rgba(95,59,255,0.18),transparent_36%)]" />
             <div className="relative">
               <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#bf8eff]/62">

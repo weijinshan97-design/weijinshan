@@ -179,7 +179,7 @@ export function SelectedWork() {
               return (
                 <motion.div
                   key={work.slug}
-                  className={`absolute left-1/2 top-20 ${isMobile ? "w-[88vw] max-w-[410px]" : "w-[410px]"}`}
+                  className={`absolute left-1/2 top-20 ${isMobile ? "w-[88vw] max-w-[410px] -translate-x-1/2" : "w-[410px]"}`}
                   animate={
                     isMobile
                       ? {
