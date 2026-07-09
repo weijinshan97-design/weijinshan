@@ -121,8 +121,8 @@ export function SelectedWork() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!isDragging.current || !scrollContainerRef.current) return;
-      e.preventDefault();
       const dx = dragStartX.current - e.clientX;
+      if (Math.abs(dx) > 3) e.preventDefault();
       scrollContainerRef.current.scrollLeft = dragStartScroll.current + dx;
     };
     const handleMouseUp = () => { isDragging.current = false; };
