@@ -148,7 +148,7 @@ export function SelectedWork() {
           </div>
         </FadeIn>
 
-        <div className="relative mt-8 min-h-[540px] overflow-visible sm:mt-12 sm:min-h-[620px] md:min-h-[860px] lg:min-h-[760px]">
+        <div className="relative mt-8 min-h-[560px] overflow-visible sm:mt-12 sm:min-h-[620px] md:min-h-[860px] lg:min-h-[760px]">
           <motion.div
             key={activeWork.slug}
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -296,7 +296,7 @@ export function SelectedWork() {
           </div>
 
           {/* ---- 移动端滑动提示 ---- */}
-          <div className="mt-4 flex items-center justify-center gap-3 lg:hidden">
+          <div className="mt-6 flex items-center justify-center gap-3 lg:hidden">
             <span className="text-[10px] text-white/20">←</span>
             <div className="flex gap-1.5">
               {worksData.map((_, i) => (
