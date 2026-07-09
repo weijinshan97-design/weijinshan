@@ -180,7 +180,7 @@ export function SelectedWork() {
               return (
                 <motion.div
                   key={work.slug}
-                  className={`absolute left-1/2 top-20 ${isMobile ? "w-[88vw] max-w-[410px] -translate-x-1/2" : "w-[410px]"}`}
+                  className={`absolute left-1/2 ${isMobile ? "top-12 w-[86vw] max-w-[410px] -translate-x-1/2" : "top-20 w-[410px]"}`}
                   animate={
                     isMobile
                       ? {
@@ -294,7 +294,7 @@ export function SelectedWork() {
           </div>
 
           {/* ---- 移动端圆点指示器 ---- */}
-          <div className="mt-1 flex justify-center gap-2 pb-2 lg:hidden">
+          <div className="mt-2 flex justify-center gap-2 pb-4 lg:hidden">
             {worksData.map((_, i) => (
               <button
                 key={i}
