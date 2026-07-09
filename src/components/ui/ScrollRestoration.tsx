@@ -3,41 +3,46 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
+const SCROLL_KEY = "home-scroll";
+
 export function ScrollRestoration() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Disable browser's native scroll restoration
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
+  }, []);
 
-    // On homepage, always scroll to top
-    if (pathname === "/") {
-      sessionStorage.removeItem(`scroll-${pathname}`);
-      window.scrollTo(0, 0);
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    // If there's a hash, let the browser handle it natively
+    if (window.location.hash) {
+      sessionStorage.removeItem(SCROLL_KEY);
       return;
     }
 
-    // Save scroll position before navigating away
-    const handleBeforeUnload = () => {
-      sessionStorage.setItem(`scroll-${pathname}`, window.scrollY.toString());
-    };
+    const saved = sessionStorage.getItem(SCROLL_KEY);
+    if (!saved) return;
 
-    // Restore scroll position when component mounts
-    const savedPosition = sessionStorage.getItem(`scroll-${pathname}`);
-    if (savedPosition) {
-      // Small delay to ensure DOM is ready
-      setTimeout(() => {
-        window.scrollTo(0, parseInt(savedPosition));
-        sessionStorage.removeItem(`scroll-${pathname}`);
-      }, 50);
-    }
+    const y = parseInt(saved, 10);
+    if (y <= 0) return;
 
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
+    // Try to scroll — retry a few times as DOM may still be rendering
+    let attempts = 0;
+    const maxAttempts = 8;
+    const tryScroll = () => {
+      const docHeight = document.documentElement.scrollHeight;
+      if (docHeight >= y || attempts >= maxAttempts) {
+        window.scrollTo({ top: y, behavior: "instant" as ScrollBehavior });
+        sessionStorage.removeItem(SCROLL_KEY);
+        return;
+      }
+      attempts++;
+      requestAnimationFrame(tryScroll);
     };
+    requestAnimationFrame(tryScroll);
   }, [pathname]);
 
   return null;

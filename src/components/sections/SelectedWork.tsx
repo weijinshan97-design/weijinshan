@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { worksData } from "@/data/works";
 import { Work } from "@/lib/types";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -79,8 +79,17 @@ export function SelectedWork() {
   const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(0);
   const [flyingSlug, setFlyingSlug] = useState<string | null>(null);
+  const [cardGlow, setCardGlow] = useState({ x: 50, y: 50 });
+  const [isMobile, setIsMobile] = useState(false);
   const activeWork = worksData[activeIndex];
   const activeCopy = getCopy(activeWork);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const progress = useMemo(
     () => `${String(activeIndex + 1).padStart(2, "0")} / ${String(worksData.length).padStart(2, "0")}`,
@@ -88,11 +97,29 @@ export function SelectedWork() {
   );
 
   const openWork = useCallback((work: Work) => {
+    sessionStorage.setItem("home-scroll", window.scrollY.toString());
     setFlyingSlug(work.slug);
     window.setTimeout(() => {
       router.push(`/work/${work.slug}`);
-    }, 520);
+    }, 300);
   }, [router]);
+
+  // Touch swipe for mobile
+  const touchStart = useRef(0);
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStart.current = e.touches[0].clientX;
+  }, []);
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      const diff = touchStart.current - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        setActiveIndex(
+          (prev) => (prev + (diff > 0 ? 1 : -1) + worksData.length) % worksData.length,
+        );
+      }
+    },
+    [],
+  );
 
   return (
     <section
@@ -121,7 +148,7 @@ export function SelectedWork() {
           </div>
         </FadeIn>
 
-        <div className="relative mt-12 min-h-[860px] overflow-visible lg:min-h-[760px]">
+        <div className="relative mt-12 min-h-[620px] overflow-visible md:min-h-[860px] lg:min-h-[760px]">
           <motion.div
             key={activeWork.slug}
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -134,7 +161,11 @@ export function SelectedWork() {
 
           <div className="pointer-events-none absolute left-1/2 top-[360px] z-0 h-[420px] w-[920px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.14),rgba(95,59,255,0.1)_42%,transparent_72%)] blur-[58px]" />
 
-          <div className="relative mx-auto h-[590px] max-w-[1180px] [perspective:1800px]">
+          <div
+            className={`relative mx-auto max-w-[1180px] ${isMobile ? "h-[540px]" : "h-[590px] [perspective:1800px]"}`}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             {worksData.map((work, index) => {
               const offset = getStackOffset(index, activeIndex);
               const isActive = offset === 0;
@@ -148,22 +179,36 @@ export function SelectedWork() {
               return (
                 <motion.div
                   key={work.slug}
-                  className="absolute left-1/2 top-20 w-[410px]"
-                  animate={{
-                    x: isFlying ? 520 : x,
-                    y: isFlying ? -160 : y,
-                    rotateZ: isFlying ? 10 : rotate,
-                    rotateY: isFlying ? -24 : offset * -8,
-                    scale: isFlying ? 1.16 : scale,
-                    opacity: isFlying ? 0 : hidden ? 0 : isActive ? 1 : 0.92,
-                    filter: isFlying
-                      ? "grayscale(0%) blur(16px)"
-                      : isActive
-                        ? "grayscale(0%) blur(0px)"
-                        : "grayscale(18%) blur(0.2px)",
-                  }}
+                  className={`absolute left-1/2 top-20 ${isMobile ? "w-[88vw] max-w-[410px]" : "w-[410px]"}`}
+                  animate={
+                    isMobile
+                      ? {
+                          x: isFlying ? 300 : 0,
+                          y: isFlying ? -120 : 0,
+                          scale: isFlying ? 1.1 : isActive ? 1 : 0.94,
+                          opacity: isFlying ? 0 : isActive ? 1 : 0,
+                          filter: isFlying
+                            ? "blur(12px)"
+                            : isActive
+                              ? "blur(0px)"
+                              : "blur(4px)",
+                        }
+                      : {
+                          x: isFlying ? 520 : x,
+                          y: isFlying ? -160 : y,
+                          rotateZ: isFlying ? 10 : rotate,
+                          rotateY: isFlying ? -24 : offset * -8,
+                          scale: isFlying ? 1.16 : scale,
+                          opacity: isFlying ? 0 : hidden ? 0 : isActive ? 1 : 0.92,
+                          filter: isFlying
+                            ? "grayscale(0%) blur(16px)"
+                            : isActive
+                              ? "grayscale(0%) blur(0px)"
+                              : "grayscale(18%) blur(0.2px)",
+                        }
+                  }
                   transition={{ type: "spring", stiffness: 86, damping: 23, mass: 0.95 }}
-                  style={{ zIndex: 20 - Math.abs(offset) }}
+                  style={{ zIndex: isMobile ? (isActive ? 10 : 0) : 20 - Math.abs(offset) }}
                 >
                   <button
                     type="button"
@@ -180,6 +225,17 @@ export function SelectedWork() {
                         ? "border-[#bf8eff]/28 shadow-[0_44px_160px_rgba(191,142,255,0.12),0_34px_130px_rgba(0,0,0,0.58)]"
                         : "border-white/[0.1] hover:-translate-y-4 hover:border-white/[0.2]"
                     } w-full text-left`}
+                    onMouseMove={
+                      isActive
+                        ? (e) => {
+                            const rect = e.currentTarget.getBoundingClientRect();
+                            setCardGlow({
+                              x: ((e.clientX - rect.left) / rect.width) * 100,
+                              y: ((e.clientY - rect.top) / rect.height) * 100,
+                            });
+                          }
+                        : undefined
+                    }
                   >
                     <div className="relative h-full overflow-hidden rounded-[26px] bg-black">
                       <Image
@@ -192,6 +248,15 @@ export function SelectedWork() {
                           isActive ? "opacity-90 saturate-[0.9]" : "opacity-78 saturate-[0.72]"
                         }`}
                       />
+                      {/* Mouse-tracking glow on active card */}
+                      {isActive && (
+                        <div
+                          className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300"
+                          style={{
+                            background: `radial-gradient(circle 220px at ${cardGlow.x}% ${cardGlow.y}%, rgba(191,142,255,0.10), transparent 60%)`,
+                          }}
+                        />
+                      )}
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_16%,rgba(191,142,255,0.16),transparent_26%),linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.18)_42%,rgba(0,0,0,0.86)_100%)]" />
 
                       <div className="absolute left-5 right-5 top-5 flex items-center justify-between">

@@ -48,7 +48,7 @@ export function StoryRail() {
 
   return (
     <aside
-      className="pointer-events-none fixed right-7 top-1/2 z-40 hidden -translate-y-1/2 xl:block"
+      className="pointer-events-none fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 lg:block"
       aria-label="页面章节进度"
     >
       <div className="relative flex min-h-[390px] flex-col items-end justify-between py-2">
@@ -69,10 +69,10 @@ export function StoryRail() {
               aria-current={active ? "true" : undefined}
             >
               <span
-                className={`story-rail-label translate-x-2 rounded-full border px-3 py-1.5 text-[11px] text-white/52 opacity-0 backdrop-blur-xl transition duration-300 group-hover:translate-x-0 group-hover:opacity-100 ${
+                className={`story-rail-label translate-x-2 rounded-full border px-3 py-1.5 text-[11px] backdrop-blur-xl transition duration-300 group-hover:translate-x-0 group-hover:opacity-100 ${
                   active
-                    ? "border-[#bf8eff]/22 bg-[#bf8eff]/10"
-                    : "border-white/10 bg-black/28"
+                    ? "translate-x-0 border-[#bf8eff]/22 bg-[#bf8eff]/10 text-white/72 opacity-100"
+                    : "border-white/10 bg-black/28 text-white/32 opacity-30 group-hover:opacity-100"
                 }`}
               >
                 {item.label}
@@ -91,9 +91,6 @@ export function StoryRail() {
                     transition={{ type: "spring", stiffness: 260, damping: 24 }}
                   />
                 )}
-              </span>
-              <span className="absolute right-6 font-mono text-[10px] text-white/20">
-                {String(index + 1).padStart(2, "0")}
               </span>
             </a>
           );

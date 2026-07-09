@@ -35,7 +35,7 @@ export function Thinking() {
             <FadeIn key={entry.slug} delay={index * 0.08}>
               <Link
                 href={`/thinking/${entry.slug}`}
-                className="group micro-lift relative block min-h-[360px] overflow-hidden rounded-[34px] border border-white/[0.08] bg-[#0d0d12] p-7 transition duration-500 hover:border-white/[0.16]"
+                className="group micro-lift relative block min-h-[360px] overflow-hidden rounded-[34px] border border-white/[0.08] bg-[#0d0d12] p-7 transition-all duration-500 hover:border-[#bf8eff]/20 hover:shadow-[0_0_40px_rgba(191,142,255,0.06)]"
               >
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(191,142,255,0.12),transparent_34%),radial-gradient(circle_at_86%_84%,rgba(95,59,255,0.18),transparent_36%)] opacity-70 transition group-hover:opacity-100" />
                 <div className="relative flex h-full flex-col">

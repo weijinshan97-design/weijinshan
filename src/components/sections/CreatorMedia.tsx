@@ -1,8 +1,125 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { FadeIn } from "@/components/ui/FadeIn";
+
+function AnimatedStat({
+  value,
+  label,
+  desc,
+  targetNum,
+}: {
+  value: string;
+  label: string;
+  desc: string;
+  targetNum: number;
+}) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+
+  useEffect(() => {
+    if (!inView) return;
+    const duration = 1600;
+    const start = performance.now();
+    const animate = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * targetNum));
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    requestAnimationFrame(animate);
+  }, [inView, targetNum]);
+
+  return (
+    <motion.article
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-8% 0px" }}
+      transition={{ duration: 0.5 }}
+      className="group relative overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.035] p-5 backdrop-blur-xl"
+    >
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(191,142,255,0.12),transparent_34%)] opacity-70" />
+      {/* Animated pulse ring */}
+      <motion.div
+        animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.02, 1] }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 rounded-[28px] border border-[#bf8eff]/10"
+      />
+
+      <div className="relative">
+        {/* Number + growth indicator */}
+        <div className="flex items-baseline gap-2">
+          <p className="font-mono text-[3rem] font-black leading-none text-white md:text-[3.6rem]">
+            {count.toLocaleString()}+
+          </p>
+          {/* Growth indicator */}
+          <motion.div
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="flex items-center gap-1"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              className="text-emerald-400"
+            >
+              <path
+                d="M3 9L7 5L11 9"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M7 5V13"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
+            <motion.span
+              animate={{ opacity: [0.4, 1, 0.4] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="h-1.5 w-1.5 rounded-full bg-emerald-400"
+            />
+          </motion.div>
+        </div>
+
+        <p className="mt-3 text-base font-semibold text-white">{label}</p>
+        <p className="mt-2 text-sm leading-6 text-white/58">{desc}</p>
+
+        {/* Trend label */}
+        <div className="mt-3 flex items-center gap-1.5">
+          <motion.span
+            animate={{ opacity: [0.3, 0.7, 0.3] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="font-mono text-[10px] uppercase tracking-[0.15em] text-emerald-400/60"
+          >
+            持续增长
+          </motion.span>
+          <motion.span
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+            className="text-[10px] text-emerald-400/30"
+          >
+            ↑
+          </motion.span>
+        </div>
+      </div>
+    </motion.article>
+  );
+}
 
 const platformLinks = [
   {
@@ -25,37 +142,40 @@ const videos = [
     meta: "短视频 / 爆款表达 / 节奏剪辑",
     src: "/videos/creator/hit-video.mp4",
     poster: "/images/creator/hit-video-poster.png",
-    desc: "用前 3 秒钩子、情绪推进和剪辑节奏，观察用户会不会停下继续看。",
+    desc: "前 3 秒决定用户去留——测试不同钩子、情绪节奏和剪辑方式对完播率的实际影响。",
   },
   {
     title: "封面期待建立",
     meta: "漫剧 / 叙事包装 / 账号内容",
     src: "/videos/creator/short-drama-1.mp4",
     poster: "/images/creator/short-drama-1-cover.jpg",
-    desc: "用标题感、封面氛围和剧情节点包装，让用户更快判断内容值不值得点开。",
+    desc: "封面不是装饰，是内容的第一句台词——用标题感和视觉氛围建立点击期待。",
   },
   {
     title: "表达方法沉淀",
     meta: "漫剧 / 内容运营 / 视觉表达",
     src: "/videos/creator/short-drama-2.mp4",
     poster: "/images/creator/short-drama-2-cover.jpg",
-    desc: "对同一内容方向做不同包装尝试，把封面、节奏和评论观察沉淀成表达方法。",
+    desc: "同一内容方向，不同包装策略——把播放数据、评论反馈沉淀为可复用的表达方法。",
   },
 ];
 
 const mediaStats = [
   {
     value: "6万+",
+    targetNum: 60000,
     label: "单条最高播放",
     desc: "说明选题、封面和前几秒节奏已经能撬动真实流量。",
   },
   {
     value: "800+",
+    targetNum: 800,
     label: "抖音粉丝",
     desc: "约 1 个月冷启动，持续测试漫剧包装和短视频节奏。",
   },
   {
     value: "200+",
+    targetNum: 200,
     label: "小红书粉丝",
     desc: "约半个月起号，用封面和笔记表达测试内容种草效率。",
   },
@@ -94,19 +214,13 @@ export function CreatorMedia() {
 
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           {mediaStats.map((stat) => (
-            <article
+            <AnimatedStat
               key={stat.label}
-              className="relative overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.035] p-5 backdrop-blur-xl"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(191,142,255,0.12),transparent_34%)] opacity-70" />
-              <div className="relative">
-                <p className="font-mono text-[3rem] font-black leading-none text-white md:text-[3.6rem]">
-                  {stat.value}
-                </p>
-                <p className="mt-4 text-base font-semibold text-white">{stat.label}</p>
-                <p className="mt-3 text-sm leading-7 text-white/58">{stat.desc}</p>
-              </div>
-            </article>
+              value={stat.value}
+              targetNum={stat.targetNum}
+              label={stat.label}
+              desc={stat.desc}
+            />
           ))}
         </div>
 
@@ -130,7 +244,8 @@ export function CreatorMedia() {
                     controls
                     muted
                     playsInline
-                    preload="metadata"
+                    preload="none"
+                    loading="lazy"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/52 via-transparent to-transparent" />
                   <span className="absolute left-4 top-4 rounded-full border border-white/12 bg-black/28 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/52 backdrop-blur-xl">
@@ -145,7 +260,7 @@ export function CreatorMedia() {
                   <h3 className="cjk-card-title mt-4 whitespace-nowrap text-[1.35rem] font-semibold leading-tight text-white">
                     {item.title}
                   </h3>
-                  <p className="copy-readable mt-3 line-clamp-3 text-sm text-white/60">
+                  <p className="mt-3 text-sm leading-relaxed text-white/60">
                     {item.desc}
                   </p>
                 </div>

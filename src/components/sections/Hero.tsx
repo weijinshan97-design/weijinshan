@@ -169,7 +169,7 @@ export function Hero() {
                   initial={{ opacity: 0, y: 18, scale: 0.92 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ duration: 0.7, delay: 0.72 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  className={`animate-float-tag absolute hidden rounded-full border border-white/[0.12] bg-white/[0.07] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.22em] text-white/62 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl md:block ${positions[index]}`}
+                  className={`animate-float-tag absolute rounded-full border border-white/[0.12] bg-white/[0.07] px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-white/50 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl md:px-4 md:py-2 md:text-[11px] md:tracking-[0.22em] md:text-white/62 ${positions[index]}`}
                   style={{ animationDelay: `${index * 0.7}s` }}
                 >
                   {label}
@@ -178,11 +178,21 @@ export function Hero() {
             })}
           </div>
 
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.65 }}
+            className="mt-6 text-center text-lg tracking-wider text-white/45 md:text-xl"
+            style={{ opacity: fadeOpacity }}
+          >
+            UI/UX + 视觉设计师 &mdash; 用 AI 把想法变成可运行的产品
+          </motion.p>
+
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-14 grid w-full gap-5 border-t border-white/10 pt-6 font-mono text-[11px] uppercase tracking-[0.23em] text-white/50 md:grid-cols-[1fr_auto_1fr]"
+            className="mt-6 grid w-full gap-5 border-t border-white/10 pt-6 font-mono text-[11px] uppercase tracking-[0.23em] text-white/50 md:grid-cols-[1fr_auto_1fr]"
             style={{ opacity: fadeOpacity }}
           >
             <span>Selected cases / {featuredWorks.length} stories</span>
@@ -196,6 +206,40 @@ export function Hero() {
             <span className="md:text-right">Scroll for the work</span>
           </motion.div>
         </div>
+
+        {/* ---- 滚动指示器 ---- */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          style={{ opacity: fadeOpacity }}
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-1"
+          >
+            <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-white/18">
+              Scroll
+            </span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              className="text-white/20"
+            >
+              <path
+                d="M4 6L8 10L12 6"
+                stroke="currentColor"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

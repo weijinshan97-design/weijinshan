@@ -1,8 +1,40 @@
 "use client";
 
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { aboutData } from "@/data/about";
 import { FadeIn } from "@/components/ui/FadeIn";
+
+function TiltCard({ children }: { children: React.ReactNode }) {
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      setTilt({ x: x * 6, y: y * -6 });
+    },
+    [],
+  );
+
+  const handleMouseLeave = useCallback(() => {
+    setTilt({ x: 0, y: 0 });
+  }, []);
+
+  return (
+    <div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: `perspective(800px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)`,
+        transition: "transform 0.3s ease-out",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
 
 const stats = [
   ["9年", "设计经验", "商业视觉、UI 设计、AI 产品与内容表达的连续积累"],
@@ -41,15 +73,17 @@ export function About() {
         <div className="mt-16 grid gap-5 lg:grid-cols-3">
           {stats.map(([value, label, desc], index) => (
             <FadeIn key={label} delay={index * 0.06}>
-              <div className="micro-lift rounded-[34px] border border-white/[0.08] bg-white/[0.04] p-7 backdrop-blur-xl">
-                <div className="font-serif text-6xl font-bold leading-none text-white md:text-7xl">
-                  {value}
+              <TiltCard>
+                <div className="micro-lift rounded-[34px] border border-white/[0.08] bg-white/[0.04] p-7 backdrop-blur-xl">
+                  <div className="font-serif text-6xl font-bold leading-none text-white md:text-7xl">
+                    {value}
+                  </div>
+                  <p className="mt-5 text-base font-semibold text-[#bf8eff]/72">
+                    {label}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-white/58">{desc}</p>
                 </div>
-                <p className="mt-5 text-base font-semibold text-[#bf8eff]/72">
-                  {label}
-                </p>
-                <p className="mt-3 text-sm leading-7 text-white/58">{desc}</p>
-              </div>
+              </TiltCard>
             </FadeIn>
           ))}
         </div>

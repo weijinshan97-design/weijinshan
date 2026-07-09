@@ -53,7 +53,7 @@ export function Systems() {
                         {system.descriptionZh}
                       </p>
 
-                      <div className="mt-12">
+                      <div className="mt-10">
                         <AIWorkflowPipeline />
                       </div>
                     </div>
@@ -63,7 +63,6 @@ export function Systems() {
             }
 
             // Regular system cards
-            const displayIndex = system.id === "ai-workflow" ? index : index;
             return (
             <FadeIn key={system.id} delay={index * 0.08}>
               <article className="group micro-lift relative overflow-hidden rounded-[42px] border border-white/[0.08] bg-[#0d0d12] p-6 transition duration-500 hover:border-white/[0.16] md:p-8">

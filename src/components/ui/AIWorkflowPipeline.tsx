@@ -48,41 +48,13 @@ const steps: Step[] = [
   },
 ];
 
-const toolRoles = [
-  {
-    tool: "ChatGPT",
-    role: "产品讨论 · UX 思考 · 设计评审 · 信息架构",
-    color: "border-emerald-500/30 bg-emerald-500/8 text-emerald-400",
-  },
-  {
-    tool: "Claude",
-    role: "长上下文推理 · 代码理解 · 架构优化 · Code Review",
-    color: "border-[#bf8eff]/30 bg-[#bf8eff]/8 text-[#bf8eff]",
-  },
-  {
-    tool: "Codex",
-    role: "前端开发 · Demo 搭建 · Bug 修复 · 快速验证",
-    color: "border-amber-500/30 bg-amber-500/8 text-amber-400",
-  },
-  {
-    tool: "Figma",
-    role: "Design System · 组件库 · 视觉设计 · 原型",
-    color: "border-sky-500/30 bg-sky-500/8 text-sky-400",
-  },
-  {
-    tool: "VS Code",
-    role: "开发环境 · 调试 · 部署",
-    color: "border-blue-500/30 bg-blue-500/8 text-blue-400",
-  },
-];
-
 export function AIWorkflowPipeline() {
   return (
     <div className="relative">
       {/* ---- 6 步管线 ---- */}
       <div className="grid gap-0 lg:grid-cols-6">
         {steps.map((step, i) => (
-          <div key={step.num} className="relative flex lg:flex-col">
+          <div key={step.num} className="relative flex flex-col min-h-0">
             {/* Connecting line (desktop) */}
             {i < steps.length - 1 && (
               <div className="absolute left-[calc(100%-1px)] top-8 z-0 hidden h-px w-full lg:block">
@@ -107,9 +79,9 @@ export function AIWorkflowPipeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-8% 0px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="relative z-10 flex-1"
+              className="relative z-10 flex flex-1 flex-col"
             >
-              <div className="flex items-start gap-4 lg:flex-col lg:gap-3 lg:pr-4">
+              <div className="flex flex-1 flex-col gap-3 lg:pr-4">
                 {/* Step number + title */}
                 <div className="shrink-0">
                   <span className="font-mono text-[11px] tracking-[0.2em] text-[#bf8eff]/50">
@@ -121,12 +93,12 @@ export function AIWorkflowPipeline() {
                 </div>
 
                 {/* Description */}
-                <p className="mt-0 text-xs leading-6 text-white/48 lg:mt-1">
+                <p className="text-xs leading-6 text-white/48">
                   {step.desc}
                 </p>
 
-                {/* Tool tags */}
-                <div className="mt-2 flex flex-wrap gap-1.5">
+                {/* Tool tags — pinned to bottom */}
+                <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
                   {step.tools.map((tool) => (
                     <span
                       key={tool}
@@ -145,9 +117,15 @@ export function AIWorkflowPipeline() {
       {/* ---- 分隔 ---- */}
       <div className="my-12 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
 
-      {/* ---- 工具角色矩阵 ---- */}
+      {/* ---- 工具角色 ---- */}
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-        {toolRoles.map((item, i) => (
+        {[
+          { tool: "ChatGPT", role: "产品讨论 · UX 思考 · 设计评审 · 信息架构", color: "border-emerald-500/30 bg-emerald-500/8 text-emerald-400" },
+          { tool: "Claude", role: "长上下文推理 · 代码理解 · 架构优化 · Code Review", color: "border-[#bf8eff]/30 bg-[#bf8eff]/8 text-[#bf8eff]" },
+          { tool: "Codex", role: "前端开发 · Demo 搭建 · Bug 修复 · 快速验证", color: "border-amber-500/30 bg-amber-500/8 text-amber-400" },
+          { tool: "Figma", role: "Design System · 组件库 · 视觉设计 · 原型", color: "border-sky-500/30 bg-sky-500/8 text-sky-400" },
+          { tool: "VS Code", role: "开发环境 · 调试 · 部署", color: "border-blue-500/30 bg-blue-500/8 text-blue-400" },
+        ].map((item, i) => (
           <motion.div
             key={item.tool}
             initial={{ opacity: 0, y: 12 }}

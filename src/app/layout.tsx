@@ -5,16 +5,23 @@ import { Footer } from "@/components/layout/Footer";
 import { ScrollRestoration } from "@/components/ui/ScrollRestoration";
 
 export const metadata: Metadata = {
-  title: "魏晋山 — 视觉·系统·自动化",
+  title: "魏晋山 — UI/UX + 视觉设计 · 系统 · 自动化",
   description:
-    "通过视觉、系统与自动化，解决真实工作中的问题。商业视觉设计师，关注效率、流程和设计系统。",
+    "通过视觉、系统与自动化，解决真实工作中的问题。UI/UX + 视觉设计师，关注效率、流程和设计系统。",
   openGraph: {
-    title: "魏晋山 — 视觉·系统·自动化",
+    title: "魏晋山 — UI/UX + 视觉设计 · 系统 · 自动化",
     description: "通过视觉、系统与自动化，解决真实工作中的问题。",
     url: "https://jinshan.design",
     siteName: "魏晋山",
     locale: "zh_CN",
     type: "website",
+    images: [{ url: "https://jinshan.design/images/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "魏晋山 — UI/UX + 视觉设计 · 系统 · 自动化",
+    description: "通过视觉、系统与自动化，解决真实工作中的问题。",
+    images: ["https://jinshan.design/images/og-image.png"],
   },
 };
 

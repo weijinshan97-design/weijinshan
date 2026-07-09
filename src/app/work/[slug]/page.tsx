@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { worksData } from "@/data/works";
 import { WbitCaseFrame } from "@/components/ui/WbitCaseFrame";
+import { WorkProgressBar } from "./progress";
 
 interface WorkPageProps {
   params: Promise<{ slug: string }>;
@@ -264,7 +266,7 @@ function AiAgentPortfolioCase() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_9%,rgba(47,128,255,0.18),transparent_28%),radial-gradient(circle_at_50%_64%,rgba(82,230,216,0.14),transparent_34%),linear-gradient(180deg,#050606_0%,#090c0e_56%,#050606_100%)]" />
         <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.12)_1px,transparent_1px)] [background-size:64px_64px]" />
         <div className="absolute inset-0 opacity-[0.26] [background-image:repeating-linear-gradient(108deg,transparent_0,transparent_112px,rgba(82,230,216,.18)_113px,transparent_115px)]" />
-        <div className="absolute left-0 right-0 top-[74px] h-px bg-gradient-to-r from-transparent via-[#52e6d8]/45 to-transparent" />
+        <div className="absolute left-0 right-0 top-[74px] h-px bg-gradient-to-r from-transparent via-[#bf8eff]/45 to-transparent" />
         <div className="ai-radius-lg absolute left-[calc(50%-610px)] top-[126px] h-[1010px] w-[1180px] border border-white/[0.055]" />
         <div className="absolute left-[calc(50%-575px)] top-[120px] select-none font-mono text-[100px] font-black uppercase leading-none tracking-[-0.08em] ai-hero-outline">
           CODEX
@@ -276,7 +278,7 @@ function AiAgentPortfolioCase() {
           <div className="absolute left-0 right-0 top-[136px] z-40 text-center">
             <div className="mb-6 flex items-center justify-center gap-4 text-[22px] font-medium text-white/54">
               <span className="ai-nowrap">Design ideas</span>
-              <span className="ai-nowrap rounded-full bg-[#52e6d8] px-6 py-2 text-base font-semibold text-[#061011] shadow-[0_10px_30px_rgba(82,230,216,0.22)]">
+              <span className="ai-nowrap rounded-full bg-[#bf8eff] px-6 py-2 text-base font-semibold text-[#061011] shadow-[0_10px_30px_rgba(82,230,216,0.22)]">
                 Codex Agent
               </span>
               <span className="ai-nowrap">running system</span>
@@ -297,18 +299,18 @@ function AiAgentPortfolioCase() {
             </p>
           </div>
 
-          <div className="absolute left-1/2 top-[458px] z-30 h-[144px] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#52e6d8]/50 to-transparent" />
-          <div className="absolute left-1/2 top-[520px] z-30 h-3 w-3 -translate-x-1/2 rounded-full bg-[#52e6d8] shadow-[0_0_36px_rgba(82,230,216,0.8)]" />
+          <div className="absolute left-1/2 top-[458px] z-30 h-[144px] w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#bf8eff]/50 to-transparent" />
+          <div className="absolute left-1/2 top-[520px] z-30 h-3 w-3 -translate-x-1/2 rounded-full bg-[#bf8eff] shadow-[0_0_36px_rgba(82,230,216,0.8)]" />
           <div className="absolute left-[170px] top-[520px] z-30 w-[250px] border-t border-white/10 pt-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#52e6d8]/64">01 / Ideation</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#bf8eff]/64">01 / Ideation</p>
             <p className="ai-nowrap mt-3 text-sm leading-6 text-white/42">把模糊想法整理成可执行页面目标</p>
           </div>
           <div className="absolute right-[142px] top-[520px] z-30 w-[270px] border-t border-white/10 pt-4 text-right">
-            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#52e6d8]/64">02 / Execution</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#bf8eff]/64">02 / Execution</p>
             <p className="ai-nowrap mt-3 text-sm leading-6 text-white/42">让 Codex 完成代码、构建与浏览器验证</p>
           </div>
 
-          <div className="absolute left-[126px] top-[560px] z-10 h-[180px] w-[948px] rounded-[50%] border border-[#52e6d8]/14" />
+          <div className="absolute left-[126px] top-[560px] z-10 h-[180px] w-[948px] rounded-[50%] border border-[#bf8eff]/14" />
           <div className="absolute left-[238px] top-[588px] z-10 h-[118px] w-[724px] rounded-[50%] border border-white/[0.045]" />
 
           <div className="absolute left-[80px] top-[610px] z-20 h-[490px] w-[1040px] overflow-hidden rounded-[42px] border border-white/12 bg-[#111416] p-3 shadow-[0_52px_170px_rgba(0,0,0,0.58)]">
@@ -343,13 +345,13 @@ function AiAgentPortfolioCase() {
           />
 
           <div className="absolute bottom-[-72px] left-0 right-0 z-50 h-[250px] bg-gradient-to-b from-transparent via-[#050606]/78 to-[#050606]" />
-          <div className="absolute bottom-[18px] left-1/2 z-50 h-36 w-px -translate-x-1/2 bg-gradient-to-b from-[#52e6d8]/0 via-[#52e6d8]/45 to-[#52e6d8]/0" />
+          <div className="absolute bottom-[18px] left-1/2 z-50 h-36 w-px -translate-x-1/2 bg-gradient-to-b from-[#bf8eff]/0 via-[#bf8eff]/45 to-[#bf8eff]/0" />
         </div>
       </section>
 
       <section className="relative z-20 pb-40 pt-24">
         <div className="ai-case-shell">
-          <div className="mx-auto mb-16 h-16 w-px bg-gradient-to-b from-[#52e6d8]/40 to-transparent" />
+          <div className="mx-auto mb-16 h-16 w-px bg-gradient-to-b from-[#bf8eff]/40 to-transparent" />
           <div className="ai-radius-lg grid grid-cols-[400px_620px] gap-[120px] border border-white/10 p-16">
             <div>
               <span className="ai-case-kicker">01 / Project Background</span>
@@ -374,7 +376,7 @@ function AiAgentPortfolioCase() {
       </section>
 
       <section className="ai-case-section relative overflow-hidden">
-        <div className="absolute left-1/2 top-28 h-[420px] w-[420px] -translate-x-1/2 rounded-full border border-[#52e6d8]/10" />
+        <div className="absolute left-1/2 top-28 h-[420px] w-[420px] -translate-x-1/2 rounded-full border border-[#bf8eff]/10" />
         <div className="ai-case-shell relative">
           <div className="mb-24 grid grid-cols-[500px_460px] items-end justify-between">
             <div>
@@ -386,14 +388,14 @@ function AiAgentPortfolioCase() {
             </p>
           </div>
           <div className="ai-radius-lg relative grid grid-cols-4 gap-px overflow-hidden border border-white/10 bg-white/10">
-            <div className="absolute left-0 right-0 top-[86px] h-px bg-[#52e6d8]/22" />
+            <div className="absolute left-0 right-0 top-[86px] h-px bg-[#bf8eff]/22" />
             {processSteps.map((step) => (
               <article
                 key={step.num}
                 className="relative min-h-[300px] bg-[#070909] p-8 transition duration-300 hover:bg-[#0c1011]"
               >
                 <span className="font-mono text-[64px] font-bold leading-none text-white/10">{step.num}</span>
-                <span className="absolute left-8 top-[82px] h-3 w-3 rounded-full bg-[#52e6d8] shadow-[0_0_28px_rgba(82,230,216,.8)]" />
+                <span className="absolute left-8 top-[82px] h-3 w-3 rounded-full bg-[#bf8eff] shadow-[0_0_28px_rgba(82,230,216,.8)]" />
                 <h3 className="cjk-card-title mt-14 text-2xl font-semibold text-white">{step.title}</h3>
                 <p className="mt-5 w-[220px] text-sm leading-7 text-white/46">{step.desc}</p>
               </article>
@@ -425,7 +427,7 @@ function AiAgentPortfolioCase() {
                 className="bg-[#080a0b] p-8"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <span className="rounded-full border border-[#52e6d8]/25 px-3 py-1 text-xs font-mono uppercase tracking-[0.18em] text-[#52e6d8]/75">
+                  <span className="rounded-full border border-[#bf8eff]/25 px-3 py-1 text-xs font-mono uppercase tracking-[0.18em] text-[#bf8eff]/75">
                     {item.label}
                   </span>
                   <span className="h-px flex-1 bg-white/10" />
@@ -436,8 +438,8 @@ function AiAgentPortfolioCase() {
                     <span className="text-xs uppercase tracking-[0.18em] text-white/26">Designer</span>
                     <p className="mt-2 text-sm leading-6 text-white/58">{item.human}</p>
                   </div>
-                  <div className="ai-radius border border-[#52e6d8]/14 bg-[#52e6d8]/[0.06] p-5">
-                    <span className="text-xs uppercase tracking-[0.18em] text-[#52e6d8]/70">Agent</span>
+                  <div className="ai-radius border border-[#bf8eff]/14 bg-[#bf8eff]/[0.06] p-5">
+                    <span className="text-xs uppercase tracking-[0.18em] text-[#bf8eff]/70">Agent</span>
                     <p className="mt-2 text-sm leading-6 text-white/62">{item.agent}</p>
                   </div>
                 </div>
@@ -471,7 +473,7 @@ function AiAgentPortfolioCase() {
                 className="min-h-[238px] bg-[#080a0b] p-7"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <span className="font-mono text-sm text-[#52e6d8]/75">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="font-mono text-sm text-[#bf8eff]/75">{String(index + 1).padStart(2, "0")}</span>
                   <span className="h-px flex-1 bg-white/10" />
                 </div>
                 <h3 className="cjk-card-title mt-9 text-[22px] font-semibold text-white">{item.title}</h3>
@@ -479,7 +481,7 @@ function AiAgentPortfolioCase() {
               </article>
             ))}
           </div>
-          <div className="ai-radius-lg mt-10 border border-[#52e6d8]/18 bg-[#52e6d8]/[0.045] p-7">
+          <div className="ai-radius-lg mt-10 border border-[#bf8eff]/18 bg-[#bf8eff]/[0.045] p-7">
             <div className="flex items-center justify-between gap-4">
               {codexWorkflow.map((item, index) => (
                 <div key={item} className="flex items-center gap-3">
@@ -524,12 +526,12 @@ function AiAgentPortfolioCase() {
                 ))}
               </div>
             </div>
-            <div className="ai-radius-lg border border-[#52e6d8]/18 bg-[radial-gradient(circle_at_20%_10%,rgba(82,230,216,0.14),transparent_34%),rgba(255,255,255,0.035)] p-8">
-              <span className="text-xs uppercase tracking-[0.22em] text-[#52e6d8]/70">Vibe Coding Rules</span>
+            <div className="ai-radius-lg border border-[#bf8eff]/18 bg-[radial-gradient(circle_at_20%_10%,rgba(82,230,216,0.14),transparent_34%),rgba(255,255,255,0.035)] p-8">
+              <span className="text-xs uppercase tracking-[0.22em] text-[#bf8eff]/70">Vibe Coding Rules</span>
               <div className="mt-7 space-y-4">
                 {vibeRules.map((item, index) => (
                   <article key={item.title} className="ai-radius grid grid-cols-[44px_1fr] gap-4 border border-white/8 bg-[#070808]/64 p-4">
-                    <span className="ai-radius flex h-11 w-11 items-center justify-center border border-[#52e6d8]/25 font-mono text-sm text-[#52e6d8]">
+                    <span className="ai-radius flex h-11 w-11 items-center justify-center border border-[#bf8eff]/25 font-mono text-sm text-[#bf8eff]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>
@@ -561,7 +563,7 @@ function AiAgentPortfolioCase() {
                 className="ai-radius-lg grid grid-cols-[260px_320px_320px_260px] gap-px overflow-hidden border border-white/10 bg-white/10"
               >
                 <div className="bg-[#070808]/90 p-6">
-                  <span className="font-mono text-sm text-[#52e6d8]">{String(index + 1).padStart(2, "0")} / Input</span>
+                  <span className="font-mono text-sm text-[#bf8eff]">{String(index + 1).padStart(2, "0")} / Input</span>
                   <p className="cjk-card-title mt-4 text-lg font-semibold text-white">{item.input}</p>
                 </div>
                 <div className="bg-[#090b0c] p-6">
@@ -572,8 +574,8 @@ function AiAgentPortfolioCase() {
                   <span className="font-mono text-sm text-white/28">My Judgment</span>
                   <p className="mt-4 text-sm leading-7 text-white/58">{item.judgment}</p>
                 </div>
-                <div className="bg-[#52e6d8]/[0.055] p-6">
-                  <span className="font-mono text-sm text-[#52e6d8]/75">Outcome</span>
+                <div className="bg-[#bf8eff]/[0.055] p-6">
+                  <span className="font-mono text-sm text-[#bf8eff]/75">Outcome</span>
                   <p className="mt-4 text-sm leading-7 text-white/66">{item.output}</p>
                 </div>
               </article>
@@ -612,7 +614,7 @@ function AiAgentPortfolioCase() {
                   "把修改入口、同步目录和关键组件标注清楚，避免后续维护断档",
                 ].map((item) => (
                   <div key={item} className="ai-radius flex gap-3 border border-white/8 bg-white/[0.03] p-4">
-                    <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#52e6d8]" />
+                    <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#bf8eff]" />
                     <p className="text-sm leading-6 text-white/56">{item}</p>
                   </div>
                 ))}
@@ -640,7 +642,7 @@ function AiAgentPortfolioCase() {
                   <p className="mt-3 text-sm leading-7 text-white/45">{item.before}</p>
                 </div>
                 <div>
-                  <span className="text-xs uppercase tracking-[0.2em] text-[#52e6d8]/70">After</span>
+                  <span className="text-xs uppercase tracking-[0.2em] text-[#bf8eff]/70">After</span>
                   <p className="mt-3 text-sm leading-7 text-white/62">{item.after}</p>
                 </div>
               </article>
@@ -666,7 +668,7 @@ function AiAgentPortfolioCase() {
             </p>
           </div>
           <div className="ai-radius-lg relative overflow-hidden border border-white/10 bg-white/[0.035] p-10">
-            <div className="absolute left-10 right-10 top-1/2 h-px bg-gradient-to-r from-transparent via-[#52e6d8]/30 to-transparent" />
+            <div className="absolute left-10 right-10 top-1/2 h-px bg-gradient-to-r from-transparent via-[#bf8eff]/30 to-transparent" />
             <div className="relative grid grid-cols-5 gap-4">
               {validationLoop.map(([title, desc], index) => (
                 <article key={title} className="ai-radius border border-white/10 bg-[#070808] p-5">
@@ -698,7 +700,7 @@ function AiAgentPortfolioCase() {
       </section>
 
       <section className="ai-case-section pb-36">
-        <div className="ai-radius-lg ai-case-shell border border-[#52e6d8]/20 bg-[radial-gradient(circle_at_20%_10%,rgba(82,230,216,0.12),transparent_32%),rgba(255,255,255,0.035)] p-12">
+        <div className="ai-radius-lg ai-case-shell border border-[#bf8eff]/20 bg-[radial-gradient(circle_at_20%_10%,rgba(82,230,216,0.12),transparent_32%),rgba(255,255,255,0.035)] p-12">
           <span className="ai-case-kicker">11 / Methodology</span>
           <h2 className="cjk-title mt-5 w-[980px] font-serif text-[56px] font-bold">
             <span className="ai-nowrap inline-block">AI Agent 协作不是一句 Prompt</span>
@@ -758,10 +760,22 @@ export default async function WorkPage({ params }: WorkPageProps) {
 
   return (
     <>
+      <WorkProgressBar />
+
       {/* Hero — clean dark header */}
       {!isSpecialCase && (
-        <section className="relative bg-[#0a0a0a] pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-8 lg:px-12">
-          <div className="max-w-[1100px] mx-auto">
+        <section className="relative bg-[#000000] pt-24 pb-16 md:pt-32 md:pb-24 px-6 md:px-8 lg:px-12">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(191,142,255,0.06),transparent_60%)]" />
+          <div className="relative max-w-[1100px] mx-auto">
+            <Link
+              href="/#work"
+              className="inline-flex items-center gap-2 text-sm text-white/30 transition-colors hover:text-white/60 mb-8"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M8 3L4 7L8 11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              返回案例列表
+            </Link>
             <div className="flex items-center gap-4 mb-6">
               <span className="h-px w-8 bg-white/25" />
               <span className="text-[10px] tracking-[0.22em] uppercase text-white/40 font-medium">
@@ -776,12 +790,31 @@ export default async function WorkPage({ params }: WorkPageProps) {
                 {work.category}
               </span>
             </div>
-            <h1 className="cjk-title max-w-4xl font-serif text-3xl font-bold tracking-normal text-white md:text-5xl lg:text-6xl">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="h-px w-6 bg-[#bf8eff]/30" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#bf8eff]/45">
+                Case Study
+              </span>
+            </div>
+            <h1 className="cjk-title max-w-4xl font-serif text-4xl font-bold leading-[1.12] tracking-normal text-white md:text-6xl lg:text-7xl">
               {work.titleZh}
             </h1>
-            <p className="mt-5 text-sm md:text-base text-white/30 leading-relaxed max-w-2xl font-light">
+            <p className="mt-6 text-base md:text-lg text-white/40 leading-relaxed max-w-2xl">
               {work.summaryZh}
             </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.03] px-4 py-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#bf8eff]/60" />
+                <span className="text-xs text-white/50">主导设计</span>
+              </div>
+              <div className="flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.03] px-4 py-2">
+                <span className="text-xs text-white/35">{work.year}</span>
+              </div>
+              <div className="flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.03] px-4 py-2">
+                <span className="text-xs text-white/35">{work.category}</span>
+              </div>
+            </div>
           </div>
         </section>
       )}
@@ -857,27 +890,14 @@ export default async function WorkPage({ params }: WorkPageProps) {
               项目视频
             </span>
             <div className="mt-8">
-              {work.slug === "self-driven-design" ? (
-                <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    src="//player.bilibili.com/player.html?bvid=BV1sDVa6vEkR&page=1&high_quality=1&danmaku=0"
-                    scrolling="no"
-                    frameBorder="no"
-                    allowFullScreen={true}
-                    className="absolute top-0 left-0 w-full h-full"
-                  />
-                </div>
-              ) : (
-                <video
-                  src={work.videoUrl}
+              <video
+                  src={work.slug === "self-driven-design" ? "/videos/耳漠.mp4" : work.videoUrl}
                   controls
                   muted
-                  loop
                   playsInline
                   preload="metadata"
                   className="w-full h-auto rounded-xl"
                 />
-              )}
             </div>
           </div>
         </section>

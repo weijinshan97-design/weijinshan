@@ -23,7 +23,7 @@ export function Contact() {
               <br />
               IDEAS VISIBLE
             </h2>
-            <p className="copy-readable mx-auto mt-8 max-w-[620px] text-base text-white/62">
+            <p className="copy-readable mx-auto mt-8 max-w-[620px] text-base text-white/55">
               如果你正在寻找一个既能做视觉判断，也能理解 AI 产品和交付流程的设计师，我们可以从一个具体问题开始聊。
             </p>
           </div>
@@ -31,9 +31,9 @@ export function Contact() {
 
         <div className="mt-16 grid gap-5 md:grid-cols-3">
           {[
-            ["Name", aboutData.name, "视觉设计师 / 系统构建者", "#home"],
+            ["Name", aboutData.name, "UI/UX + 视觉设计师 / 系统构建者", "#home"],
             ["Phone", aboutData.contact.phone, "微信同号", `tel:${aboutData.contact.phone}`],
-            ["Email", aboutData.contact.email, "期待你的邮件", `mailto:${aboutData.contact.email}`],
+            ["Email", aboutData.contact.email, "期待你的联系", `mailto:${aboutData.contact.email}`],
           ].map(([label, value, desc, href]) => (
             <a
               key={label}
