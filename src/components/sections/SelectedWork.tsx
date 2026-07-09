@@ -294,7 +294,7 @@ export function SelectedWork() {
           </div>
 
           {/* ---- 移动端圆点指示器 ---- */}
-          <div className="mt-3 flex justify-center gap-2 lg:hidden">
+          <div className="mt-1 flex justify-center gap-2 pb-2 lg:hidden">
             {worksData.map((_, i) => (
               <button
                 key={i}

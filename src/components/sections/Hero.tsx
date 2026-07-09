@@ -192,7 +192,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-3 grid w-full gap-3 border-t border-white/10 pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 sm:mt-6 sm:gap-5 sm:pt-6 sm:text-[11px] sm:tracking-[0.23em] md:grid-cols-[1fr_auto_1fr]"
+            className="mt-3 hidden w-full gap-3 border-t border-white/10 pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 sm:mt-6 sm:gap-5 sm:pt-6 sm:text-[11px] sm:tracking-[0.23em] md:grid md:grid-cols-[1fr_auto_1fr]"
             style={{ opacity: fadeOpacity }}
           >
             <span>Selected cases / {featuredWorks.length} stories</span>
