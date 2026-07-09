@@ -21,7 +21,7 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isDark = !scrolled;
+  const isDark = true;
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
@@ -34,20 +34,26 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed left-0 top-0 z-50 w-full px-4 transition-all duration-500 md:px-6 ${
         scrolled
-          ? "bg-white/85 backdrop-blur-xl border-b border-border-light"
-          : "bg-transparent"
+          ? "pt-3"
+          : "pt-5"
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 h-16 flex items-center justify-between">
+      <div
+        className={`mx-auto flex h-14 max-w-[1120px] items-center justify-between rounded-full border px-4 shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur-2xl transition-all duration-500 md:px-5 ${
+          scrolled
+            ? "border-white/12 bg-[#070808]/74 text-white shadow-[0_18px_70px_rgba(0,0,0,0.34)]"
+            : "border-white/10 bg-[#070808]/42 text-white"
+        }`}
+      >
         <a
           href="#home"
           onClick={(e) => {
             e.preventDefault();
             handleNavClick("#home");
           }}
-          className={`text-base font-semibold tracking-tight transition-colors duration-500 ${
+          className={`rounded-full px-3 py-2 text-sm font-semibold tracking-tight transition-colors duration-500 ${
             isDark
               ? "text-white hover:text-white/70"
               : "text-foreground hover:text-foreground/70"
@@ -57,7 +63,7 @@ export function Nav() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => {
             const id = item.href.replace("#", "");
             const isActive = activeId === id;
@@ -69,34 +75,41 @@ export function Nav() {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                className={`relative text-sm tracking-wide transition-colors duration-500 group ${
+                data-active={isActive}
+                className={`nav-micro-link relative rounded-full px-4 py-2 text-sm tracking-wide transition-all duration-500 group hover:-translate-y-0.5 ${
                   isActive
                     ? isDark
-                      ? "text-white font-semibold"
-                      : "text-foreground font-semibold"
+                      ? "bg-white/10 text-white font-semibold"
+                      : "bg-black/[0.055] text-foreground font-semibold"
                     : isDark
-                      ? "text-white/50 hover:text-white"
+                      ? "text-white/62 hover:text-white"
                       : "text-muted-light hover:text-foreground"
                 }`}
               >
                 {item.label}
-                <span
-                  className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ease-out ${
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  } ${
-                    isActive
-                      ? isDark ? "bg-white" : "bg-foreground"
-                      : isDark ? "bg-white/40" : "bg-foreground/40"
-                  }`}
-                />
               </a>
             );
           })}
         </nav>
 
+        <a
+          href="#contact"
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick("#contact");
+          }}
+          className={`hidden rounded-full px-4 py-2 text-sm font-semibold transition duration-300 md:inline-flex ${
+            isDark
+              ? "bg-gradient-to-r from-[#bf8eff] to-[#6366f1] text-white shadow-[0_0_20px_rgba(191,142,255,0.18)] hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]"
+              : "bg-[#09090b] text-white hover:bg-[#242427]"
+          }`}
+        >
+          联系我
+        </a>
+
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 -mr-2"
+          className="md:hidden flex flex-col gap-1.5 rounded-full p-3"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}

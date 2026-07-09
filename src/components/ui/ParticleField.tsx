@@ -169,7 +169,7 @@ export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
         const displacement = Math.sqrt(
           (p.x - p.originX) ** 2 + (p.y - p.originY) ** 2
         );
-        const alpha = Math.min(0.35, 0.12 + displacement * 0.003);
+        const alpha = Math.min(0.55, 0.18 + displacement * 0.003);
 
         // Glow effect near mouse
         let finalAlpha = alpha;
@@ -182,8 +182,8 @@ export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
         const scatterAlpha = Math.max(0, 1 - currentScatter * 1.2);
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${finalAlpha * scatterAlpha})`;
+        ctx.arc(p.x, p.y, 1.2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(191, 142, 255, ${finalAlpha * scatterAlpha * 1.4})`;
         ctx.fill();
       }
 
@@ -208,7 +208,7 @@ export function ParticleField({ scatter = 0 }: ParticleFieldProps) {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-auto"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.85 }}
     />
   );
 }

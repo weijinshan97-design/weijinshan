@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
-import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { ScrollRestoration } from "@/components/ui/ScrollRestoration";
 
 export const metadata: Metadata = {
@@ -44,7 +43,6 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <LoadingScreen />
         <Nav />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />

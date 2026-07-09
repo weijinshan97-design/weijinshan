@@ -4,6 +4,7 @@ export const navItems: NavItem[] = [
   { label: "首页", href: "#home" },
   { label: "关于", href: "#about" },
   { label: "案例", href: "#work" },
+  { label: "内容", href: "#creator" },
   { label: "工具", href: "#systems" },
   { label: "思考", href: "#thinking" },
   { label: "联系", href: "#contact" },

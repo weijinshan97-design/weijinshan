@@ -68,7 +68,7 @@ function NewsBriefing() {
           <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/34">
             News Briefing
           </p>
-          <h2 className="mt-2 font-serif text-2xl font-bold text-white md:text-3xl">
+          <h2 className="cjk-card-title mt-2 font-serif text-2xl font-bold text-white md:text-3xl">
             AI 浪潮正在改写工作现场
           </h2>
         </div>
@@ -105,7 +105,7 @@ function NewsBriefing() {
                   <div className="mt-4 h-2 w-40 rounded-full bg-white/10" />
                   <div className="mt-2 h-2 w-28 rounded-full bg-white/8" />
                 </div>
-                <h3 className="text-base font-semibold leading-7 text-white/88">
+                <h3 className="cjk-card-title text-base font-semibold text-white/88">
                   {clip.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-white/48">
@@ -144,7 +144,7 @@ export default async function ThinkingPage({ params }: ThinkingPageProps) {
           ← 返回
         </Link>
 
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
+        <h1 className="cjk-title mb-3 text-3xl font-bold tracking-normal text-foreground md:text-4xl">
           {entry.titleZh}
         </h1>
         <p className="text-sm text-muted-light font-mono mb-12">{entry.date}</p>
@@ -155,7 +155,7 @@ export default async function ThinkingPage({ params }: ThinkingPageProps) {
           <ReactMarkdown
             components={{
               h2: ({ children }) => (
-                <h2 className="text-xl font-semibold text-foreground mt-12 mb-4">
+                <h2 className="cjk-card-title mt-12 mb-4 text-xl font-semibold text-foreground">
                   {children}
                 </h2>
               ),

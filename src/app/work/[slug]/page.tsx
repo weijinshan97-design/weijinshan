@@ -251,9 +251,9 @@ function AiAgentPortfolioCase() {
         .ai-case-shell { width: 1200px; margin-left: auto; margin-right: auto; }
         .ai-case-section { padding: 148px 0; }
         .ai-case-kicker { font: 600 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: .22em; color: rgba(82,230,216,.74); }
-        .ai-case-title { font-size: 56px; line-height: 1.12; letter-spacing: 0; word-break: keep-all; overflow-wrap: normal; }
+        .ai-case-title { font-size: 56px; line-height: 1.18; letter-spacing: 0; word-break: keep-all; overflow-wrap: normal; line-break: strict; text-wrap: pretty; }
         .ai-case-copy { font-size: 16px; line-height: 32px; color: rgba(255,255,255,.54); }
-        .ai-hero-title { font-size: 92px; line-height: 1.08; letter-spacing: 0; word-break: keep-all; overflow-wrap: normal; }
+        .ai-hero-title { font-size: 92px; line-height: 1.14; letter-spacing: 0; word-break: keep-all; overflow-wrap: normal; line-break: strict; }
         .ai-nowrap { white-space: nowrap; }
         .ai-readable { text-wrap: pretty; }
         .ai-hero-outline { -webkit-text-stroke: 1px rgba(82,230,216,.18); color: transparent; }
@@ -354,7 +354,7 @@ function AiAgentPortfolioCase() {
             <div>
               <span className="ai-case-kicker">01 / Project Background</span>
               <h2 className="ai-case-title mt-5 font-serif font-bold">
-                <span className="ai-nowrap inline-block">网页只是结果，</span>
+                <span className="ai-nowrap inline-block">网页只是结果</span>
                 <br />
                 <span className="ai-nowrap inline-block">工作流才是项目</span>
               </h2>
@@ -394,7 +394,7 @@ function AiAgentPortfolioCase() {
               >
                 <span className="font-mono text-[64px] font-bold leading-none text-white/10">{step.num}</span>
                 <span className="absolute left-8 top-[82px] h-3 w-3 rounded-full bg-[#52e6d8] shadow-[0_0_28px_rgba(82,230,216,.8)]" />
-                <h3 className="mt-14 text-2xl font-semibold text-white">{step.title}</h3>
+                <h3 className="cjk-card-title mt-14 text-2xl font-semibold text-white">{step.title}</h3>
                 <p className="mt-5 w-[220px] text-sm leading-7 text-white/46">{step.desc}</p>
               </article>
             ))}
@@ -408,7 +408,7 @@ function AiAgentPortfolioCase() {
             <div>
               <span className="ai-case-kicker">03 / Collaboration Roles</span>
               <h2 className="ai-case-title mt-4 font-serif font-bold">
-                <span className="ai-nowrap inline-block">AI 不是替我设计，</span>
+                <span className="ai-nowrap inline-block">AI 不是替我设计</span>
                 <br />
                 <span className="ai-nowrap inline-block">而是承担不同协作角色</span>
               </h2>
@@ -430,7 +430,7 @@ function AiAgentPortfolioCase() {
                   </span>
                   <span className="h-px flex-1 bg-white/10" />
                 </div>
-                <h3 className="mt-8 text-2xl font-semibold">{item.title}</h3>
+                <h3 className="cjk-card-title mt-8 text-2xl font-semibold">{item.title}</h3>
                 <div className="mt-6 grid grid-cols-2 gap-4">
                   <div className="ai-radius border border-white/8 bg-[#050606]/70 p-5">
                     <span className="text-xs uppercase tracking-[0.18em] text-white/26">Designer</span>
@@ -454,7 +454,7 @@ function AiAgentPortfolioCase() {
             <div>
               <span className="ai-case-kicker">04 / Codex Development Stack</span>
               <h2 className="ai-case-title mt-4 font-serif font-bold">
-                <span className="ai-nowrap inline-block">Codex 不只是写代码，</span>
+                <span className="ai-nowrap inline-block">Codex 不只是写代码</span>
                 <br />
                 <span className="ai-nowrap inline-block">它能接住一整轮开发</span>
               </h2>
@@ -474,7 +474,7 @@ function AiAgentPortfolioCase() {
                   <span className="font-mono text-sm text-[#52e6d8]/75">{String(index + 1).padStart(2, "0")}</span>
                   <span className="h-px flex-1 bg-white/10" />
                 </div>
-                <h3 className="mt-9 text-[22px] font-semibold text-white">{item.title}</h3>
+                <h3 className="cjk-card-title mt-9 text-[22px] font-semibold text-white">{item.title}</h3>
                 <p className="mt-4 w-[300px] text-sm leading-7 text-white/48">{item.desc}</p>
               </article>
             ))}
@@ -518,7 +518,7 @@ function AiAgentPortfolioCase() {
               <div className="ai-radius grid grid-cols-2 gap-px overflow-hidden border border-white/10 bg-white/10">
                 {codexSkills.map((item) => (
                   <article key={item.title} className="min-h-[190px] bg-[#070808]/82 p-6">
-                    <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                    <h3 className="cjk-card-title text-lg font-semibold text-white">{item.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-white/48">{item.desc}</p>
                   </article>
                 ))}
@@ -533,7 +533,7 @@ function AiAgentPortfolioCase() {
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <h3 className="text-base font-semibold text-white">{item.title}</h3>
+                      <h3 className="cjk-card-title text-base font-semibold text-white">{item.title}</h3>
                       <p className="mt-2 text-sm leading-6 text-white/48">{item.desc}</p>
                     </div>
                   </article>
@@ -562,7 +562,7 @@ function AiAgentPortfolioCase() {
               >
                 <div className="bg-[#070808]/90 p-6">
                   <span className="font-mono text-sm text-[#52e6d8]">{String(index + 1).padStart(2, "0")} / Input</span>
-                  <p className="mt-4 text-lg font-semibold leading-7 text-white">{item.input}</p>
+                  <p className="cjk-card-title mt-4 text-lg font-semibold text-white">{item.input}</p>
                 </div>
                 <div className="bg-[#090b0c] p-6">
                   <span className="font-mono text-sm text-white/28">Codex Action</span>
@@ -597,7 +597,7 @@ function AiAgentPortfolioCase() {
             <div>
               <span className="ai-case-kicker">07 / Key Case</span>
               <h2 className="ai-case-title mt-5 font-serif font-bold">
-                <span className="ai-nowrap inline-block">以 Wbit 详情页为例，</span>
+                <span className="ai-nowrap inline-block">以 Wbit 详情页为例</span>
                 <br />
                 <span className="ai-nowrap inline-block">把 AI 用在真实迭代里</span>
               </h2>
@@ -634,7 +634,7 @@ function AiAgentPortfolioCase() {
                 key={item.title}
                 className="ai-radius-lg grid grid-cols-[220px_1fr_1fr] gap-8 border border-white/10 bg-white/[0.035] p-8"
               >
-                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                <h3 className="cjk-card-title text-xl font-semibold text-white">{item.title}</h3>
                 <div>
                   <span className="text-xs uppercase tracking-[0.2em] text-white/24">Before</span>
                   <p className="mt-3 text-sm leading-7 text-white/45">{item.before}</p>
@@ -671,7 +671,7 @@ function AiAgentPortfolioCase() {
               {validationLoop.map(([title, desc], index) => (
                 <article key={title} className="ai-radius border border-white/10 bg-[#070808] p-5">
                   <span className="font-mono text-3xl font-bold text-white/14">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-8 text-lg font-semibold text-white">{title}</h3>
+                  <h3 className="cjk-card-title mt-8 text-lg font-semibold text-white">{title}</h3>
                   <p className="mt-3 text-xs leading-6 text-white/45">{desc}</p>
                 </article>
               ))}
@@ -689,7 +689,7 @@ function AiAgentPortfolioCase() {
           <div className="ai-radius-lg grid grid-cols-4 gap-px overflow-hidden border border-white/10 bg-white/10">
             {outcomes.map((item) => (
               <article key={item.title} className="min-h-[240px] bg-[#080a0b] p-7">
-                <h3 className="text-xl font-semibold">{item.title}</h3>
+                <h3 className="cjk-card-title text-xl font-semibold">{item.title}</h3>
                 <p className="mt-5 text-sm leading-7 text-white/48">{item.desc}</p>
               </article>
             ))}
@@ -700,8 +700,8 @@ function AiAgentPortfolioCase() {
       <section className="ai-case-section pb-36">
         <div className="ai-radius-lg ai-case-shell border border-[#52e6d8]/20 bg-[radial-gradient(circle_at_20%_10%,rgba(82,230,216,0.12),transparent_32%),rgba(255,255,255,0.035)] p-12">
           <span className="ai-case-kicker">11 / Methodology</span>
-          <h2 className="mt-5 w-[980px] font-serif text-[56px] font-bold leading-[1.12] [word-break:keep-all]">
-            <span className="ai-nowrap inline-block">AI Agent 协作不是一句 Prompt，</span>
+          <h2 className="cjk-title mt-5 w-[980px] font-serif text-[56px] font-bold">
+            <span className="ai-nowrap inline-block">AI Agent 协作不是一句 Prompt</span>
             <br />
             <span className="ai-nowrap inline-block">而是一套可验证的工作流</span>
           </h2>
@@ -712,7 +712,7 @@ function AiAgentPortfolioCase() {
               ["上下文持续沉淀", "把路由、组件、资源和修改入口标注清楚，让下一轮协作可以继续接上。"],
             ].map(([title, desc]) => (
               <article key={title} className="bg-[#070808]/78 p-7">
-                <h3 className="text-lg font-semibold">{title}</h3>
+                <h3 className="cjk-card-title text-lg font-semibold">{title}</h3>
                 <p className="mt-4 text-sm leading-7 text-white/48">{desc}</p>
               </article>
             ))}
@@ -776,7 +776,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
                 {work.category}
               </span>
             </div>
-            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[0.94] max-w-4xl">
+            <h1 className="cjk-title max-w-4xl font-serif text-3xl font-bold tracking-normal text-white md:text-5xl lg:text-6xl">
               {work.titleZh}
             </h1>
             <p className="mt-5 text-sm md:text-base text-white/30 leading-relaxed max-w-2xl font-light">
@@ -794,15 +794,15 @@ export default async function WorkPage({ params }: WorkPageProps) {
               {insightCards.map((card) => (
                 <div key={card.num}>
                   <div className="flex items-center gap-2.5 mb-4">
-                    <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">
+                    <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#5f3bff]/60">
                       {card.num}
                     </span>
                     <span className="h-px flex-1 bg-white/[0.06]" />
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4035e1]/70">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#5f3bff]/70">
                       {card.label}
                     </span>
                   </div>
-                  <h2 className="font-serif text-xl font-bold text-white mb-3">
+                  <h2 className="cjk-card-title mb-3 font-serif text-xl font-bold text-white">
                     {card.title}
                   </h2>
                   <p className="text-sm text-white/50 leading-7">
@@ -912,7 +912,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
                     <span className="text-[10px] font-medium uppercase tracking-[0.24em] text-white/22">
                       More Self-Driven Design
                     </span>
-                    <h2 className="mt-3 font-serif text-2xl font-bold tracking-tight text-white md:text-3xl">
+                    <h2 className="cjk-card-title mt-3 font-serif text-2xl font-bold tracking-normal text-white md:text-3xl">
                       内容运营也是设计实验
                     </h2>
                   </div>

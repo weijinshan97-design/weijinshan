@@ -1,31 +1,21 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
-import { motion, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
-import { siteConfig } from "@/data/site";
+import Image from "next/image";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { animate, motion, useMotionValue, useScroll } from "framer-motion";
+import { worksData } from "@/data/works";
 import { ParticleField } from "@/components/ui/ParticleField";
+
+const stageLabels = ["Idea", "Agent Build", "Live Site", "Case Story"];
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [entered, setEntered] = useState(true);
   const [scatter, setScatter] = useState(0);
   const scatterProgress = useMotionValue(0);
+  const featuredWorks = useMemo(() => worksData.slice(0, 4), []);
 
   useEffect(() => {
-    const handleDismiss = () => setEntered(true);
-    window.addEventListener("loading-dismissed", handleDismiss);
-    const fallback = setTimeout(() => setEntered(true), 800);
-    return () => {
-      window.removeEventListener("loading-dismissed", handleDismiss);
-      clearTimeout(fallback);
-    };
-  }, []);
-
-  // Sync motion value to state for canvas
-  useEffect(() => {
-    const unsubscribe = scatterProgress.on("change", (v) => {
-      setScatter(v);
-    });
+    const unsubscribe = scatterProgress.on("change", (v) => setScatter(v));
     return unsubscribe;
   }, [scatterProgress]);
 
@@ -34,107 +24,167 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  // Convert scroll to scatter - bidirectional
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
-      const scatterValue = Math.min(1, v / 0.3);
-      scatterProgress.set(scatterValue);
+      scatterProgress.set(Math.min(1, v / 0.28));
     });
     return unsubscribe;
   }, [scrollYProgress, scatterProgress]);
 
-  // Click handler - animate scatter
-  const handleClick = useCallback(() => {
-    animate(scatterProgress, 1, {
-      duration: 0.6,
-      ease: "easeOut",
-    });
-    setTimeout(() => {
-      window.scrollTo({
-        top: window.innerHeight,
-        behavior: "smooth",
-      });
-    }, 200);
-  }, [scatterProgress]);
+  const scrollToSection = useCallback((id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
-  // Title and glow fade based on scatter
-  const titleOpacity = Math.max(0, 1 - scatter * 2);
-  const glowOpacity = Math.max(0, 1 - scatter * 2);
+  const handleExplore = useCallback(() => {
+    animate(scatterProgress, 1, { duration: 0.7, ease: "easeOut" });
+    window.setTimeout(() => scrollToSection("work"), 180);
+  }, [scatterProgress, scrollToSection]);
+
+  const fadeOpacity = Math.max(0, 1 - scatter * 2);
 
   return (
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen overflow-hidden cursor-pointer bg-[#0a0a0a]"
-      onClick={handleClick}
+      className="relative min-h-[1080px] overflow-hidden bg-[#000000] text-white"
     >
-      {/* Particle field */}
-      <div className="absolute inset-0 pointer-events-none" style={{ opacity: Math.max(0.3, 1 - scatter) }}>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ opacity: Math.max(0.22, 0.52 - scatter * 0.28) }}
+      >
         <ParticleField scatter={scatter} />
       </div>
 
-      {/* Glow effects */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ opacity: glowOpacity }}
-      >
-        <div className="absolute bottom-0 left-0 right-0 h-[55%] bg-[radial-gradient(ellipse_at_50%_80%,rgba(64,53,225,0.18)_0%,rgba(43,106,219,0.08)_35%,transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[radial-gradient(ellipse_at_50%_100%,rgba(64,53,225,0.12)_0%,transparent_60%)]" />
-      </div>
+      <div className="aurora-field pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_8%,rgba(191,142,255,0.08),transparent_22%),radial-gradient(circle_at_22%_42%,rgba(95,59,255,0.14),transparent_30%),radial-gradient(circle_at_82%_44%,rgba(99,102,241,0.10),transparent_28%),linear-gradient(180deg,#000000_0%,#040408_48%,#000000_100%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.10] [background-image:linear-gradient(rgba(255,255,255,.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.10)_1px,transparent_1px)] [background-size:72px_72px]" />
+      <div className="hero-beam pointer-events-none absolute left-0 top-[16%] h-[480px] w-full bg-[linear-gradient(90deg,transparent,rgba(191,142,255,0.08),rgba(99,102,241,0.06),transparent)] blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-b from-transparent via-[#000000]/82 to-[#000000]" />
 
-      {/* Title */}
-      <div
-        className="absolute top-[16vh] md:top-[14vh] left-0 right-0 px-6 md:px-8 lg:px-12 pointer-events-none"
-        style={{ opacity: titleOpacity }}
-      >
-        <div className="flex flex-col items-center">
-          <div className="inline-block mx-auto">
-            <motion.h1
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-              className="whitespace-nowrap text-center font-serif text-[clamp(1.6rem,8.2vw,8.25rem)] font-bold leading-[1.02] tracking-normal text-white"
-            >
-              {siteConfig.titleZh}
-            </motion.h1>
-          </div>
-          <motion.p
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mx-auto mt-4 md:mt-7 w-full max-w-[min(92vw,760px)] text-center text-[11px] sm:text-sm md:text-base font-normal tracking-[0.2em] md:tracking-[0.32em] leading-6 md:leading-8 text-white/48"
+      {/* ---- 浮动光晕球 ---- */}
+      <motion.div
+        animate={{ x: [0, 60, -30, 20, 0], y: [0, -40, 20, -50, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute -left-32 top-[10%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.12),transparent_70%)] blur-[80px]"
+      />
+      <motion.div
+        animate={{ x: [0, -80, 40, -20, 0], y: [0, 50, -30, -60, 0] }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute right-[-10%] top-[30%] h-[440px] w-[440px] rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.10),transparent_70%)] blur-[72px]"
+      />
+      <motion.div
+        animate={{ x: [0, 30, -60, 40, 0], y: [0, -70, 10, 30, 0] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute left-[20%] top-[55%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.09),transparent_70%)] blur-[64px]"
+      />
+      <motion.div
+        animate={{ x: [0, 50, -20, -40, 0], y: [0, -20, 60, -30, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute right-[15%] top-[65%] h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.08),transparent_70%)] blur-[56px]"
+      />
+
+      <div className="relative z-10 mx-auto max-w-[1440px] px-6 pb-20 pt-24 md:px-10 lg:px-14">
+        <div className="relative flex min-h-[900px] flex-col items-center pt-20 md:pt-24">
+          <motion.h1
+            initial={{ opacity: 0, y: 26, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.95, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="kinetic-title display-balance relative z-0 max-w-[1120px] text-center font-serif text-[clamp(4.8rem,9.4vw,9.8rem)] font-bold leading-[1.12] tracking-normal"
+            style={{ opacity: fadeOpacity }}
           >
-            持续在商业视觉之外，探索工具、系统与更有效的解决方式。
-          </motion.p>
-        </div>
-      </div>
+            IDEA TO
+            <br />
+            LIVE SYSTEM
+          </motion.h1>
 
-      {/* Bottom scroll hint */}
-      <div
-        className="absolute bottom-10 md:bottom-16 left-0 right-0 px-6 md:px-8 lg:px-12 flex flex-col items-center gap-6 pointer-events-none"
-        style={{ opacity: titleOpacity }}
-      >
-        <motion.div
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="flex flex-col items-center gap-6"
-        >
-          <div className="flex flex-col items-center gap-3">
-            <div className="relative flex items-center justify-center w-10 h-16">
-              <div className="absolute inset-0 rounded-full bg-accent/25 blur-xl animate-breathe" />
-              <div className="absolute w-6 h-12 rounded-full bg-accent/35 blur-lg animate-breathe" />
-              <div className="absolute w-2 h-8 rounded-full bg-accent/50 blur-sm animate-breathe" />
-              <div className="relative w-px h-9 bg-accent/80 rounded-full" />
-            </div>
+          <div className="relative -mt-28 h-[690px] w-full max-w-[1120px] md:-mt-36">
+            <div className="pointer-events-none absolute left-1/2 top-[48%] h-[420px] w-[1020px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.12),rgba(95,59,255,0.08)_34%,transparent_72%)] blur-[64px]" />
+
+            <motion.div
+              initial={{ opacity: 0, y: 70, rotateX: 16, scale: 0.92 }}
+              animate={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+              transition={{ duration: 1.05, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
+              className="animate-hero-stage relative mx-auto h-full max-w-[1040px]"
+            >
+              <div className="animate-light-sweep absolute left-1/2 top-[58%] h-[300px] w-[820px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[42px] border border-white/[0.12] bg-[#0a0a10]/72 shadow-[0_46px_170px_rgba(0,0,0,0.58)] backdrop-blur-xl">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(191,142,255,0.14),transparent_34%),radial-gradient(circle_at_86%_86%,rgba(128,83,255,0.24),transparent_38%),linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015))]" />
+                <div className="absolute left-7 top-7 flex items-center gap-2">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                </div>
+                <div className="absolute bottom-7 left-7 h-px w-[72%] bg-gradient-to-r from-white/20 via-[#bf8eff]/28 to-transparent" />
+                <div className="absolute bottom-11 right-8 font-mono text-[10px] uppercase tracking-[0.24em] text-white/28">
+                  Idea / Agent / Launch / Case
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 60, rotate: -4, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+                transition={{ duration: 1.1, delay: 0.58, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute left-1/2 top-[42%] z-10 h-[690px] w-[690px] -translate-x-1/2 -translate-y-1/2 md:left-[54%] md:h-[750px] md:w-[750px]"
+              >
+                <Image
+                  src="/images/works/home-puzzle-character-v2.png"
+                  alt="拿着拼图的 3D 角色"
+                  fill
+                  priority
+                  sizes="720px"
+                  className="object-contain drop-shadow-[0_42px_100px_rgba(76,66,255,0.32)]"
+                />
+              </motion.div>
+
+              <div className="pointer-events-none absolute left-[5%] top-[50%] z-20 hidden w-[300px] -translate-y-1/2 rounded-[28px] border border-white/[0.12] bg-black/40 p-5 shadow-[0_24px_90px_rgba(0,0,0,0.34)] backdrop-blur-xl md:block">
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#bf8eff]/62">
+                  Build the system
+                </p>
+                <p className="mt-4 text-sm leading-7 text-white/50">
+                  把设计、代码、内容整理和案例叙事拼成一个持续更新的作品系统。
+                </p>
+              </div>
+            </motion.div>
+
+            {stageLabels.map((label, index) => {
+              const positions = [
+                "left-[3%] top-[10%]",
+                "right-[5%] top-[17%]",
+                "left-[8%] bottom-[16%]",
+                "right-[10%] bottom-[8%]",
+              ];
+
+              return (
+                <motion.span
+                  key={label}
+                  initial={{ opacity: 0, y: 18, scale: 0.92 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.7, delay: 0.72 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  className={`animate-float-tag absolute hidden rounded-full border border-white/[0.12] bg-white/[0.07] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.22em] text-white/62 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl md:block ${positions[index]}`}
+                  style={{ animationDelay: `${index * 0.7}s` }}
+                >
+                  {label}
+                </motion.span>
+              );
+            })}
           </div>
-          <p className="text-xs tracking-[0.3em] uppercase text-white/30 font-medium">
-            Scroll
-          </p>
-          <p className="text-sm md:text-base text-white/40 leading-relaxed max-w-xl text-center">
-            {siteConfig.descriptionZh}
-          </p>
-        </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-20 grid w-full gap-5 border-t border-white/10 pt-8 font-mono text-[11px] uppercase tracking-[0.23em] text-white/50 md:grid-cols-[1fr_auto_1fr]"
+            style={{ opacity: fadeOpacity }}
+          >
+            <span>Selected cases / {featuredWorks.length} stories</span>
+            <button
+              type="button"
+              onClick={handleExplore}
+              className="control-breathe rounded-full border border-[#bf8eff]/30 bg-[#bf8eff]/10 px-5 py-2 text-[#bf8eff] transition hover:-translate-y-0.5 hover:border-[#bf8eff]/50 hover:bg-[#bf8eff]/20 hover:shadow-[0_0_36px_rgba(191,142,255,0.2)]"
+            >
+              Enter the stage
+            </button>
+            <span className="md:text-right">Scroll for the work</span>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

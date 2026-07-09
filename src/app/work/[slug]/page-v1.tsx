@@ -43,7 +43,7 @@ function WbitDeepDive() {
             <h2 className="text-sm font-medium uppercase tracking-[0.2em] text-white/45">The Manifesto: Emergence of Digital Intelligence</h2>
             <h1 className="mt-6 font-serif text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-6xl lg:text-7xl">企业AI就用Wbit</h1>
             <div className="relative mt-16 w-full max-w-2xl">
-              <div className="pointer-events-none absolute inset-0 z-0 rounded-3xl bg-[#4035e1]/8 blur-[60px] animate-glow-purple" />
+              <div className="pointer-events-none absolute inset-0 z-0 rounded-3xl bg-[#5f3bff]/8 blur-[60px] animate-glow-purple" />
               <div className="relative z-10 overflow-hidden rounded-3xl border border-white/[0.08] bg-[#0d0d0d] shadow-[0_40px_120px_rgba(255,152,0,0.15)]">
                 <div className="flex items-center justify-between border-b border-white/[0.06] bg-white/[0.02] px-5 py-3">
                   <div className="flex items-center gap-2">
@@ -569,11 +569,11 @@ export default async function WorkPage({ params }: WorkPageProps) {
               {insightCards.map((card) => (
                 <div key={card.num}>
                   <div className="flex items-center gap-2.5 mb-4">
-                    <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#4035e1]/60">
+                    <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-[#5f3bff]/60">
                       {card.num}
                     </span>
                     <span className="h-px flex-1 bg-white/[0.06]" />
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4035e1]/70">
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#5f3bff]/70">
                       {card.label}
                     </span>
                   </div>

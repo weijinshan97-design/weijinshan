@@ -1,129 +1,86 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { aboutData } from "@/data/about";
 import { FadeIn } from "@/components/ui/FadeIn";
 
-export function About() {
-  const [hoveredExp, setHoveredExp] = useState<number | null>(null);
+const stats = [
+  ["8年", "设计经验", "商业视觉、UI 设计、AI 产品与内容表达的连续积累"],
+  ["4类", "行业场景", "游戏、出行、财税科技、AI 工具与个人内容项目"],
+  ["1条", "能力主线", "从视觉执行走向产品体验、系统搭建和内容叙事"],
+];
 
+export function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#070808]"
+      className="relative overflow-hidden bg-[#050508] px-6 py-24 text-white md:px-10 md:py-36 lg:px-14"
     >
-      {/* Background gradient similar to CapabilitiesNav */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_42%,rgba(64,53,225,0.08),transparent_26%),radial-gradient(circle_at_76%_34%,rgba(43,106,219,0.08),transparent_32%),linear-gradient(180deg,#070808_0%,#0a0a0a_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(191,142,255,0.12),transparent_26%),radial-gradient(circle_at_78%_20%,rgba(95,59,255,0.18),transparent_30%),linear-gradient(180deg,#050508_0%,#08080d_100%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.12)_1px,transparent_1px)] [background-size:72px_72px]" />
 
-      <div className="relative z-10 px-6 md:px-8 lg:px-12 pt-16 md:pt-24 pb-20 md:pb-32">
-        <div className="max-w-[1200px] mx-auto">
-          <FadeIn>
-            {/* Summary Card */}
-            <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-              <div>
-                <p className="text-[10px] font-medium uppercase tracking-[0.24em] text-white/34">
-                  Work Experience
-                </p>
-                <h3 className="mt-5 font-serif text-2xl md:text-4xl font-bold leading-[1.1] tracking-normal text-white">
-                  工作经历
-                </h3>
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mt-5">
-                  {["视觉设计师", "品牌设计", "IP设计", "AI产品设计", "增长设计"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1.5 text-xs rounded-full bg-white/5 text-white/50 border border-white/10"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-5 max-w-sm text-xs md:text-sm leading-6 md:leading-7 text-white/44">
-                  {aboutData.summary}
-                </p>
-              </div>
-
-              <div className="grid gap-2 md:gap-3">
-                {aboutData.experience.map((exp, i) => (
-                  <motion.div
-                    key={i}
-                    className="group cursor-default"
-                    onMouseEnter={() => setHoveredExp(i)}
-                    onMouseLeave={() => setHoveredExp(null)}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-10% 0px 0px 0px" }}
-                    transition={{
-                      delay: i * 0.1,
-                      duration: 0.5,
-                      ease: [0.25, 0.1, 0.25, 1],
-                    }}
-                  >
-                    <div className={`rounded-2xl border p-4 md:p-6 transition-all duration-500 gradient-border ${
-                      hoveredExp === i
-                        ? "active border-transparent bg-white/[0.075] shadow-[0_18px_60px_rgba(0,0,0,0.22)]"
-                        : hoveredExp !== null
-                          ? "border-white/7 bg-white/[0.028] opacity-55"
-                          : "border-white/10 bg-white/[0.045]"
-                    }`}>
-                      <div className="flex items-start gap-3 md:gap-5">
-                        <span className={`font-mono text-xs transition-colors duration-300 ${
-                          hoveredExp === i ? "text-[#4035e1]/70" : "text-white/24"
-                        }`}>
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex flex-col gap-0.5 md:gap-1 md:flex-row md:items-baseline md:justify-between md:gap-5">
-                            <h4 className={`text-base md:text-lg font-semibold tracking-normal transition-colors duration-200 ${
-                              hoveredExp === i ? "text-[#4035e1]" : "text-white"
-                            }`}>
-                              {exp.company}
-                            </h4>
-                            <span className="text-[9px] md:text-[10px] font-mono uppercase tracking-[0.18em] text-white/28">
-                              {exp.period}
-                            </span>
-                          </div>
-                          <p className="mt-1 text-xs text-white/40">{exp.role}</p>
-
-                          <AnimatePresence>
-                            {hoveredExp === i && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.3, ease: "easeOut" }}
-                                className="overflow-hidden"
-                              >
-                                <ul className="mt-3 space-y-1.5">
-                                  {exp.detail.map((item, j) => (
-                                    <li
-                                      key={j}
-                                      className="text-xs text-white/50 leading-relaxed flex gap-2"
-                                    >
-                                      <span className="text-[#4035e1]/40 shrink-0 mt-0.5">—</span>
-                                      <span>{item}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                        <span className={`mt-1 hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border text-sm transition-all duration-300 md:inline-flex ${
-                          hoveredExp === i
-                            ? "translate-x-0 border-[#4035e1]/24 text-[#4035e1]/70"
-                            : "translate-x-2 border-white/10 text-white/22"
-                        }`}>
-                          →
-                        </span>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+      <div className="relative mx-auto max-w-[1320px]">
+        <FadeIn>
+          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#bf8eff]/62">
+                Profile Archive
+              </p>
+              <h2 className="section-display mt-5 font-serif text-6xl font-bold md:text-8xl">
+                <span className="title-line">经验不是履历</span>
+                <br />
+                <span className="title-line">是方法的来源</span>
+              </h2>
             </div>
-          </FadeIn>
+            <p className="copy-readable max-w-[620px] text-base text-white/62 lg:justify-self-end">
+              我不想把经历写成公司列表，而是把它拆成能力来源：商业视觉训练了审美判断，产品项目训练了系统思维，AI Agent 工作流让我把想法更快变成可运行的结果。
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="mt-16 grid gap-5 lg:grid-cols-3">
+          {stats.map(([value, label, desc], index) => (
+            <FadeIn key={label} delay={index * 0.06}>
+              <div className="micro-lift rounded-[34px] border border-white/[0.08] bg-white/[0.04] p-7 backdrop-blur-xl">
+                <div className="font-serif text-6xl font-bold leading-none text-white md:text-7xl">
+                  {value}
+                </div>
+                <p className="mt-5 text-base font-semibold text-[#bf8eff]/72">
+                  {label}
+                </p>
+                <p className="mt-3 text-sm leading-7 text-white/58">{desc}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+
+        <div className="mt-8 overflow-hidden rounded-[42px] border border-white/[0.08] bg-[#0a0a0f]/82 backdrop-blur-xl">
+          {aboutData.experience.map((exp, index) => (
+            <motion.article
+              key={exp.company}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-12% 0px" }}
+              transition={{ duration: 0.55, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+              className="group grid gap-6 border-b border-white/[0.08] p-6 transition duration-500 last:border-b-0 hover:bg-white/[0.035] md:grid-cols-[160px_1fr_250px] md:p-8"
+            >
+              <div className="font-mono text-sm text-white/28">
+                <span className="text-[#bf8eff]/64">{String(index + 1).padStart(2, "0")}</span>
+                <span className="mx-3 text-white/16">/</span>
+                {exp.period}
+              </div>
+              <div>
+                <h3 className="cjk-card-title font-serif text-3xl font-semibold text-white md:text-4xl">
+                  {exp.company}
+                </h3>
+                <p className="copy-readable mt-3 text-sm text-white/60">{exp.description}</p>
+              </div>
+              <div className="md:text-right">
+                <p className="text-lg font-semibold text-white">{exp.role}</p>
+                <p className="cjk-keep mt-3 text-xs leading-6 text-white/50">{exp.tags}</p>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>
