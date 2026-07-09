@@ -219,7 +219,7 @@ export function SelectedWork() {
                     }}
                     aria-label={isActive ? `进入${work.titleZh}详情` : `选择${work.titleZh}`}
                     className={`group case-film-card block overflow-hidden rounded-[34px] border bg-[#0d0d12] p-2 shadow-[0_34px_130px_rgba(0,0,0,0.5)] outline-none transition duration-500 ${
-                      isMobile ? "h-[480px]" : "h-[510px]"
+                      isMobile ? "h-[520px]" : "h-[510px]"
                     } ${
                       isActive
                         ? "border-[#bf8eff]/28 shadow-[0_44px_160px_rgba(191,142,255,0.12),0_34px_130px_rgba(0,0,0,0.58)]"
@@ -285,21 +285,6 @@ export function SelectedWork() {
                         </p>
                       </div>
 
-                      {/* 移动端圆点 — 卡片内底部 */}
-                      {isMobile && isActive && (
-                        <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center gap-1.5">
-                          {worksData.map((_, i) => (
-                            <span
-                              key={i}
-                              className={`block rounded-full ${
-                                i === activeIndex
-                                  ? "h-1.5 w-4 bg-[#bf8eff]"
-                                  : "h-1.5 w-1.5 bg-white/25"
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      )}
                     </div>
                   </button>
                 </motion.div>
@@ -309,6 +294,23 @@ export function SelectedWork() {
           </div>
 
 
+
+          {/* ---- 移动端圆点 ---- */}
+          <div className="relative z-20 mt-2 flex justify-center gap-1.5 lg:hidden">
+            {worksData.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                className={`block rounded-full transition-all $
+                  i === activeIndex
+                    ? "h-2 w-5 bg-[#bf8eff]"
+                    : "h-2 w-2 bg-white/20"
+                }`}
+                aria-label={`第 ${i + 1} 个案例`}
+              />
+            ))}
+          </div>
           {/* ---- 标签 ---- */}
           <div className="relative mx-auto mt-6 hidden max-w-[1180px] lg:block">
             <div className="flex flex-wrap items-center gap-3 rounded-[24px] border border-white/[0.06] bg-white/[0.02] px-5 py-4 backdrop-blur-xl">
