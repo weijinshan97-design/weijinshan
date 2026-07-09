@@ -49,7 +49,7 @@ export function Systems() {
                       <h3 className="cjk-title font-serif text-3xl font-bold text-white sm:text-4xl md:text-5xl">
                         {system.nameZh}
                       </h3>
-                      <p className="copy-readable mt-4 max-w-[640px] text-sm text-white/55">
+                      <p className="mt-4 max-w-[640px] text-sm text-white/55">
                         {system.descriptionZh}
                       </p>
 

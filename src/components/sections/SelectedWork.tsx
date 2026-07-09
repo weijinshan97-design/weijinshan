@@ -142,7 +142,7 @@ export function SelectedWork() {
                 <span className="title-line">是每一次判断</span>
               </h2>
             </div>
-            <p className="copy-readable max-w-[540px] text-base text-white/62 lg:justify-self-end">
+            <p className="max-w-[540px] text-base text-white/62 lg:justify-self-end">
               不是做得多的就放上来，而是每一个项目都在回答：当时为什么这么选、最后做对了什么。
             </p>
           </div>
@@ -301,7 +301,7 @@ export function SelectedWork() {
                         <h3 className="cjk-card-title text-3xl font-semibold text-white md:text-4xl">
                           {work.titleZh}
                         </h3>
-                        <p className="copy-readable mt-3 line-clamp-2 text-sm text-white/68">
+                        <p className="mt-3 line-clamp-2 text-sm text-white/68">
                           {getCopy(work).claim}
                         </p>
                       </div>

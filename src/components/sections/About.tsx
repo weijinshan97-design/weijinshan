@@ -64,7 +64,7 @@ export function About() {
                 <span className="title-line">是方法的来源</span>
               </h2>
             </div>
-            <p className="copy-readable max-w-[620px] text-base text-white/62 lg:justify-self-end">
+            <p className="max-w-[620px] text-base text-white/62 lg:justify-self-end">
               我不想把经历写成公司列表，而是把它拆成能力来源：商业视觉训练了审美判断，产品项目训练了系统思维，AI Agent 工作流让我把想法更快变成可运行的结果。
             </p>
           </div>

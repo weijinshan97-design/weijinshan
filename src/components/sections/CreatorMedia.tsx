@@ -208,7 +208,7 @@ export function CreatorMedia() {
                 <span className="title-line">验证表达能力</span>
               </h2>
             </div>
-            <p className="copy-readable max-w-[560px] text-base text-white/62 lg:justify-self-end">
+            <p className="max-w-[560px] text-base text-white/62 lg:justify-self-end">
               自媒体不是网站主线，但它能证明我对“注意力、封面、标题、节奏和用户停留”的理解不是停留在理论里，而是在真实平台里跑过。
             </p>
           </div>
@@ -280,7 +280,7 @@ export function CreatorMedia() {
                 <br />
                 <span className="title-line">不是曝光，是判断</span>
               </h3>
-              <p className="copy-readable mt-4 text-xs leading-6 text-white/62 sm:mt-7 sm:text-sm">
+              <p className="mt-4 text-xs leading-6 text-white/62 sm:mt-7 sm:text-sm">
                 做短视频让我更直观地理解用户注意力：一句标题能不能让人停下，一个封面能不能建立期待，一段内容能不能让人看完。这些能力会反过来帮助我做产品介绍、案例叙事和视觉包装。
               </p>
 
