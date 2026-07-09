@@ -23,13 +23,19 @@ export function ScrollRestoration() {
       return;
     }
 
+    // Only restore on back/forward navigation, not fresh load
+    const navType = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+    if (!navType || navType.type !== "back_forward") {
+      sessionStorage.removeItem(SCROLL_KEY);
+      return;
+    }
+
     const saved = sessionStorage.getItem(SCROLL_KEY);
     if (!saved) return;
 
     const y = parseInt(saved, 10);
     if (y <= 0) return;
 
-    // Try to scroll — retry a few times as DOM may still be rendering
     let attempts = 0;
     const maxAttempts = 8;
     const tryScroll = () => {
