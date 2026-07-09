@@ -184,15 +184,15 @@ export function SelectedWork() {
                   animate={
                     isMobile
                       ? {
-                          x: isFlying ? 300 : 0,
-                          y: isFlying ? -120 : 0,
-                          scale: isFlying ? 1.1 : isActive ? 1 : 0.94,
-                          opacity: isFlying ? 0 : isActive ? 1 : 0,
+                          x: isFlying ? 300 : offset > 0 ? 60 : offset < 0 ? -60 : 0,
+                          y: isFlying ? -120 : Math.abs(offset) * 8,
+                          scale: isFlying ? 1.1 : isActive ? 1 : 0.92,
+                          opacity: isFlying ? 0 : isActive ? 1 : 0.35,
                           filter: isFlying
                             ? "blur(12px)"
                             : isActive
                               ? "blur(0px)"
-                              : "blur(4px)",
+                              : "blur(2px)",
                         }
                       : {
                           x: isFlying ? 520 : x,
@@ -300,10 +300,10 @@ export function SelectedWork() {
                 key={i}
                 type="button"
                 onClick={() => setActiveIndex(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 ${
                   i === activeIndex
                     ? "w-6 bg-[#bf8eff]"
-                    : "w-1.5 bg-white/20"
+                    : "w-2 bg-white/15"
                 }`}
                 aria-label={`第 ${i + 1} 个案例`}
               />
@@ -311,7 +311,7 @@ export function SelectedWork() {
           </div>
 
           {/* ---- 标签 ---- */}
-          <div className="relative mx-auto mt-6 max-w-[1180px]">
+          <div className="relative mx-auto mt-6 hidden max-w-[1180px] lg:block">
             <div className="flex flex-wrap items-center gap-3 rounded-[24px] border border-white/[0.06] bg-white/[0.02] px-5 py-4 backdrop-blur-xl">
                 <span className="font-mono text-xs tracking-[0.22em] text-white/40 shrink-0">{progress}</span>
                 <span className="h-4 w-px bg-white/10 shrink-0" />
