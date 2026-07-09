@@ -96,22 +96,22 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-12% 0px" }}
               transition={{ duration: 0.55, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              className="group grid gap-6 border-b border-white/[0.08] p-6 transition duration-500 last:border-b-0 hover:bg-white/[0.035] md:grid-cols-[160px_1fr_250px] md:p-8"
+              className="group grid gap-4 border-b border-white/[0.08] p-4 transition duration-500 last:border-b-0 hover:bg-white/[0.035] sm:gap-6 sm:p-6 md:grid-cols-[160px_1fr_250px] md:p-8"
             >
-              <div className="font-mono text-sm text-white/28">
+              <div className="font-mono text-xs text-white/28 sm:text-sm">
                 <span className="text-[#bf8eff]/64">{String(index + 1).padStart(2, "0")}</span>
-                <span className="mx-3 text-white/16">/</span>
+                <span className="mx-2 text-white/16 sm:mx-3">/</span>
                 {exp.period}
               </div>
               <div>
-                <h3 className="cjk-card-title font-serif text-3xl font-semibold text-white md:text-4xl">
+                <h3 className="cjk-card-title font-serif text-xl font-semibold text-white sm:text-3xl md:text-4xl">
                   {exp.company}
                 </h3>
-                <p className="copy-readable mt-3 text-sm text-white/60">{exp.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/60 break-words">{exp.description}</p>
               </div>
               <div className="md:text-right">
-                <p className="text-lg font-semibold text-white">{exp.role}</p>
-                <p className="cjk-keep mt-3 text-xs leading-6 text-white/50">{exp.tags}</p>
+                <p className="text-base font-semibold text-white sm:text-lg">{exp.role}</p>
+                <p className="mt-2 text-xs leading-5 text-white/50 break-words">{exp.tags}</p>
               </div>
             </motion.article>
           ))}

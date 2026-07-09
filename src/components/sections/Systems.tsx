@@ -77,7 +77,7 @@ export function Systems() {
                         {system.nameZh}
                       </h3>
                     </div>
-                    <p className="copy-readable mt-10 text-sm text-white/60">
+                    <p className="mt-6 text-sm leading-relaxed text-white/60 break-words sm:mt-10">
                       {system.descriptionZh}
                     </p>
                   </div>
@@ -95,7 +95,7 @@ export function Systems() {
                         <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/48">
                           {label}
                         </p>
-                        <p className="copy-readable mt-6 text-sm text-white/62 line-clamp-[9]">
+                        <p className="mt-4 text-sm leading-relaxed text-white/62 break-words line-clamp-[9]">
                           {text}
                         </p>
                       </div>

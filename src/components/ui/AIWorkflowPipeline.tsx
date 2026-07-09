@@ -87,13 +87,13 @@ export function AIWorkflowPipeline() {
                   <span className="font-mono text-[11px] tracking-[0.2em] text-[#bf8eff]/50">
                     {step.num}
                   </span>
-                  <h4 className="mt-1 font-serif text-lg font-bold text-white lg:text-xl">
+                  <h4 className="mt-1 font-serif text-lg font-bold text-white break-words lg:text-xl">
                     {step.title}
                   </h4>
                 </div>
 
                 {/* Description */}
-                <p className="text-xs leading-6 text-white/48">
+                <p className="text-xs leading-5 text-white/48 break-words">
                   {step.desc}
                 </p>
 
