@@ -106,6 +106,25 @@ export function SelectedWork() {
 
   // Touch swipe for mobile
   const touchStart = useRef(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Sync dots with scroll position
+  useEffect(() => {
+    if (!isMobile) return;
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const onScroll = () => {
+      const cardWidth = container.clientWidth * 0.86 + 12; // w-[86vw] + gap-3
+      const idx = Math.round(container.scrollLeft / cardWidth);
+      if (idx >= 0 && idx < worksData.length) {
+        setActiveIndex(idx);
+      }
+    };
+
+    container.addEventListener("scroll", onScroll, { passive: true });
+    return () => container.removeEventListener("scroll", onScroll);
+  }, [isMobile]);
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     touchStart.current = e.touches[0].clientX;
   }, []);
@@ -164,6 +183,7 @@ export function SelectedWork() {
           {isMobile ? (
             /* ---- 移动端：水平滑动轮播 ---- */
             <div
+              ref={scrollContainerRef}
               className="hide-scrollbar h-[560px] overflow-x-auto overflow-y-hidden"
               style={{ scrollSnapType: "x mandatory", overscrollBehaviorX: "contain", scrollbarWidth: "none" }}
             >
