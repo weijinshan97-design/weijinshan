@@ -304,9 +304,6 @@ export function SelectedWork() {
                         <p className="copy-readable mt-3 line-clamp-2 text-sm text-white/68">
                           {getCopy(work).claim}
                         </p>
-                        <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/48">
-                          {isActive ? "Click to enter" : "Click to select"}
-                        </p>
                       </div>
 
                     </div>
