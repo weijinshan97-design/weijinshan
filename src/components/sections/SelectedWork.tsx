@@ -211,7 +211,7 @@ export function SelectedWork() {
             <div
               ref={scrollContainerRef}
               className="hide-scrollbar h-[560px] cursor-grab overflow-x-auto overflow-y-hidden active:cursor-grabbing"
-              style={{ scrollSnapType: "x mandatory", scrollbarWidth: "none" }}
+              style={{ scrollSnapType: "x mandatory", overscrollBehaviorX: "contain", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
               onMouseDown={handleMouseDown}
             >
               <div className="flex h-full items-start gap-3 pt-8 px-[6vw]" style={{ width: "max-content" }}>
