@@ -275,12 +275,12 @@ export function CreatorMedia() {
               <p className="font-mono text-xs uppercase tracking-[0.24em] text-[#bf8eff]/62">
                 Why content matters
               </p>
-              <h3 className="cjk-title mt-6 font-serif text-5xl font-bold text-white">
+              <h3 className="cjk-title mt-4 font-serif text-3xl font-bold text-white sm:text-5xl">
                 <span className="title-line">自媒体给我的</span>
                 <br />
                 <span className="title-line">不是曝光，是判断</span>
               </h3>
-              <p className="copy-readable mt-7 text-sm text-white/62">
+              <p className="copy-readable mt-4 text-xs leading-6 text-white/62 sm:mt-7 sm:text-sm">
                 做短视频让我更直观地理解用户注意力：一句标题能不能让人停下，一个封面能不能建立期待，一段内容能不能让人看完。这些能力会反过来帮助我做产品介绍、案例叙事和视觉包装。
               </p>
 
