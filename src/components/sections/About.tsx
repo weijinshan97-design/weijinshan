@@ -70,18 +70,18 @@ export function About() {
           </div>
         </FadeIn>
 
-        <div className="mt-16 grid gap-5 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-3 gap-3 sm:gap-5 lg:grid-cols-3">
           {stats.map(([value, label, desc], index) => (
             <FadeIn key={label} delay={index * 0.06}>
               <TiltCard>
-                <div className="micro-lift rounded-[34px] border border-white/[0.08] bg-white/[0.04] p-7 backdrop-blur-xl">
-                  <div className="font-serif text-6xl font-bold leading-none text-white md:text-7xl">
+                <div className="micro-lift rounded-[24px] border border-white/[0.08] bg-white/[0.04] p-4 backdrop-blur-xl sm:rounded-[34px] sm:p-7">
+                  <div className="font-serif text-3xl font-bold leading-none text-white sm:text-6xl md:text-7xl">
                     {value}
                   </div>
-                  <p className="mt-5 text-base font-semibold text-[#bf8eff]/72">
+                  <p className="mt-2 text-xs font-semibold text-[#bf8eff]/72 sm:mt-5 sm:text-base">
                     {label}
                   </p>
-                  <p className="mt-3 text-sm leading-7 text-white/58">{desc}</p>
+                  <p className="mt-1.5 text-[11px] leading-5 text-white/58 sm:mt-3 sm:text-sm sm:leading-7">{desc}</p>
                 </div>
               </TiltCard>
             </FadeIn>
