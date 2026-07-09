@@ -24,7 +24,7 @@ export function Thinking() {
                 <span className="title-line">写成方法</span>
               </h2>
             </div>
-            <p className="copy-readable max-w-[540px] text-base text-white/62">
+            <p className="max-w-[540px] text-sm leading-relaxed text-white/62 break-words sm:text-base">
               这些文章不是为了凑内容，而是记录我如何和 AI Agent 协作、如何判断设计方案、如何把一次项目复盘成下一次能复用的方法。
             </p>
           </div>
@@ -51,7 +51,7 @@ export function Thinking() {
                     <h3 className="cjk-card-title font-serif text-[1.5rem] font-bold leading-[1.2] text-white sm:text-[2rem] md:text-[2.55rem]">
                       {entry.titleZh}
                     </h3>
-                    <p className="copy-readable mt-5 max-w-[560px] text-sm text-white/62">
+                    <p className="mt-4 max-w-[560px] text-sm leading-relaxed text-white/62 break-words">
                       {entry.summaryZh}
                     </p>
                     <div className="mt-6 inline-flex rounded-full border border-[#bf8eff]/20 px-4 py-2 text-sm text-[#bf8eff]/70 transition group-hover:border-[#bf8eff]/40 group-hover:bg-[#bf8eff]/10 group-hover:text-[#bf8eff] group-hover:shadow-[0_0_24px_rgba(191,142,255,0.15)]">

@@ -25,7 +25,7 @@ export function Systems() {
                 <span className="title-line">是交付方式</span>
               </h2>
             </div>
-            <p className="copy-readable max-w-[580px] text-base text-white/62 lg:justify-self-end">
+            <p className="max-w-[580px] text-sm leading-relaxed text-white/62 break-words sm:text-base lg:justify-self-end">
               AI Agent 最有价值的地方，不是替我做完一个页面，而是把需求拆解、文件修改、版本验证和内容整理变成一条可以反复调用的工作流。
             </p>
           </div>
