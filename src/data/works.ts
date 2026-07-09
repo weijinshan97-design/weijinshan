@@ -71,7 +71,7 @@ export const worksData: Work[] = [
     client: "滴滴代驾旗下 · 新桔代驾",
     category: "IP设计",
     year: "2022 — 2023",
-    cover: "/images/works/新桔.png",
+    cover: "/images/works/新桔代驾.png",
     heroCover: "/images/works/pack/xinju-hero.png",
     videoUrl: "/videos/xinju-demo.mp4",
     summaryZh:
@@ -121,7 +121,7 @@ export const worksData: Work[] = [
     client: "杭州微风企科技",
     category: "IP设计",
     year: "2024 — 2025",
-    cover: "/images/works/微风企IP-XIAOWEI.png",
+    cover: "/images/works/微风企IP.png",
     heroCover: "/images/works/pack/xiaowei-hero.png",
     summaryZh:
       "为微风企设计品牌 IP'小微'，构建从形象设定、表情体系到营销场景延展的完整 IP 生态，强化品牌亲和力。",
