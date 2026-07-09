@@ -162,7 +162,7 @@ export function SelectedWork() {
           <div className="pointer-events-none absolute left-1/2 top-[360px] z-0 h-[420px] w-[920px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.14),rgba(95,59,255,0.1)_42%,transparent_72%)] blur-[58px]" />
 
           <div
-            className={`relative mx-auto max-w-[1180px] ${isMobile ? "h-[520px] touch-pan-x" : "h-[590px] [perspective:1800px]"}`}
+            className={`relative mx-auto max-w-[1180px] ${isMobile ? "h-[560px] touch-pan-x" : "h-[590px] [perspective:1800px]"}`}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             style={isMobile ? { touchAction: "pan-x" } : undefined}
@@ -184,8 +184,9 @@ export function SelectedWork() {
                   animate={
                     isMobile
                       ? {
-                          x: offset > 0 ? 80 : offset < 0 ? -80 : 0,
-                          opacity: isActive ? 1 : 0,
+                          x: offset > 0 ? 72 : offset < 0 ? -72 : 0,
+                          scale: isActive ? 1 : 0.88,
+                          opacity: isActive ? 1 : 0.3,
                         }
                       : {
                           x: isFlying ? 520 : x,
