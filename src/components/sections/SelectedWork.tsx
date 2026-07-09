@@ -164,14 +164,12 @@ export function SelectedWork() {
           {isMobile ? (
             /* ---- 移动端：水平滑动轮播 ---- */
             <div
-              className="relative h-[560px] touch-pan-x hide-scrollbar"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-              style={{ touchAction: "pan-x", overflowX: "auto", overflowY: "hidden", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", scrollbarWidth: "none" }}
+              className="hide-scrollbar h-[560px] overflow-x-auto overflow-y-hidden"
+              style={{ scrollSnapType: "x mandatory", overscrollBehaviorX: "contain", scrollbarWidth: "none" }}
             >
               <div className="flex h-full items-start gap-3 pt-8 px-[6vw]" style={{ width: "max-content" }}>
                 {worksData.map((work, index) => (
-                  <div key={work.slug} className="w-[86vw] max-w-[420px] shrink-0 snap-center">
+                  <div key={work.slug} className="w-[86vw] max-w-[420px] shrink-0 snap-center" style={{ scrollSnapAlign: "center" }}>
                     <button
                       type="button"
                       onClick={() => {
