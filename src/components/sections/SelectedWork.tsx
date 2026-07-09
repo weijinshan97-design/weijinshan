@@ -295,23 +295,6 @@ export function SelectedWork() {
           </div>
 
 
-
-          {/* ---- 移动端圆点 ---- */}
-          <div className="relative z-20 mt-2 flex justify-center gap-1.5 lg:hidden">
-            {worksData.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setActiveIndex(i)}
-                className={`block rounded-full transition-all $
-                  i === activeIndex
-                    ? "h-2 w-5 bg-[#bf8eff]"
-                    : "h-2 w-2 bg-white/20"
-                }`}
-                aria-label={`第 ${i + 1} 个案例`}
-              />
-            ))}
-          </div>
           {/* ---- 标签 ---- */}
           <div className="relative mx-auto mt-6 hidden max-w-[1180px] lg:block">
             <div className="flex flex-wrap items-center gap-3 rounded-[24px] border border-white/[0.06] bg-white/[0.02] px-5 py-4 backdrop-blur-xl">
@@ -337,6 +320,19 @@ export function SelectedWork() {
           </div>
 
         </div>
+
+          {/* 移动端圆点 */}
+          <div className="mt-3 flex justify-center gap-2 lg:hidden">
+            {worksData.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                className={"block h-2 rounded-full transition-all " + (i === activeIndex ? "w-6 bg-[#bf8eff]" : "w-2 bg-white/20")}
+                aria-label={"第" + (i + 1) + "个案例"}
+              />
+            ))}
+          </div>
 
       </div>
     </section>
