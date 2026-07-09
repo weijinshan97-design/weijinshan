@@ -1,54 +1,54 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 const SCROLL_KEY = "home-scroll";
 
 export function ScrollRestoration() {
   const pathname = usePathname();
+  const isBack = useRef(false);
 
   useEffect(() => {
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
+    // Detect back/forward navigation
+    const nav = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+    if (nav?.type === "back_forward") {
+      isBack.current = true;
     }
   }, []);
 
   useEffect(() => {
     if (pathname !== "/") return;
 
-    // If there's a hash, let the browser handle it natively
     if (window.location.hash) {
       sessionStorage.removeItem(SCROLL_KEY);
       return;
     }
 
-    // Only restore on back/forward navigation, not fresh load
-    const navType = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
-    if (!navType || navType.type !== "back_forward") {
-      sessionStorage.removeItem(SCROLL_KEY);
-      return;
-    }
-
     const saved = sessionStorage.getItem(SCROLL_KEY);
-    if (!saved) return;
 
-    const y = parseInt(saved, 10);
-    if (y <= 0) return;
-
-    let attempts = 0;
-    const maxAttempts = 8;
-    const tryScroll = () => {
-      const docHeight = document.documentElement.scrollHeight;
-      if (docHeight >= y || attempts >= maxAttempts) {
-        window.scrollTo({ top: y, behavior: "instant" as ScrollBehavior });
-        sessionStorage.removeItem(SCROLL_KEY);
-        return;
+    if (isBack.current && saved) {
+      // Back navigation: restore position
+      const y = parseInt(saved, 10);
+      if (y > 0) {
+        let attempts = 0;
+        const tryScroll = () => {
+          if (document.documentElement.scrollHeight >= y || attempts >= 10) {
+            window.scrollTo({ top: y, behavior: "instant" as ScrollBehavior });
+            return;
+          }
+          attempts++;
+          requestAnimationFrame(tryScroll);
+        };
+        requestAnimationFrame(tryScroll);
       }
-      attempts++;
-      requestAnimationFrame(tryScroll);
-    };
-    requestAnimationFrame(tryScroll);
+      sessionStorage.removeItem(SCROLL_KEY);
+      isBack.current = false;
+    } else {
+      // Fresh load or no saved position: always go to top
+      sessionStorage.removeItem(SCROLL_KEY);
+      window.scrollTo(0, 0);
+    }
   }, [pathname]);
 
   return null;
