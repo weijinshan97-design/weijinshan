@@ -104,9 +104,35 @@ export function SelectedWork() {
     }, 300);
   }, [router]);
 
-  // Touch swipe for mobile
+  // Touch swipe + mouse drag for mobile carousel
   const touchStart = useRef(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartScroll = useRef(0);
+
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    isDragging.current = true;
+    dragStartX.current = e.clientX;
+    dragStartScroll.current = scrollContainerRef.current.scrollLeft;
+  }, []);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDragging.current || !scrollContainerRef.current) return;
+      e.preventDefault();
+      const dx = dragStartX.current - e.clientX;
+      scrollContainerRef.current.scrollLeft = dragStartScroll.current + dx;
+    };
+    const handleMouseUp = () => { isDragging.current = false; };
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []);
 
   // Sync dots with scroll position
   useEffect(() => {
@@ -184,8 +210,9 @@ export function SelectedWork() {
             /* ---- 移动端：水平滑动轮播 ---- */
             <div
               ref={scrollContainerRef}
-              className="hide-scrollbar h-[560px] overflow-x-auto overflow-y-hidden"
+              className="hide-scrollbar h-[560px] cursor-grab overflow-x-auto overflow-y-hidden active:cursor-grabbing"
               style={{ scrollSnapType: "x mandatory", overscrollBehaviorX: "contain", scrollbarWidth: "none" }}
+              onMouseDown={handleMouseDown}
             >
               <div className="flex h-full items-start gap-3 pt-8 px-[6vw]" style={{ width: "max-content" }}>
                 {worksData.map((work, index) => (
@@ -201,9 +228,6 @@ export function SelectedWork() {
                       <div className="relative h-full overflow-hidden rounded-[20px] bg-black">
                         <Image src={work.cover} alt={work.titleZh} fill sizes="420px" className="object-cover opacity-90" />
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.18)_42%,rgba(0,0,0,0.86)_100%)]" />
-                        <div className="absolute left-4 right-4 top-4 flex items-center justify-between">
-                          <span className="rounded-full border border-white/12 bg-black/30 px-2.5 py-1.5 text-[9px] uppercase tracking-[0.2em] text-white/50 backdrop-blur-xl">{work.category}</span>
-                        </div>
                         <div className="absolute bottom-0 left-0 right-0 p-5">
                           <div className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-white/45">
                             <span>{work.client}</span><span className="h-px w-6 bg-white/15" /><span>{work.year}</span>
@@ -303,10 +327,7 @@ export function SelectedWork() {
                       )}
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_16%,rgba(191,142,255,0.16),transparent_26%),linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.18)_42%,rgba(0,0,0,0.86)_100%)]" />
 
-                      <div className="absolute left-5 right-5 top-5 flex items-center justify-between">
-                        <span className="rounded-full border border-white/12 bg-black/30 px-3.5 py-2 font-mono text-[10px] uppercase tracking-[0.22em] text-white/56 backdrop-blur-xl">
-                          {work.category}
-                        </span>
+                      <div className="absolute right-5 top-5">
                         <span className="font-mono text-6xl font-black leading-none text-white/16">
                           {String(index + 1).padStart(2, "0")}
                         </span>
