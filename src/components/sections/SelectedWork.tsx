@@ -239,10 +239,12 @@ export function SelectedWork() {
                       <div className="relative h-full overflow-hidden rounded-[20px] bg-black">
                         <Image src={work.cover} alt={work.titleZh} fill sizes="420px" className="object-cover opacity-90" />
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.18)_42%,rgba(0,0,0,0.86)_100%)]" />
-                        <div className="absolute bottom-0 left-0 right-0 p-5">
-                          <div className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-white/45">
+                        <div className="absolute left-4 right-4 top-4">
+                          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-white/45">
                             <span>{work.client}</span><span className="h-px w-6 bg-white/15" /><span>{work.year}</span>
                           </div>
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 p-5">
                           <h3 className="text-2xl font-semibold text-white">{work.titleZh}</h3>
                           <p className="mt-2 line-clamp-2 text-xs text-white/55">{getCopy(work).claim}</p>
                         </div>
@@ -344,12 +346,14 @@ export function SelectedWork() {
                         </span>
                       </div>
 
-                      <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <div className="mb-4 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/58">
+                      <div className="absolute left-5 right-5 top-5">
+                        <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-white/58">
                           <span>{work.client}</span>
                           <span className="h-px w-8 bg-white/18" />
                           <span>{work.year}</span>
                         </div>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
                         <h3 className="cjk-card-title text-3xl font-semibold text-white md:text-4xl">
                           {work.titleZh}
                         </h3>
