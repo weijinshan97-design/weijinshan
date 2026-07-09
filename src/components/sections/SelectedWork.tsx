@@ -148,7 +148,7 @@ export function SelectedWork() {
           </div>
         </FadeIn>
 
-        <div className="relative mt-8 min-h-[560px] overflow-visible sm:mt-12 sm:min-h-[620px] md:min-h-[860px] lg:min-h-[760px]">
+        <div className="relative mt-4 min-h-[540px] overflow-visible sm:mt-8 sm:min-h-[620px] md:min-h-[860px] lg:min-h-[760px]">
           <motion.div
             key={activeWork.slug}
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -162,7 +162,7 @@ export function SelectedWork() {
           <div className="pointer-events-none absolute left-1/2 top-[360px] z-0 h-[420px] w-[920px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.14),rgba(95,59,255,0.1)_42%,transparent_72%)] blur-[58px]" />
 
           <div
-            className={`relative mx-auto max-w-[1180px] ${isMobile ? "h-[480px] touch-pan-x" : "h-[590px] [perspective:1800px]"}`}
+            className={`relative mx-auto max-w-[1180px] ${isMobile ? "h-[520px] touch-pan-x" : "h-[590px] [perspective:1800px]"}`}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             style={isMobile ? { touchAction: "pan-x" } : undefined}
@@ -184,15 +184,8 @@ export function SelectedWork() {
                   animate={
                     isMobile
                       ? {
-                          x: isFlying ? 300 : offset > 0 ? 60 : offset < 0 ? -60 : 0,
-                          y: isFlying ? -120 : Math.abs(offset) * 8,
-                          scale: isFlying ? 1.1 : isActive ? 1 : 0.92,
-                          opacity: isFlying ? 0 : isActive ? 1 : 0.35,
-                          filter: isFlying
-                            ? "blur(12px)"
-                            : isActive
-                              ? "blur(0px)"
-                              : "blur(2px)",
+                          x: offset > 0 ? 80 : offset < 0 ? -80 : 0,
+                          opacity: isActive ? 1 : 0,
                         }
                       : {
                           x: isFlying ? 520 : x,
@@ -208,7 +201,11 @@ export function SelectedWork() {
                               : "grayscale(18%) blur(0.2px)",
                         }
                   }
-                  transition={{ type: "spring", stiffness: 86, damping: 23, mass: 0.95 }}
+                  transition={
+                    isMobile
+                      ? { type: "tween", duration: 0.2 }
+                      : { type: "spring", stiffness: 86, damping: 23, mass: 0.95 }
+                  }
                   style={{ zIndex: isMobile ? (isActive ? 10 : 0) : 20 - Math.abs(offset) }}
                 >
                   <button
@@ -222,7 +219,7 @@ export function SelectedWork() {
                     }}
                     aria-label={isActive ? `进入${work.titleZh}详情` : `选择${work.titleZh}`}
                     className={`group case-film-card block overflow-hidden rounded-[34px] border bg-[#0d0d12] p-2 shadow-[0_34px_130px_rgba(0,0,0,0.5)] outline-none transition duration-500 ${
-                      isMobile ? "h-[440px]" : "h-[510px]"
+                      isMobile ? "h-[480px]" : "h-[510px]"
                     } ${
                       isActive
                         ? "border-[#bf8eff]/28 shadow-[0_44px_160px_rgba(191,142,255,0.12),0_34px_130px_rgba(0,0,0,0.58)]"
