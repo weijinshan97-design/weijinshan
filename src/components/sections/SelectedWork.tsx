@@ -162,9 +162,10 @@ export function SelectedWork() {
           <div className="pointer-events-none absolute left-1/2 top-[360px] z-0 h-[420px] w-[920px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.14),rgba(95,59,255,0.1)_42%,transparent_72%)] blur-[58px]" />
 
           <div
-            className={`relative mx-auto max-w-[1180px] ${isMobile ? "h-[540px]" : "h-[590px] [perspective:1800px]"}`}
+            className={`relative mx-auto max-w-[1180px] ${isMobile ? "h-[540px] touch-pan-x" : "h-[590px] [perspective:1800px]"}`}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
+            style={isMobile ? { touchAction: "pan-x" } : undefined}
           >
             {worksData.map((work, index) => {
               const offset = getStackOffset(index, activeIndex);
@@ -290,6 +291,23 @@ export function SelectedWork() {
               );
             })}
 
+          </div>
+
+          {/* ---- 移动端圆点指示器 ---- */}
+          <div className="mt-3 flex justify-center gap-2 lg:hidden">
+            {worksData.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === activeIndex
+                    ? "w-6 bg-[#bf8eff]"
+                    : "w-1.5 bg-white/20"
+                }`}
+                aria-label={`第 ${i + 1} 个案例`}
+              />
+            ))}
           </div>
 
           {/* ---- 标签 ---- */}
