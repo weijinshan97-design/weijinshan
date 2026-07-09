@@ -46,7 +46,7 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-[1080px] overflow-hidden bg-[#000000] text-white"
+      className="relative min-h-[960px] overflow-hidden bg-[#000000] text-white"
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -55,35 +55,46 @@ export function Hero() {
         <ParticleField scatter={scatter} />
       </div>
 
-      <div className="aurora-field pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_8%,rgba(191,142,255,0.08),transparent_22%),radial-gradient(circle_at_22%_42%,rgba(95,59,255,0.14),transparent_30%),radial-gradient(circle_at_82%_44%,rgba(99,102,241,0.10),transparent_28%),linear-gradient(180deg,#000000_0%,#040408_48%,#000000_100%)]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.10] [background-image:linear-gradient(rgba(255,255,255,.10)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.10)_1px,transparent_1px)] [background-size:72px_72px]" />
-      <div className="hero-beam pointer-events-none absolute left-0 top-[16%] h-[480px] w-full bg-[linear-gradient(90deg,transparent,rgba(191,142,255,0.08),rgba(99,102,241,0.06),transparent)] blur-3xl" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-b from-transparent via-[#000000]/82 to-[#000000]" />
-
-      {/* ---- 浮动光晕球 ---- */}
+      {/* ---- 流体渐变背景 ---- */}
       <motion.div
-        animate={{ x: [0, 60, -30, 20, 0], y: [0, -40, 20, -50, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute -left-32 top-[10%] h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.12),transparent_70%)] blur-[80px]"
+        animate={{
+          x: [0, 80, -40, 30, 0],
+          y: [0, -60, 30, -20, 0],
+          scale: [1, 1.08, 0.95, 1.05, 1],
+        }}
+        transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute -left-[15%] top-[-10%] h-[70%] w-[60%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.16),rgba(95,59,255,0.08)_40%,transparent_70%)] blur-[100px]"
       />
       <motion.div
-        animate={{ x: [0, -80, 40, -20, 0], y: [0, 50, -30, -60, 0] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute right-[-10%] top-[30%] h-[440px] w-[440px] rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.10),transparent_70%)] blur-[72px]"
+        animate={{
+          x: [0, -90, 50, -30, 0],
+          y: [0, 40, -50, 60, 0],
+          scale: [1, 0.94, 1.06, 0.97, 1],
+        }}
+        transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute right-[-12%] top-[5%] h-[65%] w-[55%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.14),rgba(79,70,229,0.06)_45%,transparent_75%)] blur-[110px]"
       />
       <motion.div
-        animate={{ x: [0, 30, -60, 40, 0], y: [0, -70, 10, 30, 0] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute left-[20%] top-[55%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.09),transparent_70%)] blur-[64px]"
-      />
-      <motion.div
-        animate={{ x: [0, 50, -20, -40, 0], y: [0, -20, 60, -30, 0] }}
+        animate={{
+          x: [0, 50, -70, 40, 0],
+          y: [0, 80, -40, -50, 0],
+          scale: [1, 1.06, 0.93, 1.04, 1],
+        }}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute right-[15%] top-[65%] h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.08),transparent_70%)] blur-[56px]"
+        className="pointer-events-none absolute left-[25%] top-[40%] h-[50%] w-[50%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(191,142,255,0.10),rgba(124,58,237,0.05)_50%,transparent_80%)] blur-[90px]"
       />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 pb-20 pt-24 md:px-10 lg:px-14">
-        <div className="relative flex min-h-[900px] flex-col items-center pt-20 md:pt-24">
+      {/* ---- 网格纹理 ---- */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:80px_80px]" />
+
+      {/* ---- 噪点纹理 ---- */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.035] mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundRepeat: 'repeat', backgroundSize: '200px 200px' }} />
+
+      {/* ---- 底部渐变收束 ---- */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-b from-transparent via-[#000000]/70 to-[#000000]" />
+
+      <div className="relative z-10 mx-auto max-w-[1440px] px-6 pb-20 pt-14 md:px-10 lg:px-14">
+        <div className="relative flex min-h-[860px] flex-col items-center pt-12 md:pt-14">
           <motion.h1
             initial={{ opacity: 0, y: 26, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -171,7 +182,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-20 grid w-full gap-5 border-t border-white/10 pt-8 font-mono text-[11px] uppercase tracking-[0.23em] text-white/50 md:grid-cols-[1fr_auto_1fr]"
+            className="mt-14 grid w-full gap-5 border-t border-white/10 pt-6 font-mono text-[11px] uppercase tracking-[0.23em] text-white/50 md:grid-cols-[1fr_auto_1fr]"
             style={{ opacity: fadeOpacity }}
           >
             <span>Selected cases / {featuredWorks.length} stories</span>

@@ -86,28 +86,6 @@ body {
   font-family: var(--font-sans);
 }
 
-@keyframes aurora-pan {
-  0% {
-    background-position: 0% 20%;
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    background-position: 100% 80%;
-    filter: hue-rotate(12deg);
-  }
-}
-
-@keyframes hero-beam-drift {
-  0%, 100% {
-    transform: translate3d(-4%, 0, 0) rotate(-10deg);
-    opacity: 0.28;
-  }
-  50% {
-    transform: translate3d(7%, 22px, 0) rotate(-7deg);
-    opacity: 0.54;
-  }
-}
-
 @keyframes hero-stage-float {
   0%, 100% {
     transform: translate3d(0, 0, 0) rotateX(0deg) rotateZ(-1.4deg);
@@ -213,15 +191,6 @@ body {
     transform: translateX(128%) skewX(-16deg);
     opacity: 0;
   }
-}
-
-.aurora-field {
-  background-size: 170% 170%;
-  animation: aurora-pan 12s ease-in-out infinite alternate;
-}
-
-.hero-beam {
-  animation: hero-beam-drift 9s ease-in-out infinite;
 }
 
 .animate-hero-stage {
@@ -493,8 +462,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .aurora-field,
-  .hero-beam,
   .animate-hero-stage,
   .hero-orbit,
   .animate-light-sweep::after,

@@ -2,6 +2,16 @@ import { SystemItem } from "@/lib/types";
 
 export const systemsData: SystemItem[] = [
   {
+    id: "ai-workflow",
+    nameZh: "我的 AI 协作工作流",
+    descriptionZh:
+      "AI 是我的协作伙伴，而不是替代者。我根据不同阶段的需求选择最合适的模型，建立了一套从产品思考到持续迭代的 6 步工作流。",
+    problemZh: "",
+    methodZh: "",
+    resultZh: "",
+    media: [],
+  },
+  {
     id: "ai-portfolio-site",
     nameZh: "AI 协作搭建个人网站",
     descriptionZh:

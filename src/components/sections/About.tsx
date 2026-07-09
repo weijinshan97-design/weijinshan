@@ -5,7 +5,7 @@ import { aboutData } from "@/data/about";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 const stats = [
-  ["8年", "设计经验", "商业视觉、UI 设计、AI 产品与内容表达的连续积累"],
+  ["9年", "设计经验", "商业视觉、UI 设计、AI 产品与内容表达的连续积累"],
   ["4类", "行业场景", "游戏、出行、财税科技、AI 工具与个人内容项目"],
   ["1条", "能力主线", "从视觉执行走向产品体验、系统搭建和内容叙事"],
 ];

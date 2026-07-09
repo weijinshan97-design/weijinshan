@@ -13,15 +13,12 @@ export function Nav() {
 
   useEffect(() => {
     const onScroll = () => {
-      const heroThreshold = Math.min(window.innerHeight * 0.82, 720);
-      setScrolled(window.scrollY > heroThreshold);
+      setScrolled(window.scrollY > 60);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const isDark = true;
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
@@ -34,36 +31,26 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed left-0 top-0 z-50 w-full px-4 transition-all duration-500 md:px-6 ${
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "pt-3"
-          : "pt-5"
+          ? "border-b border-white/[0.06] bg-[#000000]/70 backdrop-blur-xl"
+          : ""
       }`}
     >
-      <div
-        className={`mx-auto flex h-14 max-w-[1120px] items-center justify-between rounded-full border px-4 shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur-2xl transition-all duration-500 md:px-5 ${
-          scrolled
-            ? "border-white/12 bg-[#070808]/74 text-white shadow-[0_18px_70px_rgba(0,0,0,0.34)]"
-            : "border-white/10 bg-[#070808]/42 text-white"
-        }`}
-      >
+      <div className="mx-auto flex h-12 max-w-[1320px] items-center justify-between px-6 md:px-10 lg:px-14">
         <a
           href="#home"
           onClick={(e) => {
             e.preventDefault();
             handleNavClick("#home");
           }}
-          className={`rounded-full px-3 py-2 text-sm font-semibold tracking-tight transition-colors duration-500 ${
-            isDark
-              ? "text-white hover:text-white/70"
-              : "text-foreground hover:text-foreground/70"
-          }`}
+          className="text-sm font-semibold tracking-tight text-white/80 transition hover:text-white"
         >
           {siteConfig.nameZh}
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => {
             const id = item.href.replace("#", "");
             const isActive = activeId === id;
@@ -75,18 +62,16 @@ export function Nav() {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                data-active={isActive}
-                className={`nav-micro-link relative rounded-full px-4 py-2 text-sm tracking-wide transition-all duration-500 group hover:-translate-y-0.5 ${
+                className={`relative text-xs tracking-wide transition-colors duration-300 ${
                   isActive
-                    ? isDark
-                      ? "bg-white/10 text-white font-semibold"
-                      : "bg-black/[0.055] text-foreground font-semibold"
-                    : isDark
-                      ? "text-white/62 hover:text-white"
-                      : "text-muted-light hover:text-foreground"
+                    ? "text-white"
+                    : "text-white/45 hover:text-white/80"
                 }`}
               >
                 {item.label}
+                {isActive && (
+                  <span className="absolute -bottom-1 left-1/2 h-px w-3 -translate-x-1/2 bg-[#bf8eff]" />
+                )}
               </a>
             );
           })}
@@ -98,43 +83,39 @@ export function Nav() {
             e.preventDefault();
             handleNavClick("#contact");
           }}
-          className={`hidden rounded-full px-4 py-2 text-sm font-semibold transition duration-300 md:inline-flex ${
-            isDark
-              ? "bg-gradient-to-r from-[#bf8eff] to-[#6366f1] text-white shadow-[0_0_20px_rgba(191,142,255,0.18)] hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]"
-              : "bg-[#09090b] text-white hover:bg-[#242427]"
-          }`}
+          className="hidden text-xs tracking-wide text-white/40 transition hover:text-white md:inline-flex"
         >
-          联系我
+          联系
         </a>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 rounded-full p-3"
+          className="flex flex-col gap-1 py-1 md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
           <span
-            className={`block w-5 h-px transition-all duration-300 ${
-              isDark ? "bg-white" : "bg-foreground"
-            } ${menuOpen ? "rotate-45 translate-y-[3px]" : ""}`}
+            className={`block h-px w-5 transition-all duration-300 bg-white/60 ${
+              menuOpen ? "translate-y-[3px] rotate-45" : ""
+            }`}
           />
           <span
-            className={`block w-5 h-px transition-all duration-300 ${
-              isDark ? "bg-white" : "bg-foreground"
-            } ${menuOpen ? "opacity-0" : ""}`}
+            className={`block h-px w-5 transition-all duration-300 bg-white/60 ${
+              menuOpen ? "opacity-0" : ""
+            }`}
           />
           <span
-            className={`block w-5 h-px transition-all duration-300 ${
-              isDark ? "bg-white" : "bg-foreground"
-            } ${menuOpen ? "-rotate-45 -translate-y-[3px]" : ""}`}
+            className={`block h-px w-5 transition-all duration-300 bg-white/60 ${
+              menuOpen ? "-translate-y-[3px] -rotate-45" : ""
+            }`}
           />
         </button>
       </div>
 
       {/* Mobile menu overlay */}
       <div
-        className={`fixed inset-0 top-16 bg-dark z-40 flex flex-col p-8 gap-8 transition-transform duration-400 md:hidden ${
+        className={`fixed inset-0 top-12 z-40 flex flex-col gap-8 bg-[#000000] p-8 transition-transform duration-400 md:hidden ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -159,6 +140,16 @@ export function Nav() {
             </a>
           );
         })}
+        <a
+          href="#contact"
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick("#contact");
+          }}
+          className="mt-4 inline-flex h-10 items-center justify-center rounded-full bg-white/10 px-6 text-sm text-white/80"
+        >
+          联系
+        </a>
       </div>
     </header>
   );
