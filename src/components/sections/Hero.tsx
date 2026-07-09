@@ -107,7 +107,7 @@ export function Hero() {
             LIVE SYSTEM
           </motion.h1>
 
-          <div className="relative -mt-28 h-[690px] w-full max-w-[1120px] md:-mt-36">
+          <div className="relative -mt-20 h-[460px] w-full max-w-[1120px] sm:-mt-24 sm:h-[580px] md:-mt-36 md:h-[690px]">
             <div className="pointer-events-none absolute left-1/2 top-[48%] h-[420px] w-[1020px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.12),rgba(95,59,255,0.08)_34%,transparent_72%)] blur-[64px]" />
 
             <motion.div
@@ -157,10 +157,10 @@ export function Hero() {
 
             {stageLabels.map((label, index) => {
               const positions = [
-                "left-[3%] top-[10%]",
-                "right-[5%] top-[17%]",
-                "left-[8%] bottom-[16%]",
-                "right-[10%] bottom-[8%]",
+                "left-[1%] top-[12%] sm:left-[3%] sm:top-[10%]",
+                "right-[2%] top-[22%] sm:right-[5%] sm:top-[17%]",
+                "left-[4%] bottom-[24%] sm:left-[8%] sm:bottom-[16%]",
+                "right-[3%] bottom-[12%] sm:right-[10%] sm:bottom-[8%]",
               ];
 
               return (
@@ -169,7 +169,7 @@ export function Hero() {
                   initial={{ opacity: 0, y: 18, scale: 0.92 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ duration: 0.7, delay: 0.72 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                  className={`animate-float-tag absolute rounded-full border border-white/[0.12] bg-white/[0.07] px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-white/50 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl md:px-4 md:py-2 md:text-[11px] md:tracking-[0.22em] md:text-white/62 ${positions[index]}`}
+                  className={`animate-float-tag absolute rounded-full border border-white/[0.12] bg-white/[0.07] px-2.5 py-1 text-[9px] font-mono uppercase tracking-[0.16em] text-white/45 shadow-[0_18px_60px_rgba(0,0,0,0.32)] backdrop-blur-xl sm:px-3 sm:py-1.5 sm:text-[10px] sm:tracking-[0.2em] sm:text-white/50 md:px-4 md:py-2 md:text-[11px] md:tracking-[0.22em] md:text-white/62 ${positions[index]}`}
                   style={{ animationDelay: `${index * 0.7}s` }}
                 >
                   {label}
@@ -182,7 +182,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.65 }}
-            className="mt-6 text-center text-lg tracking-wider text-white/45 md:text-xl"
+            className="mt-2 text-center text-base tracking-wider text-white/45 sm:mt-6 sm:text-lg md:text-xl"
             style={{ opacity: fadeOpacity }}
           >
             UI/UX + 视觉设计师 &mdash; 用 AI 把想法变成可运行的产品
@@ -192,7 +192,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 grid w-full gap-5 border-t border-white/10 pt-6 font-mono text-[11px] uppercase tracking-[0.23em] text-white/50 md:grid-cols-[1fr_auto_1fr]"
+            className="mt-3 grid w-full gap-3 border-t border-white/10 pt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 sm:mt-6 sm:gap-5 sm:pt-6 sm:text-[11px] sm:tracking-[0.23em] md:grid-cols-[1fr_auto_1fr]"
             style={{ opacity: fadeOpacity }}
           >
             <span>Selected cases / {featuredWorks.length} stories</span>
