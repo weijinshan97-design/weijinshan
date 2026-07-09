@@ -161,12 +161,53 @@ export function SelectedWork() {
 
           <div className="pointer-events-none absolute left-1/2 top-[360px] z-0 h-[420px] w-[920px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.14),rgba(95,59,255,0.1)_42%,transparent_72%)] blur-[58px]" />
 
-          <div
-            className={`relative mx-auto max-w-[1180px] ${isMobile ? "h-[560px] touch-pan-x" : "h-[590px] [perspective:1800px]"}`}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-            style={isMobile ? { touchAction: "pan-x" } : undefined}
-          >
+          {isMobile ? (
+            /* ---- 移动端：水平排列，左右露出卡片 ---- */
+            <div
+              className="relative h-[560px] touch-pan-x overflow-hidden px-[9vw]"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              style={{ touchAction: "pan-x" }}
+            >
+              <motion.div
+                className="flex h-full items-start gap-3 pt-8"
+                animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 12}px + 9vw)` }}
+                transition={{ type: "tween", duration: 0.25 }}
+              >
+                {worksData.map((work, index) => (
+                  <div key={work.slug} className="w-[82vw] max-w-[420px] shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (index === activeIndex) { openWork(work); return; }
+                        setActiveIndex(index);
+                      }}
+                      className="block h-[520px] w-full overflow-hidden rounded-[28px] border border-white/[0.1] bg-[#0d0d12] p-2 text-left shadow-[0_34px_130px_rgba(0,0,0,0.5)]"
+                    >
+                      <div className="relative h-full overflow-hidden rounded-[20px] bg-black">
+                        <Image src={work.cover} alt={work.titleZh} fill sizes="420px" className="object-cover opacity-90" />
+                        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.18)_42%,rgba(0,0,0,0.86)_100%)]" />
+                        <div className="absolute left-4 right-4 top-4 flex items-center justify-between">
+                          <span className="rounded-full border border-white/12 bg-black/30 px-2.5 py-1.5 text-[9px] uppercase tracking-[0.2em] text-white/50 backdrop-blur-xl">{work.category}</span>
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 p-5">
+                          <div className="mb-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-white/45">
+                            <span>{work.client}</span><span className="h-px w-6 bg-white/15" /><span>{work.year}</span>
+                          </div>
+                          <h3 className="text-2xl font-semibold text-white">{work.titleZh}</h3>
+                          <p className="mt-2 line-clamp-2 text-xs text-white/55">{getCopy(work).claim}</p>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          ) : (
+            /* ---- 桌面端：3D 堆叠（不变） ---- */
+            <div
+              className="relative mx-auto h-[590px] max-w-[1180px] [perspective:1800px]"
+            >
             {worksData.map((work, index) => {
               const offset = getStackOffset(index, activeIndex);
               const isActive = offset === 0;
@@ -180,15 +221,8 @@ export function SelectedWork() {
               return (
                 <motion.div
                   key={work.slug}
-                  className={`absolute left-1/2 ${isMobile ? "top-8 w-[86vw] max-w-[410px] -translate-x-1/2" : "top-20 w-[410px]"}`}
-                  animate={
-                    isMobile
-                      ? {
-                          x: offset > 0 ? 72 : offset < 0 ? -72 : 0,
-                          scale: isActive ? 1 : 0.88,
-                          opacity: isActive ? 1 : 0.3,
-                        }
-                      : {
+                  className="absolute left-1/2 top-20 w-[410px]"
+                  animate={{
                           x: isFlying ? 520 : x,
                           y: isFlying ? -160 : y,
                           rotateZ: isFlying ? 10 : rotate,
@@ -200,14 +234,9 @@ export function SelectedWork() {
                             : isActive
                               ? "grayscale(0%) blur(0px)"
                               : "grayscale(18%) blur(0.2px)",
-                        }
-                  }
-                  transition={
-                    isMobile
-                      ? { type: "tween", duration: 0.2 }
-                      : { type: "spring", stiffness: 86, damping: 23, mass: 0.95 }
-                  }
-                  style={{ zIndex: isMobile ? (isActive ? 10 : 0) : 20 - Math.abs(offset) }}
+                  }}
+                  transition={{ type: "spring", stiffness: 86, damping: 23, mass: 0.95 }}
+                  style={{ zIndex: 20 - Math.abs(offset) }}
                 >
                   <button
                     type="button"
@@ -293,7 +322,7 @@ export function SelectedWork() {
             })}
 
           </div>
-
+          )}
 
           {/* ---- 标签 ---- */}
           <div className="relative mx-auto mt-6 hidden max-w-[1180px] lg:block">
