@@ -162,20 +162,16 @@ export function SelectedWork() {
           <div className="pointer-events-none absolute left-1/2 top-[360px] z-0 h-[420px] w-[920px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.14),rgba(95,59,255,0.1)_42%,transparent_72%)] blur-[58px]" />
 
           {isMobile ? (
-            /* ---- 移动端：水平排列，左右露出卡片 ---- */
+            /* ---- 移动端：水平滑动轮播 ---- */
             <div
-              className="relative h-[560px] touch-pan-x overflow-hidden px-[9vw]"
+              className="relative h-[560px] touch-pan-x hide-scrollbar"
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
-              style={{ touchAction: "pan-x" }}
+              style={{ touchAction: "pan-x", overflowX: "auto", overflowY: "hidden", scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", scrollbarWidth: "none" }}
             >
-              <motion.div
-                className="flex h-full items-start gap-3 pt-8"
-                animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 12}px + 9vw)` }}
-                transition={{ type: "tween", duration: 0.25 }}
-              >
+              <div className="flex h-full items-start gap-3 pt-8 px-[6vw]" style={{ width: "max-content" }}>
                 {worksData.map((work, index) => (
-                  <div key={work.slug} className="w-[82vw] max-w-[420px] shrink-0">
+                  <div key={work.slug} className="w-[86vw] max-w-[420px] shrink-0 snap-center">
                     <button
                       type="button"
                       onClick={() => {
@@ -201,7 +197,7 @@ export function SelectedWork() {
                     </button>
                   </div>
                 ))}
-              </motion.div>
+              </div>
             </div>
           ) : (
             /* ---- 桌面端：3D 堆叠（不变） ---- */
