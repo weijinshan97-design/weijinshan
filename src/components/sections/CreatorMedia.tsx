@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 function AnimatedStat({
@@ -182,6 +182,8 @@ const mediaStats = [
 ];
 
 export function CreatorMedia() {
+  const [qrOpen, setQrOpen] = useState(false);
+
   return (
     <section
       id="creator"
@@ -282,31 +284,88 @@ export function CreatorMedia() {
                 做短视频让我更直观地理解用户注意力：一句标题能不能让人停下，一个封面能不能建立期待，一段内容能不能让人看完。这些能力会反过来帮助我做产品介绍、案例叙事和视觉包装。
               </p>
 
-              <div className="mt-10 grid gap-4 md:grid-cols-2">
-                {platformLinks.map((item) => (
-                  <article
-                    key={item.name}
-                    className="group micro-lift relative overflow-hidden rounded-[26px] border border-white/[0.08] bg-[#0a0a10]/72 p-4 transition duration-300 hover:border-white/[0.16] hover:bg-white/[0.07]"
-                  >
-                    <div className="qr-scan-card relative aspect-square overflow-hidden rounded-[20px] border border-white/[0.1] bg-white p-3 shadow-[0_20px_70px_rgba(0,0,0,0.28)]">
-                      <Image
-                        src={item.qr}
-                        alt={`${item.name}二维码`}
-                        fill
-                        sizes="220px"
-                        className="object-contain p-3"
-                      />
-                    </div>
-                    <div className="mt-5">
-                      <p className="text-xl font-semibold text-white">{item.name}</p>
-                      <p className="mt-2 text-xs text-white/34">{item.tone}</p>
-                      <p className="mt-4 inline-flex rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/42">
-                        {item.handle}
-                      </p>
-                    </div>
-                  </article>
-                ))}
+              {/* 折叠按钮 — 移动端 */}
+              <button
+                type="button"
+                onClick={() => setQrOpen(!qrOpen)}
+                className="mt-8 flex w-full items-center justify-between rounded-2xl border border-white/[0.08] bg-white/[0.03] px-5 py-3 text-sm text-white/50 transition hover:border-white/[0.14] md:hidden"
+              >
+                <span>{qrOpen ? "收起二维码" : "扫码查看主页"}</span>
+                <motion.span
+                  animate={{ rotate: qrOpen ? 180 : 0 }}
+                  className="text-white/30"
+                >
+                  ↓
+                </motion.span>
+              </button>
+
+              {/* QR 卡片 — 桌面端常显，移动端可折叠 */}
+              <div className="mt-6 hidden md:block">
+                <div className="grid gap-4 md:grid-cols-2">
+                  {platformLinks.map((item) => (
+                    <article
+                      key={item.name}
+                      className="group micro-lift relative overflow-hidden rounded-[26px] border border-white/[0.08] bg-[#0a0a10]/72 p-4 transition duration-300 hover:border-white/[0.16] hover:bg-white/[0.07]"
+                    >
+                      <div className="qr-scan-card relative aspect-square overflow-hidden rounded-[20px] border border-white/[0.1] bg-white p-3 shadow-[0_20px_70px_rgba(0,0,0,0.28)]">
+                        <Image
+                          src={item.qr}
+                          alt={`${item.name}二维码`}
+                          fill
+                          sizes="220px"
+                          className="object-contain p-3"
+                        />
+                      </div>
+                      <div className="mt-5">
+                        <p className="text-xl font-semibold text-white">{item.name}</p>
+                        <p className="mt-2 text-xs text-white/34">{item.tone}</p>
+                        <p className="mt-4 inline-flex rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/42">
+                          {item.handle}
+                        </p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
+
+              {/* 移动端可折叠 */}
+              <AnimatePresence>
+                {qrOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    className="mt-4 overflow-hidden md:hidden"
+                  >
+                    <div className="grid gap-4">
+                      {platformLinks.map((item) => (
+                        <article
+                          key={item.name}
+                          className="group micro-lift relative overflow-hidden rounded-[26px] border border-white/[0.08] bg-[#0a0a10]/72 p-4 transition duration-300 hover:border-white/[0.16] hover:bg-white/[0.07]"
+                        >
+                          <div className="qr-scan-card relative aspect-square overflow-hidden rounded-[20px] border border-white/[0.1] bg-white p-3 shadow-[0_20px_70px_rgba(0,0,0,0.28)]">
+                            <Image
+                              src={item.qr}
+                              alt={`${item.name}二维码`}
+                              fill
+                              sizes="220px"
+                              className="object-contain p-3"
+                            />
+                          </div>
+                          <div className="mt-5">
+                            <p className="text-xl font-semibold text-white">{item.name}</p>
+                            <p className="mt-2 text-xs text-white/34">{item.tone}</p>
+                            <p className="mt-4 inline-flex rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/42">
+                              {item.handle}
+                            </p>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </aside>
         </div>
