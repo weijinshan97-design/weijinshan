@@ -148,7 +148,7 @@ export function SelectedWork() {
           </div>
         </FadeIn>
 
-        <div className="relative mt-12 min-h-[620px] overflow-visible md:min-h-[860px] lg:min-h-[760px]">
+        <div className="relative mt-8 min-h-[540px] overflow-visible sm:mt-12 sm:min-h-[620px] md:min-h-[860px] lg:min-h-[760px]">
           <motion.div
             key={activeWork.slug}
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -162,7 +162,7 @@ export function SelectedWork() {
           <div className="pointer-events-none absolute left-1/2 top-[360px] z-0 h-[420px] w-[920px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(191,142,255,0.14),rgba(95,59,255,0.1)_42%,transparent_72%)] blur-[58px]" />
 
           <div
-            className={`relative mx-auto max-w-[1180px] ${isMobile ? "h-[540px] touch-pan-x" : "h-[590px] [perspective:1800px]"}`}
+            className={`relative mx-auto max-w-[1180px] ${isMobile ? "h-[480px] touch-pan-x" : "h-[590px] [perspective:1800px]"}`}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             style={isMobile ? { touchAction: "pan-x" } : undefined}
@@ -221,7 +221,9 @@ export function SelectedWork() {
                       setActiveIndex(index);
                     }}
                     aria-label={isActive ? `进入${work.titleZh}详情` : `选择${work.titleZh}`}
-                    className={`group case-film-card block h-[510px] overflow-hidden rounded-[34px] border bg-[#0d0d12] p-2 shadow-[0_34px_130px_rgba(0,0,0,0.5)] outline-none transition duration-500 ${
+                    className={`group case-film-card block overflow-hidden rounded-[34px] border bg-[#0d0d12] p-2 shadow-[0_34px_130px_rgba(0,0,0,0.5)] outline-none transition duration-500 ${
+                      isMobile ? "h-[440px]" : "h-[510px]"
+                    } ${
                       isActive
                         ? "border-[#bf8eff]/28 shadow-[0_44px_160px_rgba(191,142,255,0.12),0_34px_130px_rgba(0,0,0,0.58)]"
                         : "border-white/[0.1] hover:-translate-y-4 hover:border-white/[0.2]"
@@ -293,21 +295,22 @@ export function SelectedWork() {
 
           </div>
 
-          {/* ---- 移动端圆点指示器 ---- */}
-          <div className="mt-2 flex justify-center gap-2 pb-4 lg:hidden">
-            {worksData.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setActiveIndex(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  i === activeIndex
-                    ? "w-6 bg-[#bf8eff]"
-                    : "w-2 bg-white/15"
-                }`}
-                aria-label={`第 ${i + 1} 个案例`}
-              />
-            ))}
+          {/* ---- 移动端滑动提示 ---- */}
+          <div className="mt-1 flex items-center justify-center gap-3 lg:hidden">
+            <span className="text-[10px] text-white/20">←</span>
+            <div className="flex gap-1.5">
+              {worksData.map((_, i) => (
+                <span
+                  key={i}
+                  className={`block rounded-full transition-all duration-300 ${
+                    i === activeIndex
+                      ? "h-1.5 w-4 bg-[#bf8eff]/70"
+                      : "h-1.5 w-1.5 bg-white/15"
+                  }`}
+                />
+              ))}
+            </div>
+            <span className="text-[10px] text-white/20">→</span>
           </div>
 
           {/* ---- 标签 ---- */}
