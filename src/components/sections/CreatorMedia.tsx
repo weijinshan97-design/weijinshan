@@ -245,7 +245,6 @@ export function CreatorMedia() {
                     muted
                     playsInline
                     preload="none"
-                    loading="lazy"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/52 via-transparent to-transparent" />
                   <span className="absolute left-4 top-4 rounded-full border border-white/12 bg-black/28 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-white/52 backdrop-blur-xl">
