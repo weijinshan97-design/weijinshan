@@ -8,7 +8,7 @@ export const worksData: Work[] = [
     client: "杭州微风企科技",
     category: "AI 产品设计",
     year: "2024 — 2026",
-    cover: "/images/webp/wbit-hero.webp",
+    cover: "/images/works/WBITFM.png",
     summaryZh:
       "0-1 主导 Wbit AI 助手平台整体产品设计，将税务、销售、老板、财务、信贷五类数字人整合进同一套对话式工作台，通过任务卡片、快捷能力标签和定时任务，把企业经营问题转化为可执行的 AI 工作流。",
     problemZh:
@@ -49,7 +49,7 @@ export const worksData: Work[] = [
     client: "滴滴出行",
     category: "品牌设计",
     year: "2021 — 2023",
-    cover: "/images/works/didi-cover-new.jpg",
+    cover: "/images/works/滴滴代驾会员.png",
     summaryZh:
       "重构滴滴代驾会员等级视觉系统，建立从等级标识、勋章到特权页面的完整视觉语言，提升用户身份感知与留存。",
     problemZh:
@@ -71,7 +71,7 @@ export const worksData: Work[] = [
     client: "滴滴代驾旗下 · 新桔代驾",
     category: "IP设计",
     year: "2022 — 2023",
-    cover: "/images/works/pack/xinju-card.png",
+    cover: "/images/works/新桔.png",
     heroCover: "/images/works/pack/xinju-hero.png",
     videoUrl: "/videos/xinju-demo.mp4",
     summaryZh:
@@ -96,7 +96,7 @@ export const worksData: Work[] = [
     client: "杭州微风企科技",
     category: "品牌全案",
     year: "2023 — 2025",
-    cover: "/images/works/pack/weifengqi-brand-card.png",
+    cover: "/images/works/微风企品牌.png",
     heroCover: "/images/works/pack/weifengqi-brand-hero.png",
     summaryZh:
       "主导两届'财税数字化大会'及'AI 时代商业智能创新峰会'主视觉设计，建立企业品牌视觉规范与 VI 系统。",
@@ -121,7 +121,7 @@ export const worksData: Work[] = [
     client: "杭州微风企科技",
     category: "IP设计",
     year: "2024 — 2025",
-    cover: "/images/works/pack/xiaowei-card.png",
+    cover: "/images/works/微风企IP-XIAOWEI.png",
     heroCover: "/images/works/pack/xiaowei-hero.png",
     summaryZh:
       "为微风企设计品牌 IP'小微'，构建从形象设定、表情体系到营销场景延展的完整 IP 生态，强化品牌亲和力。",
@@ -149,7 +149,7 @@ export const worksData: Work[] = [
     client: "多客户",
     category: "运营设计",
     year: "2020 — 至今",
-    cover: "/images/works/pack/marketing-card.png",
+    cover: "/images/works/运营设计.png",
     heroCover: "/images/works/pack/marketing-hero.png",
     summaryZh:
       "覆盖多行业营销运营视觉设计，包括线上活动、广告海报、品牌合作及运营推广视觉物料。",
@@ -179,7 +179,7 @@ export const worksData: Work[] = [
     client: "个人项目",
     category: "设计实验",
     year: "2024 — 至今",
-    cover: "/images/works/self-driven-earmo/card-cover.jpg",
+    cover: "/images/works/自驱设计.png",
     heroCover: "/images/works/self-driven-earmo/cover.png",
     videoUrl: "/videos/self-driven-earmo/demo.mp4",
     summaryZh:
