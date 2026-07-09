@@ -116,15 +116,15 @@ export function Hero() {
               transition={{ duration: 1.05, delay: 0.44, ease: [0.22, 1, 0.36, 1] }}
               className="animate-hero-stage relative mx-auto h-full max-w-[1040px]"
             >
-              <div className="animate-light-sweep absolute left-1/2 top-[58%] h-[300px] w-[820px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[42px] border border-white/[0.12] bg-[#0a0a10]/72 shadow-[0_46px_170px_rgba(0,0,0,0.58)] backdrop-blur-xl">
+              <div className="animate-light-sweep absolute left-1/2 top-[58%] h-[180px] w-[92vw] max-w-[820px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[28px] border border-white/[0.12] bg-[#0a0a10]/72 shadow-[0_46px_170px_rgba(0,0,0,0.58)] backdrop-blur-xl sm:h-[260px] sm:rounded-[42px] md:h-[300px]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(191,142,255,0.14),transparent_34%),radial-gradient(circle_at_86%_86%,rgba(128,83,255,0.24),transparent_38%),linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.015))]" />
-                <div className="absolute left-7 top-7 flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                <div className="absolute left-4 top-4 flex items-center gap-1.5 sm:left-7 sm:top-7 sm:gap-2">
+                  <span className="h-2 w-2 rounded-full bg-[#ff5f57] sm:h-2.5 sm:w-2.5" />
+                  <span className="h-2 w-2 rounded-full bg-[#ffbd2e] sm:h-2.5 sm:w-2.5" />
+                  <span className="h-2 w-2 rounded-full bg-[#28c840] sm:h-2.5 sm:w-2.5" />
                 </div>
-                <div className="absolute bottom-7 left-7 h-px w-[72%] bg-gradient-to-r from-white/20 via-[#bf8eff]/28 to-transparent" />
-                <div className="absolute bottom-11 right-8 font-mono text-[10px] uppercase tracking-[0.24em] text-white/28">
+                <div className="absolute bottom-4 left-4 h-px w-[72%] bg-gradient-to-r from-white/20 via-[#bf8eff]/28 to-transparent sm:bottom-7 sm:left-7" />
+                <div className="absolute bottom-[22px] right-5 font-mono text-[8px] uppercase tracking-[0.2em] text-white/28 sm:bottom-11 sm:right-8 sm:text-[10px] sm:tracking-[0.24em]">
                   Idea / Agent / Launch / Case
                 </div>
               </div>
