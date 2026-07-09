@@ -154,7 +154,7 @@ export function SelectedWork() {
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-            className="pointer-events-none absolute inset-x-[-8vw] top-2 z-0 text-center font-serif text-[clamp(5.5rem,12vw,13rem)] font-black uppercase leading-none tracking-normal text-white/[0.11] md:top-8"
+            className="pointer-events-none absolute inset-x-[-8vw] top-2 z-0 hidden text-center font-serif text-[clamp(5.5rem,12vw,13rem)] font-black uppercase leading-none tracking-normal text-white/[0.11] md:top-8 lg:block"
           >
             {activeWork.titleEn}
           </motion.div>
