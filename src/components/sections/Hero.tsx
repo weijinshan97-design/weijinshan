@@ -46,7 +46,7 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-[960px] overflow-hidden bg-[#000000] text-white"
+      className="relative min-h-[700px] overflow-hidden bg-[#000000] text-white sm:min-h-[860px] md:min-h-[960px]"
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -94,7 +94,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-b from-transparent via-[#000000]/70 to-[#000000]" />
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-6 pb-20 pt-14 md:px-10 lg:px-14">
-        <div className="relative flex min-h-[860px] flex-col items-center pt-12 md:pt-14">
+        <div className="relative flex min-h-[600px] flex-col items-center pt-8 sm:min-h-[760px] sm:pt-12 md:pt-14">
           <motion.h1
             initial={{ opacity: 0, y: 26, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}

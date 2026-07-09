@@ -9,7 +9,7 @@ export function Systems() {
   return (
     <section
       id="systems"
-      className="relative overflow-hidden bg-[#050508] px-6 py-24 text-white md:px-10 md:py-36 lg:px-14"
+      className="relative overflow-hidden bg-[#050508] px-4 py-16 text-white sm:px-6 sm:py-24 md:px-10 md:py-36 lg:px-14"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(191,142,255,0.13),transparent_26%),radial-gradient(circle_at_18%_72%,rgba(95,59,255,0.22),transparent_30%)]" />
       <div className="relative mx-auto max-w-[1320px]">
@@ -37,7 +37,7 @@ export function Systems() {
             if (system.id === "ai-workflow") {
               return (
                 <FadeIn key={system.id} delay={0.08}>
-                  <article className="relative overflow-hidden rounded-[42px] border border-white/[0.08] bg-[#0d0d12] p-8 md:p-10 lg:p-12">
+                  <article className="relative overflow-hidden rounded-[32px] border border-white/[0.08] bg-[#0d0d12] p-5 sm:rounded-[42px] sm:p-8 lg:p-12">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(191,142,255,0.10),transparent_40%),radial-gradient(circle_at_80%_100%,rgba(95,59,255,0.12),transparent_35%)]" />
                     <div className="relative">
                       <div className="mb-10 flex items-center gap-3">
@@ -46,7 +46,7 @@ export function Systems() {
                           AI Collaboration Workflow
                         </span>
                       </div>
-                      <h3 className="cjk-title font-serif text-4xl font-bold text-white md:text-5xl">
+                      <h3 className="cjk-title font-serif text-3xl font-bold text-white sm:text-4xl md:text-5xl">
                         {system.nameZh}
                       </h3>
                       <p className="copy-readable mt-4 max-w-[640px] text-sm text-white/55">
@@ -65,15 +65,15 @@ export function Systems() {
             // Regular system cards
             return (
             <FadeIn key={system.id} delay={index * 0.08}>
-              <article className="group micro-lift relative overflow-hidden rounded-[42px] border border-white/[0.08] bg-[#0d0d12] p-6 transition duration-500 hover:border-white/[0.16] md:p-8">
+              <article className="group micro-lift relative overflow-hidden rounded-[32px] border border-white/[0.08] bg-[#0d0d12] p-5 transition duration-500 hover:border-white/[0.16] sm:rounded-[42px] sm:p-6 md:p-8">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(191,142,255,0.13),transparent_32%),radial-gradient(circle_at_86%_84%,rgba(95,59,255,0.18),transparent_36%)] opacity-70 transition group-hover:opacity-100" />
-                <div className="relative grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-stretch">
-                  <div className="flex min-h-[380px] flex-col justify-between rounded-[32px] border border-white/[0.08] bg-black/24 p-6">
+                <div className="relative grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-stretch">
+                  <div className="flex min-h-[200px] flex-col justify-between rounded-[24px] border border-white/[0.08] bg-black/24 p-5 sm:min-h-[380px] sm:rounded-[32px] sm:p-6">
                     <div>
                       <p className="font-mono text-sm text-[#bf8eff]/60">
                         SYSTEM {String(index).padStart(2, "0")}
                       </p>
-                      <h3 className="cjk-title mt-8 font-serif text-5xl font-bold text-white md:text-6xl">
+                      <h3 className="cjk-title mt-4 font-serif text-3xl font-bold text-white sm:mt-8 sm:text-5xl md:text-6xl">
                         {system.nameZh}
                       </h3>
                     </div>
@@ -90,7 +90,7 @@ export function Systems() {
                     ].map(([label, text]) => (
                       <div
                         key={label}
-                        className="signal-surface overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.035] p-5 transition hover:border-white/[0.14]"
+                        className="signal-surface overflow-hidden rounded-[20px] border border-white/[0.08] bg-white/[0.035] p-4 transition hover:border-white/[0.14] sm:rounded-[28px] sm:p-5"
                       >
                         <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/48">
                           {label}

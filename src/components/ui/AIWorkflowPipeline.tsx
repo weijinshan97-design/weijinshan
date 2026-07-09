@@ -118,7 +118,7 @@ export function AIWorkflowPipeline() {
       <div className="my-12 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
 
       {/* ---- 工具角色 ---- */}
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {[
           { tool: "ChatGPT", role: "产品讨论 · UX 思考 · 设计评审 · 信息架构", color: "border-emerald-500/30 bg-emerald-500/8 text-emerald-400" },
           { tool: "Claude", role: "长上下文推理 · 代码理解 · 架构优化 · Code Review", color: "border-[#bf8eff]/30 bg-[#bf8eff]/8 text-[#bf8eff]" },
