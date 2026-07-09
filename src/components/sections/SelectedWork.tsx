@@ -141,15 +141,26 @@ export function SelectedWork() {
     if (!container) return;
 
     const onScroll = () => {
-      const cardWidth = container.clientWidth * 0.86 + 12; // w-[86vw] + gap-3
+      const cardWidth = container.clientWidth * 0.86 + 12;
       const idx = Math.round(container.scrollLeft / cardWidth);
       if (idx >= 0 && idx < worksData.length) {
         setActiveIndex(idx);
       }
     };
 
+    // Convert vertical wheel to horizontal scroll (for trackpad/mouse wheel)
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return; // already horizontal
+      e.preventDefault();
+      container.scrollLeft += e.deltaY;
+    };
+
     container.addEventListener("scroll", onScroll, { passive: true });
-    return () => container.removeEventListener("scroll", onScroll);
+    container.addEventListener("wheel", onWheel, { passive: false });
+    return () => {
+      container.removeEventListener("scroll", onScroll);
+      container.removeEventListener("wheel", onWheel);
+    };
   }, [isMobile]);
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     touchStart.current = e.touches[0].clientX;
