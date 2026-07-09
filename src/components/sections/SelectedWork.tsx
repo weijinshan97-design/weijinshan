@@ -287,6 +287,22 @@ export function SelectedWork() {
                           {isActive ? "Click to enter" : "Click to select"}
                         </p>
                       </div>
+
+                      {/* 移动端圆点 — 卡片内底部 */}
+                      {isMobile && isActive && (
+                        <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center gap-1.5">
+                          {worksData.map((_, i) => (
+                            <span
+                              key={i}
+                              className={`block rounded-full ${
+                                i === activeIndex
+                                  ? "h-1.5 w-4 bg-[#bf8eff]"
+                                  : "h-1.5 w-1.5 bg-white/25"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </button>
                 </motion.div>
@@ -295,23 +311,6 @@ export function SelectedWork() {
 
           </div>
 
-          {/* ---- 移动端滑动提示 ---- */}
-          <div className="mt-6 flex items-center justify-center gap-3 lg:hidden">
-            <span className="text-[10px] text-white/20">←</span>
-            <div className="flex gap-1.5">
-              {worksData.map((_, i) => (
-                <span
-                  key={i}
-                  className={`block rounded-full transition-all duration-300 ${
-                    i === activeIndex
-                      ? "h-1.5 w-4 bg-[#bf8eff]/70"
-                      : "h-1.5 w-1.5 bg-white/15"
-                  }`}
-                />
-              ))}
-            </div>
-            <span className="text-[10px] text-white/20">→</span>
-          </div>
 
           {/* ---- 标签 ---- */}
           <div className="relative mx-auto mt-6 hidden max-w-[1180px] lg:block">
