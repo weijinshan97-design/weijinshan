@@ -54,7 +54,7 @@ export function Contact() {
         <div className="mt-14 flex justify-center">
           <a
             href="/files/resume.pdf"
-            download="魏晋山--设计作品集--联系18093167205.pdf"
+            download="魏晋山--UI×视觉品牌×AIGC--联系18093167205.pdf"
             className="control-breathe rounded-full bg-gradient-to-r from-[#bf8eff] to-[#6366f1] px-8 py-3 text-sm font-semibold text-white shadow-[0_0_36px_rgba(191,142,255,0.2)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_56px_rgba(99,102,241,0.3)]"
           >
             下载简历 PDF
