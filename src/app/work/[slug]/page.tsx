@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { worksData } from "@/data/works";
-import { WbitCaseFrame } from "@/components/ui/WbitCaseFrame";
 import { WorkProgressBar } from "./progress";
 
 interface WorkPageProps {
@@ -29,20 +28,6 @@ export async function generateMetadata({ params }: WorkPageProps): Promise<Metad
       type: "article",
     },
   };
-}
-
-function WbitDeepDive() {
-  /*
-    Wbit 特殊详情页
-    - 这里只负责把 Wbit 独立案例挂到 /work/wbit-ai-platform
-    - 具体页面内容在 public/wbit-case-study/index.html
-    - 具体样式在 public/wbit-case-study/styles.css
-  */
-  return (
-    <section className="bg-[#050606] pt-20 md:pt-24">
-      <WbitCaseFrame />
-    </section>
-  );
 }
 
 function AiAgentPortfolioCase() {
@@ -732,9 +717,9 @@ export default async function WorkPage({ params }: WorkPageProps) {
   if (!work) notFound();
 
   const heroCover = work.heroCover ?? work.cover;
-  const isWbit = work.slug === "wbit-ai-platform";
+  
   const isAiAgentPortfolio = work.slug === "ai-agent-portfolio-system";
-  const isSpecialCase = isWbit || isAiAgentPortfolio;
+  const isSpecialCase = isAiAgentPortfolio;
 
   const insightCards = [
     {
@@ -879,7 +864,6 @@ export default async function WorkPage({ params }: WorkPageProps) {
         </section>
       )}
 
-      {isWbit && <WbitDeepDive />}
       {isAiAgentPortfolio && <AiAgentPortfolioCase />}
 
       {/* Video */}
